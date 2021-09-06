@@ -51,8 +51,8 @@ function Login () {
           <img src={controller} className="App-controller" alt="controller" />
           </div>
             <LoginForm Login={signin} error={error}/>
-          <div>
-          <img src={controller} className="App-controller2" alt="controller" />
+          <div className="App-controller2">
+          <img className="gamepad" src={controller} alt="controller" />
           </div>
             </header>
         )}
