@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../Components/Navbar';
 import userContext from '../userContext';
+
 
 
 const Home = () => {

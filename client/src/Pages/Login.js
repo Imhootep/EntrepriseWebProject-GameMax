@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react';
-import LoginForm from './Components/LoginForm';
-import controller from './gamepad.png'
-import logo from './logo2.png'
+import LoginForm from '../Components/LoginForm'
+import controller from '../img/gamepad.png'
+import logo from '../img/logo2.png'
 import Home from './Home';
-import userContext from './userContext';
+import userContext from '../userContext';
 
 function Login () {
     const adminUser ={

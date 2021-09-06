@@ -1,6 +1,6 @@
 import React from 'react';
-import SignUpForm from './SignUpForm';
-import Navbar from './Navbar';
+import SignUpForm from '../Components/SignUpForm';
+import Navbar from '../Components/Navbar';
 
 const Profil = () => {
 
