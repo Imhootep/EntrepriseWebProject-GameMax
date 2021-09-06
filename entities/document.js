@@ -15,6 +15,9 @@ class Document {
   get document(){
     return this.row.document
   }
+  get date_creation(){
+    return this.row.date_creation
+  }
 }
 
 module.exports = Document

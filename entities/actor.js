@@ -13,8 +13,8 @@ class Actor {
   get nom(){
     return this.row.nom
   }
-  get type(){
-    return this.row.type
+  get role(){
+    return this.row.role
   }
   get rue(){
     return this.row.rue
