@@ -1,4 +1,6 @@
+const { response } = require('express')
 let connection = require('../config/db')
+const Actor = require('../entities/actor')
 const actor = require('../entities/actor')
 class ModelActor{
 
@@ -24,11 +26,14 @@ class ModelActor{
       urlDiscord: actor.urlDiscord,
       commentaires: actor.commentaires,
     }, (error, response) => {
-      if(error){
-        console.log("Une erreur est survenue lors de l'ajout : " + error)
-        throw error
-      }
+      if(error) throw error
       cb(response)
+    })
+  }
+  static all(cb){
+    connection.query("SELECT * FROM actors", (error, response) => {
+      if(error) throw error
+      cb(response.map((row) => new Actor(row)))
     })
   }
   static read(){
