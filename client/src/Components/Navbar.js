@@ -1,5 +1,6 @@
 import React from 'react';
-import '../index.css';
+import '../css/index.css';
+import logo from "../img/logo.png"
 
 
 const Navbar = () => {
@@ -19,7 +20,7 @@ const Navbar = () => {
             <Link to="/home"> Home </Link>
             </span> */}
             <div>
-            <img src={process.env.PUBLIC_URL + "img/logo.png"} className="logo-nav"/>
+            <img src={logo} className="logo-nav"/>
             </div>
             <span className="link">
                 <a href="/event" className="link">Events-Docs</a>

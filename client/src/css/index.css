@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: "jsf1";
+  src: url(./assets/JosefinSans-ExtraLight.ttf);
+}
+@font-face {
+  font-family: "jsf2";
+  src: url(./assets/JosefinSans-Regular.ttf);
+}
+@font-face {
+  font-family: "jsf3";
+  src: url(./assets/JosefinSans-Bold.ttf);
+}
+
 
 body {
   
@@ -14,9 +27,9 @@ body {
 }
 
 
-
 .App {
   text-align: center;
+  background-color: rgba(242, 236, 243, 0.8);
 }
 
 .App-header {
@@ -183,7 +196,7 @@ input:focus {
 .navbar{
   display: flex;
     width: 100%;
-    max-width: 1190px;
+    
     margin: 0 auto 20px auto;
     justify-content: space-around;
     height: 45px;
