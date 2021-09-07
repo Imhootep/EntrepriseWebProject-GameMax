@@ -1,13 +1,35 @@
 class Actor {
   
   //constructor
-  constructor(row){
+  /*constructor(row){
     this.row = row
+  }*/
+
+  constructor(nom, role, rue, numero, boite, ville, cp, mail, telephone, informations, membres, urlSiteWeb,
+     urlFacebook, urlTwitter, urlYoutube, urlLinkedin, urlDiscord, commentaires){
+    this.nom = nom
+    this.role = role
+    this.rue = rue
+    this.numero = numero
+    this.boite = boite
+    this.ville = ville
+    this.cp = cp
+    this.mail = mail
+    this.telephone = telephone
+    this.informations = informations
+    this.membres = membres
+    this.urlSiteWeb = urlSiteWeb
+    this.urlFacebook = urlFacebook
+    this.urlTwitter = urlTwitter
+    this.urlYoutube = urlYoutube
+    this.urlLinkedin = urlLinkedin
+    this.urlDiscord = urlDiscord
+    this.commentaires = commentaires
   }
 
   //getters
 
-  get id(){
+  /*get id(){
     return this.row.id
   }
   get nom(){
@@ -63,7 +85,7 @@ class Actor {
   }
   get commentaires(){
     return this.row.commentaires
-  }
+  }*/
 }
 
 module.exports = Actor

@@ -1,5 +1,6 @@
-const mysqlJson = require('mysql-json')
-var mysqlJson = new mysqlJson({
+var mysql  = require('mysql')
+var connection = mysql.createPool({
+  connectionLimit: 10,
   host: 'eu-cdbr-west-01.cleardb.com',
   user: 'b7fd61537111ca',
   password: '74cd2cd7',
