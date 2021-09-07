@@ -69,6 +69,7 @@ const SignUp = () => {
                         <textarea type="text" name="comments" id="comments"/> 
                     </div>
                     
+                    
 
         
         </div>
