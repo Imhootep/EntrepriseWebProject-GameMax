@@ -16,9 +16,15 @@ function Navbar() {
                 
             </div>
             <div className="icons">
-                <a href="/create"> <img src={create} alt="create" className="create" /> </a>
-                <a href="/profil"> <img src={user} alt="users" className="users" /> </a>
-                <a href="/home"> <img src={home} alt="home" className="home" /> </a>
+                <div className="logoIcon">
+                <a href="/create" className="iconLink"> <img src={create} alt="create" className="IconNav" /> </a>
+                </div>
+                <div className="logoIcon">
+                <a href="/profil" className="iconLink"> <img src={user} alt="users" className="IconNav" /> </a>
+                </div>
+                <div className="logoIcon">
+                <a href="/home" className="iconLink"> <img src={home} alt="home" className="IconNav" /> </a>
+                </div>
                 
             </div>
 

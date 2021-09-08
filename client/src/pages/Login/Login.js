@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import logo from '../../img/logo2.png'
 import controller from '../../img/gamepad.png'
 import './Login.css'
+import Axios from 'axios'
 
 
 function Login() {
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const login =() => {
+      Axios.post("http://localhost:3001/user/login", 
+      {username:username, 
+        password:password
+      })
+      .then((response) =>{
+        console.log(response)
+      });
+    };
+
     return (
         
         <div>
@@ -17,12 +32,12 @@ function Login() {
         <form className="login" onSubmit>
          
          <div className="form-group">
-            <input autoFocus placeholder="User Name" type="email" name="email" id="email"  />
+            <input autoFocus placeholder="Username..." type="text" name="username" id="username" onChange={(e)=>{setUsername(e.target.value)}} />
         </div> 
         <div className="form-group">
-            <input placeholder="Password" type="Password" name="password" id="password"  />
+            <input placeholder="Password..." type="Password" name="password" id="password" onChange={(e)=>{setPassword(e.target.value)}} />
         </div> 
-        <button className="button" type="submit">LOGIN</button>
+        <button className="loginBut" type="submit" onClick={login} >LOGIN</button>
         <a className="registerLink" href="/register">  SIGN UP </a>
       </form>
         <div>

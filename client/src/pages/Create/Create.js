@@ -9,33 +9,36 @@ function Create() {
         <div className="createModif">
             <div className="createDoc">
                 <button className="post">
-                    <h3>Poster un nouvel Evènement</h3>
+                    <h3>New Event</h3>
                 </button> 
             </div>
             <div className="createDoc">
                 <button className="post">
-                    <h3>Poster un nouveau Document  </h3>
+                    <h3>New Doc  </h3>
                 </button>
             </div>
             <div className="createDoc">
                 <button className="post">
-                    <h3>Modifier Profil  </h3>
+                    <h3>Profil  </h3>
                 </button>
             </div>
-            <div className="createDoc">
+            {/* <div className="createDoc">
                 <button className="post">
                     <h3>Modifier Post  </h3>
                 </button>
-            </div>
+            </div> */}
             
         </div>
 
         <div>
             <div>
-                <input type="text" placeholder="recherche d'Event" /> 
-                
+                <input className="searchEvent" type="text" placeholder="recherche d'Event ..." /> 
+                <input className="searchDoc" type="text" placeholder="recherche de Document ..." /> 
             </div>
+
         </div>
+        
+        
 
         </>
     )
