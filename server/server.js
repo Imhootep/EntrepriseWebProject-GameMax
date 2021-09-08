@@ -21,11 +21,12 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }));
-/*
-var test = new Actor("test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test")
-ModelActor.create(test, (error, response) => {
-  if(error) throw error
-})*/
+
+app.post('/register', (request, response) => {
+
+
+})
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
