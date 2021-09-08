@@ -6,6 +6,8 @@ let bodyParser = require('body-parser')
 let Actor = require('./entities/actor')
 let ModelActor = require('./models/modelActor')
 
+require('dotenv').config({path: './config/.env'})
+
 //Moteur de template
 app.set('view engine', 'ejs')
 
@@ -19,14 +21,12 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }));
-
+/*
 var test = new Actor("test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test")
 ModelActor.create(test, (error, response) => {
   if(error) throw error
-})
+})*/
 
-
-app.listen(5000,(err, res) =>{
-  if(err) throw err
-  console.log("Server is now working on port 5000")
+app.listen(process.env.PORT, () => {
+    console.log(`Listening on port ${process.env.PORT}`);
 })
