@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import Routes from "./Routes/Routes";
-import userContext from "./userContext";
+import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Create from './pages/Create/Create';
+import Profil from './pages/Profil/Profil';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 
-// import Login from "./Pages/Login";
 
-
-const App=() => {
-
-  const [user, setUser] = useState ({name:"", email:""});
-  const contextValue ={
-    user,
-    updateUser:setUser,
-  }
-
-
+function App() {
   return (
-    <userContext.Provider value={contextValue}>
-      <div className="App">
+    <>
+      
+      <Router>
+        <Route path="/home" exact render ={ ()=> <Home/> } />
+        <Route path="/create" exact render ={ ()=> <Create/> } />
+        <Route path="/profil" exact render ={ ()=> <Profil/> } />
+        <Route path="/" exact render ={ ()=> <Login/> } />
+        <Route path="/register" exact render ={ ()=> <Register/> } />
         
-        <Routes/>
-      </div>
-     </userContext.Provider> 
+      </Router>
+
+    </>
   );
 }
 
