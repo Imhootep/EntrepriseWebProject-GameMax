@@ -19,6 +19,7 @@ function Register() {
                 <div className="registerForm">
                     <h3> Création d'un nouveau profil</h3>
                     <input type="text" placeholder="Nom d'utilisateur"/>
+                    <input type="password" placeholder="Mot de passe"/>
                     <div className="typeUser">
                         <label htmlFor="name">Type d'utilisateur:</label>
                         <select className="type" name="type" id="type" placeholder="type">
