@@ -12,11 +12,11 @@ body{
 .register{
     margin: 60px;
     width: 60%;
-    background-color: rgba(140,77,148,.8);
+    background-color: #f7f7f7;
     border: 3px;
     border-radius: 6px;
     box-shadow: 2px 2px 5px rgba(78, 39, 83, 0.8);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(140,77,148,.6) 0px 54px 55px, rgba(140,77,148,.6) 0px -12px 30px, rgba(140,77,148,.6) 0px 4px 6px, rgba(140,77,148,.6) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .registerForm{
@@ -24,17 +24,17 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
-    
+    margin-bottom: 30px;  
 }
 
 h3{
-    color: rgba(242, 236, 243, 0.8);
+    color: rgba(140,77,148,.8);
     font-size: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-label{
-    color: rgba(242, 236, 243, 0.8);
-    font-size: 20px;
+
+button:hover {
+    cursor: pointer;
 }
 
 input, textarea, select{
@@ -48,31 +48,23 @@ input, textarea, select{
     font-weight: bold;
     background-color: rgba(250, 249, 250, 0.8);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
   
-  }
-  .type{
-      height: 50px;
-  }
-  
-  input::placeholder, textarea::placeholder{
+input::placeholder, textarea::placeholder{
     color: rgba(78, 39, 83, 0.8);
     font-weight: normal;
-    
-  }
+}
   
-  input:focus{
+input:focus{
     border: 3px solid rgba(78, 39, 83, 0.8) ;
     box-shadow: 0 0 3px rgba(78, 39, 83, 0.8) ;
     -moz-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
     -webkit-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
-    }
-  
-  input:focus {
     outline-offset: 0px ;
     outline: none ;
-    }
+}
   
-  .ico, .createUser{
+.ico, .createUser{
     margin-top: 1rem;
     padding: 0.5rem;
     background-color: rgba(78, 39, 83, 0.8);
@@ -84,48 +76,43 @@ input, textarea, select{
     
     border-radius: 10px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  .register{
+}
+.register{
     color: rgba(250, 249, 250, 0.8);
-  }
+}
 
-  .ico{
-      padding: 20px;
-      margin: 3px;
-      background-color: rgba(140,77,148,.0);
-      border: none;
-  }
 
-  .adress{
-      display: flex;
-     
-      justify-content: center;
-      align-items: center;
-  }
+/*  --------------- DIV AVEC ADRESS------------- */
+.adress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
  
- #box {
-      width:50px;
-  }
-  #num {
-      width: 75px;
-  }
+#box {
+    width:50px;
+}
 
-  input.cp{
+#num {
+    width: 75px;
+}
+
+input.cp{
       width:100px;
-  }
-  .typeUser{
-      padding-top:10px;
-      padding-bottom: 20px;
-  }
+}
+
+/*  -------------ICONES ------------------- */
+.ico{
+    padding: 20px;
+    margin: 3px;
+    background-color: rgba(140,77,148,.0);
+    border: none;
+}
+
 .icone{
     width: 30px;
     height:30px;
-    align-self: center;
-    
-}
-button:hover {
-    cursor: pointer;
-
+    align-self: center;  
 }
 
 .members{
@@ -142,9 +129,7 @@ button:hover {
 .add{
     width: 20px;
     height:30%;
-    align-self: center;
-   
-        
+    align-self: center;     
 }
 
 .addingBut{

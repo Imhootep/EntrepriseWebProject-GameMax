@@ -32,15 +32,15 @@ function Login() {
         <form className="login" onSubmit>
          
          <div className="form-group">
-            <input autoFocus placeholder="Username..." type="text" name="username" id="username" onChange={(e)=>{setUsername(e.target.value)}} />
+            <input className="inputLogin" autoFocus placeholder="Username..." type="text"  onChange={(e)=>{setUsername(e.target.value)}} />
         </div> 
         <div className="form-group">
-            <input placeholder="Password..." type="Password" name="password" id="password" onChange={(e)=>{setPassword(e.target.value)}} />
+            <input className="inputLogin" placeholder="Password..." type="Password"  onChange={(e)=>{setPassword(e.target.value)}} />
         </div> 
         <button className="loginBut" type="submit" onClick={login} >LOGIN</button>
-        <a className="registerLink" href="/register">  SIGN UP </a>
+        <a className="registerLink" href="/register">SIGN UP</a>
       </form>
-        <div>
+        <div className="controller2">
         <img src={controller} className="App-controller2" alt="controller" />
         </div>
           </header>
