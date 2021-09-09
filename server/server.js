@@ -3,8 +3,8 @@ let express = require('express')
 let session = require('express-session')
 let app = express()
 let bodyParser = require('body-parser')
-let Actor = require('./entities/actor')
-let ModelActor = require('./models/modelActor')
+let { Sequelize } = require('sequelize')
+let sequelize = require('./config/db')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -25,6 +25,11 @@ app.use(session({
 app.post('/register', (request, response) => {
 
 
+})
+
+app.get('/', (request, response) => {
+
+  response.json()
 })
 
 
