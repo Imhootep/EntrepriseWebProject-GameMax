@@ -4,11 +4,11 @@ import Navbar from '../../components/Navbar'
 
 function Home() {
 
-    // useEffect(()=>{
-    //     if(!localStorage.getItem("loggedIn")) {
-    //         localStorage.setItem("loggedIn", false);
-    //     }
-    // }, [])
+    useEffect(()=>{
+        if(!localStorage.getItem("loggedIn")) {
+            localStorage.setItem("loggedIn", false);
+        }
+    }, [])
 
     return (
         <>
