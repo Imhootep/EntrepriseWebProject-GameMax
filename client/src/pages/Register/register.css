@@ -31,7 +31,7 @@ body{
 h3{
     color: rgba(140,77,148,.8);
     font-size: 40px;
-    /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; AJOUTÃ© a body*/
+    /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; AJOUTé a body*/
 }
 label{
     color: rgba(242, 236, 243, 0.8);
@@ -53,6 +53,7 @@ input, textarea{
   .typeUser label{
     display:block;
     color:rgba(140,77,148,.8);
+    margin: 0 0 10px 0;
   }
 
   select{
@@ -62,7 +63,7 @@ input, textarea{
     border-radius: 6px;
     color: rgba(78, 39, 83, 0.8);
     width: 37vmin ;
-    height: 65px;
+    height: 7vmin;
     font-weight: bold;
     background-color: rgba(250, 249, 250, 0.8);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -185,6 +186,10 @@ button:hover {
     .register{
         width:100%;
     } 
+
+    select{
+        height: 9vmin; 
+      }
 }
 
 @media screen and (max-width: 461px){
@@ -216,6 +221,10 @@ button:hover {
       max-width: 24vmin;
   }
 
+  select{
+    height: 45px; 
+  }
+
 }
 
 @media screen and (max-width: 330px){
@@ -230,4 +239,5 @@ button:hover {
     .buttonContainer{
         text-align:center;
     }
+    
  }
