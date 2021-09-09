@@ -22,8 +22,8 @@ router.post('/register', (req, res)=>{
 
 
     db.query(
-        "INSERT INTO Users (username, password, email, phone, rue, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
-      [username, password, email, phone, rue, number, box, cp, commune, social, website, member, games, comment],
+        "INSERT INTO Users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
+      [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
      (err, results)=>{
          console.log(err);
         res.send(results);

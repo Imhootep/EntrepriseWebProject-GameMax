@@ -60,7 +60,7 @@ function Register() {
         <div className="main">
             <div className="register">
                 <div className="registerForm">
-                    <h3> nouveau profil</h3>
+                    <h3>Nouveau profil</h3>
                 <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                     {/* <div className="typeUser">

@@ -22,17 +22,32 @@ app.use(session({
     cookie: {secure: false}
 }));
 
-app.post('/register', (request, response) => {
+app.post('/register', (req, res)=>{
+  const username = req.body.username
+  const password = req.body.password
+  const email = req.body.email
+  const phone = req.body.phone
+  const rue = req.body.rue
+  const number = req.body.number
+  const box = req.body.box
+  const cp = req.body.cp
+  const commune = req.body.commune
+  const social = req.body.social
+  const website = req.body.website
+  const member = req.body.member
+  const games = req.body.games
+  const comment = req.body.comment
 
 
-})
-
-
-
-app.get('/', (request, response) => {
-
-  response.render("Salut")
-})
+  sequelize.query(
+      "INSERT INTO Users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
+    [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
+   (err, results)=>{
+       console.log(err);
+      res.send(results);
+      }
+  );
+});
 
 
 app.listen(process.env.PORT, () => {
