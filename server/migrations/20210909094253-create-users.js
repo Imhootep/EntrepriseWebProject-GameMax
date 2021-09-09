@@ -1,91 +1,63 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Utilisateurs', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
+      username: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      password: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      phone: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      street: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      number: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
-      nom: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      role: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      rue: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      numero: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      boite: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      ville: {
+      box: {
         allowNull: false,
         type: Sequelize.STRING
       },
       cp: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
-      mail: {
+      commune: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      telephone: {
-        allowNull: false,
+      social: {
         type: Sequelize.STRING
       },
-      informations: {
-        allowNull: false,
+      website: {
         type: Sequelize.STRING
       },
-      membres: {
-        allowNull: false,
-        type: Sequelize.JSON
-      },
-      urlSiteWeb: {
-        allowNull: true,
+      member: {
         type: Sequelize.STRING
       },
-      urlFacebook: {
-        allowNull: true,
+      games: {
         type: Sequelize.STRING
       },
-      urlTwitter: {
-        allowNull: true,
+      comment: {
         type: Sequelize.STRING
-      },
-      ururlYoutube: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      urlLinkedIn: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      urlDiscord: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      commentaires: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      isAdmin: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -98,6 +70,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Utilisateurs');
+    await queryInterface.dropTable('Users');
   }
 };
