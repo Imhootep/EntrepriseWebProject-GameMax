@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-
-function Login() {
-    return (
-        
-        <div>
-            LogIn page
-=======
 import React, {useState} from 'react'
 import logo from '../../img/logo2.png'
 import controller from '../../img/gamepad.png'
@@ -55,7 +45,6 @@ function Login() {
         </div>
           </header>
       )
->>>>>>> 6828ab4872b238ff24af968aa16b9bc14381a2c9
         </div>
         
     )

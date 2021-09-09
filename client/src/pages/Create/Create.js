@@ -1,19 +1,11 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
-<<<<<<< HEAD
-=======
 import './Create.css'
->>>>>>> 6828ab4872b238ff24af968aa16b9bc14381a2c9
 
 function Create() {
     return (
         <>
         <Navbar/>
-<<<<<<< HEAD
-        <div>
-            Create post, event or new profil
-        </div>
-=======
         <div className="createModif">
             <div className="createDoc">
                 <button className="post">
@@ -48,7 +40,6 @@ function Create() {
         
         
 
->>>>>>> 6828ab4872b238ff24af968aa16b9bc14381a2c9
         </>
     )
 }

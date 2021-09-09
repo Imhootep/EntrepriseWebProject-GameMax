@@ -27,9 +27,11 @@ app.post('/register', (request, response) => {
 
 })
 
+
+
 app.get('/', (request, response) => {
 
-  response.json()
+  response.render("Salut")
 })
 
 
