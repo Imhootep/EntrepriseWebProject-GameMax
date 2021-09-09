@@ -3,8 +3,9 @@ const router = express.Router()
 
 const db = require ("../config/db")
 const sequelize = require('sequelize')
-const { Users } = require("../models");
+const { Users } = require("../models")
 
+router.use(require('../flash/flash'))
 
 router.post('/user/register', (req, res)=>{
     const username = req.body.username
@@ -21,22 +22,7 @@ router.post('/user/register', (req, res)=>{
     const member = req.body.member
     const games = req.body.games
     const comment = req.body.comment
-/*
-    db.query(
-        "INSERT INTO users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
-      [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
-     (err, results)=>{
-         console.log(err);
-        res.send(results);
-        }
-    );
-});
-*/
-
-
     const user = Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
-    console.log('Création done.')
-    console.log("ID créé : ", user.id)
 });
 
 
