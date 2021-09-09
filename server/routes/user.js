@@ -1,12 +1,12 @@
 const express = require ('express');
 const router = express.Router()
-
 const db = require ("../config/db")
 const sequelize = require('sequelize')
 const { Users } = require("../models");
-
+const cors = require('cors')
 
 router.post('/user/register', (req, res)=>{
+
     const username = req.body.username
     const password = req.body.password
     const email = req.body.email
@@ -21,26 +21,41 @@ router.post('/user/register', (req, res)=>{
     const member = req.body.member
     const games = req.body.games
     const comment = req.body.comment
-/*
-    db.query(
-        "INSERT INTO users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
-      [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
-     (err, results)=>{
-         console.log(err);
-        res.send(results);
-        }
-    );
-});
-*/
-
-
-    const user = Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
-    console.log('Création done.')
-    console.log("ID créé : ", user.id)
+ 
+    Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment });
+    (err, results)=>{
+        console.log(err);
+        res.status(200).json({
+            text: "Création effectuée avec succès",
+          });
+       }
 });
 
+router.get('/user/:id', async (req,res) => {
+
+    const user = await Users.findByPk(req.params.id)
+    
+    if (!user) {
+        return res.status(400).send({
+            message: "Utilisateur introuvable"
+        })
+    } else {
+        return res.send(user)
+    }
+})
 
 /*
+app.get('/message/:id', (request, response) => {
+    
+    let Message = require ('./models/message')
+
+    Message.find(request.params.id, function (message) { 
+        response.render('messages/show', {message: message} )
+    })
+})
+
+
+
 router.post('/login', (req, res)=>{
     const username = req.body.username;
     const password = req.body.password;
