@@ -9,7 +9,7 @@ router.post('/register', (req, res)=>{
     const password = req.body.password
     const email = req.body.email
     const phone = req.body.phone
-    const rue = req.body.rue
+    const street = req.body.street
     const number = req.body.number
     const box = req.body.box
     const cp = req.body.cp
@@ -22,8 +22,8 @@ router.post('/register', (req, res)=>{
 
 
     db.query(
-        "INSERT INTO Users (username, password, email, phone, rue, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
-      [username, password, email, phone, rue, number, box, cp, commune, social, website, member, games, comment],
+        "INSERT INTO Users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
+      [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
      (err, results)=>{
          console.log(err);
         res.send(results);
@@ -43,15 +43,17 @@ router.post('/login', (req, res)=>{
          if(err){
              console.log(err);
          }
-         if (results) {
+         if (results.length > 0) {
              console.log(results[0])
-             if (password == results[0].password) {
-                 res.send("You are logged in!")
+             if (password === results[0].password) {
+                 res.json({loggedIn: true, username:username})
              } else {
-                 res.send("Wrong username / password combo")
+                res.json({loggedIn: false, message: "Wrong username / password combo" })
+
              }
          } else {
-             res.send("User doesn't exist!!!")
+            res.json({loggedIn: false, message: "User doesn't exist!!!" })
+             
          }
              
         }

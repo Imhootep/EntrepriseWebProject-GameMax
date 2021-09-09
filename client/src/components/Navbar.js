@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from "../img/LogoB.png"
 import create from "../img/icons/create.svg"
@@ -8,6 +8,15 @@ import discord from "../img/icons/discord.png"
 
 
 function Navbar() {
+
+    const [loggedIn, setLoggedIn] = useState(false)
+
+    useEffect (() =>{
+        setLoggedIn(localStorage.getItem("loggedIn"))
+    }, [localStorage.getItem("loggedIn")])
+
+
+
     return (
         <div className="navbar">
             <div className="logoNav">
@@ -15,7 +24,10 @@ function Navbar() {
                 <a href="https://discord.gg/3zvxBnz3"> <img src={discord} alt="discord" className="discord"/> </a>
                 
             </div>
-            <div className="icons">
+            
+         {!loggedIn ? (
+         <>
+          <div className="icons">
                 <div className="logoIcon">
                 <a href="/create" className="iconLink"> <img src={create} alt="create" className="IconNav" /> </a>
                 </div>
@@ -27,6 +39,14 @@ function Navbar() {
                 </div>
                 
             </div>
+         </>
+      ) : (
+        <>
+         
+        </> 
+      )}
+
+            
 
         </div>
     )

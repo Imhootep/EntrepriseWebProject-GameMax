@@ -10,7 +10,6 @@ import discord from '../../img/icons/discord.png'
 import add from '../../img/icons/add.png'
 import git from '../../img/icons/github.png'
 
-
 import Axios from 'axios'
 
 
@@ -21,7 +20,7 @@ function Register() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
-    const [rue, setRue] = useState('')
+    const [street, setStreet] = useState('')
     const [number, setNumber] = useState('')
     const [box, setBox] = useState('')
     const [cp, setCp] = useState('')
@@ -39,7 +38,7 @@ function Register() {
          password:password,
          email:email,
          phone:phone,
-         rue:rue,
+         street:street,
          number:number,
          box:box,
          cp:cp,
@@ -73,10 +72,10 @@ function Register() {
                         </select>
                     </div> */}
                         <input type="email" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}/>
-                        <input type="number" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}}/>
+                        <input type="tel" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}}/>
                     <div className="adress">
                         
-                            <input type="text" className="rue" placeholder="Rue" onChange={(e)=>{setRue(e.target.value)}}/>
+                            <input type="text" className="street" placeholder="street" onChange={(e)=>{setStreet(e.target.value)}}/>
                             <input type="number" className="num" id="num" placeholder="Numéro" onChange={(e)=>{setNumber(e.target.value)}}/>
                             <input type="text" className="boite" id="box" placeholder="Boite" onChange={(e)=>{setBox(e.target.value)}}/>
                     </div>
