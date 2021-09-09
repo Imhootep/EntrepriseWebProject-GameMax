@@ -10,8 +10,8 @@ import discord from '../../img/icons/discord.png'
 import add from '../../img/icons/add.png'
 import git from '../../img/icons/github.png'
 
-import Axios from 'axios'
 
+import Axios from 'axios'
 
 
 function Register() {
@@ -30,6 +30,13 @@ function Register() {
     const [member, setMember] = useState('')
     const [games, setGames] = useState('')
     const [comment, setComment] = useState('')
+
+
+    const [role, setRole] = useState('partenaire');
+    const handleChange = function (e){
+        e.preventDefault() /* ??? */
+        setRole(e.target.value)
+    }
 
 
     const register =() => {
@@ -56,71 +63,69 @@ function Register() {
     return (
         <>
         <Navbar/>
-        <div className="main">
+        <div className="mainRegister">
             <div className="register">
                 <div className="registerForm">
-                    <h3> nouveau profil</h3>
-                <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
+                    <h3> Nouveau profil   - {role}</h3>
+                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
-                    {/* <div className="typeUser">
+                     <div className="typeUser">
                         <label htmlFor="name">Type d'utilisateur:</label>
-                        <select className="type" name="type" id="type">
+                        <select className="type" name="type" id="type" value={role} onChange={handleChange}>
                                 <option value="partenaire">Partenaire</option>
                                 <option value="studio">Studio</option>
                                 <option value="expert">Expert</option>
                                 <option value="sponsor">Sponsor</option>
                         </select>
-                    </div> */}
-                        <input type="email" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}/>
-                        <input type="tel" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}}/>
-                    <div className="adress">
-                        
-                            <input type="text" className="street" placeholder="street" onChange={(e)=>{setStreet(e.target.value)}}/>
+                    </div> 
+                    <input type="email" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}/>
+                    <input type="number" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}}/>
+                    {/*<div className="adress"> */}
+                        <input type="text" className="rue" placeholder="Rue" onChange={(e)=>{setStreet(e.target.value)}}/>
+                        <div className="addressNumbers">
                             <input type="number" className="num" id="num" placeholder="Numéro" onChange={(e)=>{setNumber(e.target.value)}}/>
                             <input type="text" className="boite" id="box" placeholder="Boite" onChange={(e)=>{setBox(e.target.value)}}/>
-                    </div>
-                    <div className="adress2">
-                        <input type="number" className="cp" placeholder="Code postal" onChange={(e)=>{setCp(e.target.value)}}/>
-                        <input type="text" className="comm" placeholder="Commune" onChange={(e)=>{setCommune(e.target.value)}}/>
-                    </div>
-                    <div>
+                            <input type="number" className="cp" placeholder="Code postal" onChange={(e)=>{setCp(e.target.value)}}/>
+                        </div>
+                        <input type="text" className="comm" placeholder="Localité" onChange={(e)=>{setCommune(e.target.value)}}/>
+                    {/*</div>*/}
+                    
+                    <div className="buttonContainer">
                         <button className="ico">
-                           <img src= {fb} alt="fb" className="icone"/>
+                            <img src= {fb} alt="fb" className="icone"/>
                         </button>
                         <button className="ico">
-                           <img src= {insta} alt="fb" className="icone"/>
+                            <img src= {insta} alt="insta" className="icone"/>
                         </button>
                         <button className="ico">
-                           <img src= {twi} alt="fb" className="icone"/>
+                            <img src= {twi} alt="twitter" className="icone"/>
+                        </button>
+                        <div className="displayBlock"></div>
+                        <button className="ico">
+                            <img src= {you} alt="youtube" className="icone"/>
                         </button>
                         <button className="ico">
-                           <img src= {you} alt="fb" className="icone"/>
+                            <img src= {linkedin} alt="linkedin" className="icone"/>
                         </button>
                         <button className="ico">
-                           <img src= {linkedin} alt="fb" className="icone"/>
+                            <img src= {discord} alt="discord" className="icone"/>
                         </button>
                         <button className="ico">
-                           <img src= {discord} alt="fb" className="icone"/>
-                        </button>
-                        <button className="ico">
-                           <img src= {git} alt="fb" className="icone"/>
+                            <img src= {git} alt="git" className="icone"/>
                         </button>
                     </div>
                     <input type="text" placeholder="Média Social" onChange={(e)=>{setSocial(e.target.value)}}/>
                     <input type="text" placeholder="Site Web" onChange={(e)=>{setwebsite(e.target.value)}}/>
                     <div className="members">
                         <input className="member" type="text" placeholder="Membre" onChange={(e)=>{setMember(e.target.value)}}/>
-                        <input className="member" type="text" placeholder="Fonction"/>
-                        <button className="addingBut"> 
-                        <img src= {add} alt="fb" className="add" />
+                        <input className="function" type="text" placeholder="Fonction"/>
+                        <button className="addingButton"> 
+                            <img src= {add} alt="fb" className="add" />
                         </button>
                     </div>
                     <input type="text" placeholder="jeux a leur actif" onChange={(e)=>{setGames(e.target.value)}}/>
                     <textarea type="text" placeholder="commentaires" onChange={(e)=>{setComment(e.target.value)}}/>
                     <button className="createUser" onClick={register} >Créer</button>
-
-                   
-                    
                 </div>
             </div>
         </div>
