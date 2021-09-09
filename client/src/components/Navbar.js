@@ -9,11 +9,11 @@ import discord from "../img/icons/discord.png"
 
 function Navbar() {
 
-    // const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false)
 
-    // useEffect (() =>{
-    //     setLoggedIn(localStorage.getItem("loggedIn"))
-    // }, [localStorage.getItem("loggedIn")])
+    useEffect (() =>{
+        setLoggedIn(localStorage.getItem("loggedIn"))
+    }, [localStorage.getItem("loggedIn")])
 
 
 
@@ -25,8 +25,8 @@ function Navbar() {
                 
             </div>
             
-         {/* {!loggedIn ? (
-         <> */}
+         {loggedIn ? (
+         <>
           <div className="icons">
                 <div className="logoIcon">
                 <a href="/create" className="iconLink"> <img src={create} alt="create" className="IconNav" /> </a>
@@ -39,12 +39,23 @@ function Navbar() {
                 </div>
                 
             </div>
-         {/* </>
+         </>
       ) : (
         <>
-         
+         {/* <div className="icons">
+                <div className="logoIcon">
+                <a href="/create" className="iconLink"> <img src={create} alt="create" className="IconNav" /> </a>
+                </div>
+                <div className="logoIcon">
+                <a href="/profil" className="iconLink"> <img src={user} alt="users" className="IconNav" /> </a>
+                </div>
+                <div className="logoIcon">
+                <a href="/home" className="iconLink"> <img src={home} alt="home" className="IconNav" /> </a>
+                </div>
+                
+            </div> */}
         </> 
-      )} */}
+      )}
 
             
 
