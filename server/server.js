@@ -3,8 +3,7 @@ let express = require('express')
 let session = require('express-session')
 let app = express()
 let bodyParser = require('body-parser')
-let { Sequelize } = require('sequelize')
-let sequelize = require('./config/db')
+const cors = require ('cors');
 
 require('dotenv').config({path: './config/.env'})
 
@@ -12,6 +11,8 @@ require('dotenv').config({path: './config/.env'})
 app.set('view engine', 'ejs')
 
 //Middlewares
+app.use(cors())
+app.use(express.json())
 app.use('/assets', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
@@ -21,13 +22,16 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }));
+/*
+app.post('/user/register', (req, res)=>{
 
-app.post('/register', (req, res)=>{
+  console.log('Hey')
+
   const username = req.body.username
   const password = req.body.password
   const email = req.body.email
   const phone = req.body.phone
-  const rue = req.body.rue
+  const street = req.body.street
   const number = req.body.number
   const box = req.body.box
   const cp = req.body.cp
@@ -37,10 +41,9 @@ app.post('/register', (req, res)=>{
   const member = req.body.member
   const games = req.body.games
   const comment = req.body.comment
-
-
-  sequelize.query(
-      "INSERT INTO Users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
+    
+  Users.query(
+      "INSERT INTO users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
     [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
    (err, results)=>{
        console.log(err);
@@ -48,27 +51,11 @@ app.post('/register', (req, res)=>{
       }
   );
 });
-
+*/
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
 })
 
-
-/* 
-
-const express = require ('express');
-const app = express ();
-const cors = require ('cors');
-
-app.use(cors())
-app.use(express.json())
-
-const userRoute = require('./routes/User')
-app.use ("/User", userRoute);
-
-app.listen(3001, (req, res) =>{
-    console.log('server running...');
-})
-
-*/
+const userRoute = require('./routes/user')
+app.use ("/", userRoute);

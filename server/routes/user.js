@@ -2,14 +2,16 @@ const express = require ('express');
 const router = express.Router()
 
 const db = require ("../config/db")
+const sequelize = require('sequelize')
+const { Users } = require("../models");
 
 
-router.post('/register', (req, res)=>{
+router.post('/user/register', (req, res)=>{
     const username = req.body.username
     const password = req.body.password
     const email = req.body.email
     const phone = req.body.phone
-    const rue = req.body.rue
+    const street = req.body.street
     const number = req.body.number
     const box = req.body.box
     const cp = req.body.cp
@@ -19,10 +21,9 @@ router.post('/register', (req, res)=>{
     const member = req.body.member
     const games = req.body.games
     const comment = req.body.comment
-
-
+/*
     db.query(
-        "INSERT INTO Users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
+        "INSERT INTO users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
       [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
      (err, results)=>{
          console.log(err);
@@ -30,7 +31,16 @@ router.post('/register', (req, res)=>{
         }
     );
 });
+*/
 
+
+    const user = Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
+    console.log('Création done.')
+    console.log("ID créé : ", user.id)
+});
+
+
+/*
 router.post('/login', (req, res)=>{
     const username = req.body.username;
     const password = req.body.password;
@@ -57,5 +67,5 @@ router.post('/login', (req, res)=>{
         }
     )
 });
-
+*/
 module.exports = router
