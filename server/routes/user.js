@@ -5,8 +5,7 @@ const db = require ("../config/db")
 const sequelize = require('sequelize')
 const { Users } = require("../models")
 
-router.use(require('../flash/flash'))
-
+//Create a user
 router.post('/user/register', (req, res)=>{
     const username = req.body.username
     const password = req.body.password
@@ -22,36 +21,13 @@ router.post('/user/register', (req, res)=>{
     const member = req.body.member
     const games = req.body.games
     const comment = req.body.comment
-    const user = Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
+    Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
 });
 
 
-/*
-router.post('/login', (req, res)=>{
-    const username = req.body.username;
-    const password = req.body.password;
+//Update a user
+router.put('/user/', (req,res) => {
+    let user = req.body
     
-
-    db.query(
-        "SELECT * FROM Users WHERE username =? ", 
-      username,
-     (err, results)=>{
-         if(err){
-             console.log(err);
-         }
-         if (results) {
-             console.log(results[0])
-             if (password == results[0].password) {
-                 res.send("You are logged in!")
-             } else {
-                 res.send("Wrong username / password combo")
-             }
-         } else {
-             res.send("User doesn't exist!!!")
-         }
-             
-        }
-    )
-});
-*/
+})
 module.exports = router

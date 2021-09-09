@@ -22,7 +22,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }));
-app.use(require('./flash/flash'))
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
