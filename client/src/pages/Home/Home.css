@@ -1,0 +1,12 @@
+.containerHome{
+    display:flex;
+    flex-direction: row;
+}
+
+.flexCote{
+    flex-grow: 1;
+}
+
+.flexMiddle{
+    flex-grow: 3;
+}
