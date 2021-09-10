@@ -108,29 +108,28 @@ router.put('/user/:id', async (req, res)=>{
     }
 });
 
+router.delete('/user/:id', async (req,res) => {
 
-/*
-
-
-    await Users.update({username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment }, {
-        where: {
-          id: req.params.id
-        }
-    });
-    (err, res)=>{
-        console.log(err);
-        return res.status(200).json({
-            text: "Modification effectuée avec succès",
-          });
-       }
-});
+        try{
+        await Users.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+            res.status(200).send({
+                message: "Suppression effectuée"
+            })
+        } catch (error) {
+            console.log("Une erreur est surevenue : " + error)
+    }
+})
 
 /*
 router.post('/login', (req, res)=>{
+
     const username = req.body.username;
     const password = req.body.password;
     
-
     db.query(
         "SELECT * FROM Users WHERE username =? ", 
       username,
@@ -153,4 +152,5 @@ router.post('/login', (req, res)=>{
     )
 });
 */
+
 module.exports = router
