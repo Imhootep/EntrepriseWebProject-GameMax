@@ -7,6 +7,7 @@ const { Users } = require("../models")
 
 //Create a user
 router.post('/user/register', (req, res)=>{
+    var flag = 1
     const username = req.body.username
     const password = req.body.password
     const email = req.body.email
@@ -21,13 +22,23 @@ router.post('/user/register', (req, res)=>{
     const member = req.body.member
     const games = req.body.games
     const comment = req.body.comment
-    Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
+
+    //Vérification que les champs obligatoires sont bien remplis
+    var champsObligatoires = []
+    champsObligatoires.push(username, password, email, phone, street, number, cp, commune, member)
+    champsObligatoires.forEach(function(item, index) {
+        if(!item){    
+        flag = 0
+        }
+    })
+    if(flag == 0)console.log("Un ou plusieurs champs n'ont pas été remplis\nLa création n'a pas été effectuée")
+    else{
+        try {
+            Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
+            res.redirect('/login')
+        } catch (error) {
+            console.log("Une erreur est surevenue : " + error)
+        }
+    }
 });
-
-
-//Update a user
-router.put('/user/', (req,res) => {
-    let user = req.body
-    
-})
 module.exports = router
