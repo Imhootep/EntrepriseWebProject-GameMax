@@ -1,9 +1,6 @@
 const express = require ('express');
 const router = express.Router()
-const db = require ("../config/db")
-const sequelize = require('sequelize')
 const { Users } = require("../models");
-const cors = require('cors')
 
 router.post('/user/register', async (req, res)=>{
 
@@ -111,46 +108,23 @@ router.put('/user/:id', async (req, res)=>{
 router.delete('/user/:id', async (req,res) => {
 
         try{
-        await Users.destroy({
+        const deleted = await Users.destroy({
             where: {
                 id: req.params.id
             }
         });
+        if(deleted){
             res.status(200).send({
                 message: "Suppression effectuée"
             })
+        } else {
+            res.status(400).send({
+                message: "Suppression impossible : l'ID ne correspond pas à un utilisateur"
+            })
+        }          
         } catch (error) {
             console.log("Une erreur est surevenue : " + error)
     }
 })
-
-/*
-router.post('/login', (req, res)=>{
-
-    const username = req.body.username;
-    const password = req.body.password;
-    
-    db.query(
-        "SELECT * FROM Users WHERE username =? ", 
-      username,
-     (err, results)=>{
-         if(err){
-             console.log(err);
-         }
-         if (results) {
-             console.log(results[0])
-             if (password == results[0].password) {
-                 res.send("You are logged in!")
-             } else {
-                 res.send("Wrong username / password combo")
-             }
-         } else {
-             res.send("User doesn't exist!!!")
-         }
-             
-        }
-    )
-});
-*/
 
 module.exports = router
