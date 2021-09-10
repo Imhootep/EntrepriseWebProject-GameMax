@@ -5,9 +5,11 @@ function Post() {
 
 
     return (
-        <div className="post">   
-            <div>
-                ceci est un post
+        <div className="PostCOntainer">   
+            <div className="PostBlock">
+                <div >
+
+                </div>
             </div>
         </div>
     )

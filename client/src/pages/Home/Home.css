@@ -10,3 +10,10 @@
 .flexMiddle{
     flex-grow: 3;
 }
+
+
+.PostBlock{
+    border: 2px solid;
+    /*border-radius: 50px 20px;*/
+    border-radius: 25px;
+}
