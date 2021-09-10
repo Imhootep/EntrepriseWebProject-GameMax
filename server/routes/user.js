@@ -22,7 +22,7 @@ router.post('/user/register', async (req, res)=>{
     const games = req.body.games
     const comment = req.body.comment
  
-    await Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment });
+    const user = await Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment });
     (err, res)=>{
         console.log(err);
         res.status(200).json({
@@ -40,14 +40,11 @@ router.get('/user/:id', async (req,res) => {
             message: "Utilisateur introuvable"
         })
     } else {
-        res.status(200).send({
-            message: "Utilisateur trouvé"
-        })
         return res.send(user)
     }
 })
 
-router.put('/user/register', async (req, res)=>{
+router.put('/user/:id', async (req, res)=>{
 
     const username = req.body.username
     const password = req.body.password
@@ -64,10 +61,14 @@ router.put('/user/register', async (req, res)=>{
     const games = req.body.games
     const comment = req.body.comment
  
-    await Users.update({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment });
+    await Users.update({username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment }, {
+        where: {
+          id: req.params.id
+        }
+    });
     (err, res)=>{
         console.log(err);
-        res.status(200).json({
+        return res.status(200).json({
             text: "Modification effectuée avec succès",
           });
        }
