@@ -13,12 +13,24 @@
     flex-basis: 0;
 }
 
-
+/*
 .PostBlock{
     border: 3px solid;
     border-radius: 10px 70px;
     display:flex;
     flex-direction: row;
+    border-color:rgba(93, 47, 99, 0.8);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height:200px;
+    width:80%;
+    margin:50px auto;
+}*/
+
+.PostBlock2{
+    border: 3px solid;
+    border-radius: 10px 70px;
+    display:flex;
+    flex-direction: column;
     border-color:rgba(93, 47, 99, 0.8);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height:200px;
@@ -45,14 +57,28 @@
     text-align: center;
 }
 
+.AvatarName2{
+    font-size: 100%;
+    color:rgba(140,77,148,.8);
+    font-weight: bold;
+}
+
 .MoreInfos{
     list-style: none;
     padding-inline-start: 0;
     margin-block-start: 0;
     margin: 10px 0 0 0;
 }
-
+/*
 .PostContent{
+    background-color: rgb(223, 163, 238, 0.2);
+    min-height:50px;
+    border-radius: 25px;
+    margin: 20px;
+    padding: 20px;
+}*/
+
+.PostContent2{
     background-color: rgb(223, 163, 238, 0.2);
     min-height:50px;
     border-radius: 25px;
@@ -60,22 +86,37 @@
     padding: 20px;
 }
 
+
+/*
 .banner{
     float:left;
     margin: 0 20px 10px 0;
     width:100%;
     max-width:300px;
+}*/
+
+.banner2{
+    margin: 20px 20px 10px 0;
+    width:100%;
+    max-width:600px;
+    border-radius: 20px 50px;
 }
 
 .PostInfos{
     display: flex;
     justify-content: space-between;
 }
-
+/*
 .PostTitle{
     font-weight: bold;
     font-size: 125%;
     margin: 0 0 10px 10px;
+}*/
+
+.PostTitle2{
+    font-weight: bold;
+    font-size: 150%;
+    text-align: center;
 }
 
 .PostDate{
@@ -124,4 +165,14 @@
     /*background-color: rgba(242, 236, 243, 0.8);*/
     border:1px solid rgba(93, 47, 99, 0.5);
     border-radius: 10px;
+}
+
+.BannerBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.TitleBlock{
+
 }
