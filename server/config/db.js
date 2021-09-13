@@ -1,11 +1,8 @@
-const mysql = require('mysql');
+let { Sequelize } = require('sequelize')
 
-var db = mysql.createPool({
-  connectionLimit: 10,
-  host: 'eu-cdbr-west-01.cleardb.com',
-  user: 'b7fd61537111ca',
-  password: '74cd2cd7',
-  database: 'heroku_e8e29ea723b7f04'
-})
+const sequelize = new Sequelize('heroku_e8e29ea723b7f04', 'b7fd61537111ca', '74cd2cd7', {
+    host: 'eu-cdbr-west-01.cleardb.com',
+    dialect: 'mysql'
+  });
 
-module.exports = db
+module.exports = sequelize

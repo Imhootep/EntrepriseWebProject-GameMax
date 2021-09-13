@@ -1,18 +1,35 @@
 {
-  "name": "server",
+  "name": "ewp-gamemax",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projet GameMax pour TechnocITé",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imhootep/EntrepriseWebProject-GameMax.git"
+  },
+  "author": "Braibant François, François Guillaume, Cammarata Florian, Louis Alan",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Imhootep/EntrepriseWebProject-GameMax/issues"
+  },
+  "homepage": "https://github.com/Imhootep/EntrepriseWebProject-GameMax#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "mysql": "^2.18.1",
+    "mysql2": "^2.3.0",
     "nodemon": "^2.0.12",
-    "passport": "^0.4.1"
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.6.5"
   }
 }
