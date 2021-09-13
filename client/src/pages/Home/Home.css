@@ -28,7 +28,7 @@
 
 .PostBlock2{
     border: 3px solid;
-    border-radius: 10px 70px;
+    border-radius: 20px 70px;
     display:flex;
     flex-direction: column;
     border-color:rgba(93, 47, 99, 0.8);
@@ -81,7 +81,7 @@
 .PostContent2{
     background-color: rgb(223, 163, 238, 0.2);
     min-height:50px;
-    border-radius: 25px;
+    border-radius: 20px 50px;
     margin: 20px;
     padding: 20px;
 }
