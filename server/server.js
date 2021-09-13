@@ -36,3 +36,6 @@ const userRoute = require('./routes/user')
 app.use ("/", userRoute);
 const loginRoute = require('./routes/login')
 app.use ("/", loginRoute);
+
+const uploadRoute = require("./routes/Upload")
+app.use ("/upload", uploadRoute);
