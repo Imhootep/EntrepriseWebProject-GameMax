@@ -70,7 +70,7 @@ function Register() {
                     <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      <div className="typeUser">
-                        <label htmlFor="name">Type d'utilisateur:</label>
+                        <label className="userType" htmlFor="name">Type d'utilisateur:</label>
                         <select className="type" name="type" id="type" value={role} onChange={handleChange}>
                                 <option value="partenaire">Partenaire</option>
                                 <option value="studio">Studio</option>
