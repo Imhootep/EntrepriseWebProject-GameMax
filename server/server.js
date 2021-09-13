@@ -1,9 +1,10 @@
-const {response, request} = require('express')
 let express = require('express')
 let session = require('express-session')
 let app = express()
 let bodyParser = require('body-parser')
+let cookieParser = require('cookie-parser')
 const cors = require ('cors');
+var passport = require('passport')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -11,6 +12,10 @@ require('dotenv').config({path: './config/.env'})
 app.set('view engine', 'ejs')
 
 //Middlewares
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(cors())
 app.use(express.json())
 app.use('/assets', express.static('public'));
@@ -22,36 +27,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }));
-/*
-app.post('/user/register', (req, res)=>{
-
-  console.log('Hey')
-
-  const username = req.body.username
-  const password = req.body.password
-  const email = req.body.email
-  const phone = req.body.phone
-  const street = req.body.street
-  const number = req.body.number
-  const box = req.body.box
-  const cp = req.body.cp
-  const commune = req.body.commune
-  const social = req.body.social
-  const website = req.body.website
-  const member = req.body.member
-  const games = req.body.games
-  const comment = req.body.comment
-    
-  Users.query(
-      "INSERT INTO users (username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ", 
-    [username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment],
-   (err, results)=>{
-       console.log(err);
-      res.send(results);
-      }
-  );
-});
-*/
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
@@ -59,3 +34,5 @@ app.listen(process.env.PORT, () => {
 
 const userRoute = require('./routes/user')
 app.use ("/", userRoute);
+const loginRoute = require('./routes/login')
+app.use ("/", loginRoute);
