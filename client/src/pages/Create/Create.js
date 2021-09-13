@@ -41,7 +41,7 @@ function Create ()  {
         <>
         <Navbar/>
         <div className="creationPost">
-            <h3>Crée un Post!</h3>
+            <h3>Crée un Post</h3>
                 <div className="postForm">
                     <input 
                         className="inputPost"
