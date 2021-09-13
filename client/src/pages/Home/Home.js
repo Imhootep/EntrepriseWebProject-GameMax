@@ -20,6 +20,7 @@ function Home() {
             </div>
             <div className="flexMiddle">
                 <Post/>
+                <Post/>
             </div>
             <div className="flexCote">
                 block de droite
