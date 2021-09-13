@@ -1,0 +1,46 @@
+.file-name-div{
+    width: 200px;
+    padding-bottom: 10px;
+}
+
+.file-name-p{
+    color: rgba(140,77,148,.8);
+    font-weight: bold;
+    line-height: 20px;
+}
+.labelFile {
+    font-size: 1.25em;
+    font-weight: 500;
+    width: 200px;
+    padding-left: 20px;
+    color: rgba(250, 249, 250, 0.8);
+    
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.uploadFile{
+    height: 25px;
+    padding: 10px 10px 10px 20px;
+    background-color: rgba(140,77,148,.8);
+    border-radius: 30px;
+    margin-bottom: 5px;
+}
+
+.save-file{
+    height: 20px;
+    width: 20px;
+    fill: rgba(250, 249, 250, 0.8)
+}
+
+.inputFile{
+    padding-top: 15px;
+    border: none;
+    width: px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}

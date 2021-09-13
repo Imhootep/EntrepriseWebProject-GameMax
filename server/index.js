@@ -8,6 +8,9 @@ app.use(express.json())
 const userRoute = require('./routes/User')
 app.use ("/User", userRoute);
 
+const uploadRoute = require('./routes/Upload')
+app.use ("/upload", uploadRoute);
+
 app.listen(3001, (req, res) =>{
     console.log('server running...');
 })

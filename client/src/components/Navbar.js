@@ -29,7 +29,7 @@ function Navbar() {
          <>
           <div className="icons">
                 <div className="logoIcon">
-                <a href="/create" className="iconLink"> <img src={create} alt="create" className="IconNav" /> </a>
+                <a href="/upload" className="iconLink"> <img src={create} alt="create" className="IconNav" /> </a>
                 </div>
                 <div className="logoIcon">
                 <a href="/profil" className="iconLink"> <img src={user} alt="users" className="IconNav" /> </a>
