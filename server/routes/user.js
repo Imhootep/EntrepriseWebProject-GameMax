@@ -1,6 +1,7 @@
 const express = require ('express');
 const router = express.Router()
 const { Users } = require("../models");
+const cors = require('cors')
 
 router.post('/user/register', async (req, res)=>{
 
@@ -126,5 +127,4 @@ router.delete('/user/:id', async (req,res) => {
             console.log("Une erreur est surevenue : " + error)
     }
 })
-
 module.exports = router
