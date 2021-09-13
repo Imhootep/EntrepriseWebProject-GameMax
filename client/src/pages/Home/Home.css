@@ -82,3 +82,46 @@
     font-weight: bold;
     margin: 0 0 10px 10px;
 }
+
+.readmoreBlock{
+    margin:0;
+}
+
+.ReadMore{
+    float:right;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.comment{
+    width:25px;
+}
+
+.CommentButton{
+    display: inline-block;
+    margin: 10px 0px 0 0;
+    padding: 0 10px 0 0;
+    cursor:pointer;
+}
+
+.CommentBlock{
+    margin: 10px 0 0 0;
+    display:flex;
+    flex-direction:row;
+    align-items: flex-start;
+}
+
+.CommentSectionAvatar{
+    width:50px;
+}
+
+.CommentSectionText{
+    vertical-align: top;
+    margin: 0 0 0 10px;
+    padding: 5px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    /*background-color: rgba(242, 236, 243, 0.8);*/
+    border:1px solid rgba(93, 47, 99, 0.5);
+    border-radius: 10px;
+}
