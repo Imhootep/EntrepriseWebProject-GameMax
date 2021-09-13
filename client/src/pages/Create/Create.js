@@ -2,26 +2,36 @@ import React, { useState } from 'react'
 import Navbar from '../../components/Navbar'
 import './Create.css'
 import Axios from 'axios'
-import UploadDoc from '../../components/UploadDoc'
+import {useHistory} from 'react-router-dom';
+// import UploadDoc from '../../components/UploadDoc'
 
 
 function Create ()  {
 
     const [title, setTitle] = useState ("")
     const [description, setDescription] = useState ("")
-    const [image, setImage] = useState ([])
+    // const [image, setImage] = useState ([])
+
+    let history = useHistory()
 
     const upload =() =>{
 
-        const FormData = new FormData()
+    //     const formData = new FormData()
         
-        FormData.append("file", image[0])
-        FormData.append("upload_preset", "soxfojqu" )
+    //     formData.append("file", image[0])
+    //     formData.append("upload_preset", "ml_default" )
         
-        Axios.post('https://api.cloudinary.com/v1_1/ewp-gamemax/image/upload', FormData).then((response) =>{
-            const fileName = response.data.public_id
+        // Axios.post('https://api.cloudinary.com/v1_1/ewp-team/image/upload', formData).then((response) =>{
+        //     const fileName = response.data.public_id
 
-            Axios.post("http://localhost:3001/upload", {title:title, description:description, image:fileName})
+        //     Axios.post("http://localhost:3001/upload", {title:title, description:description, image:fileName})
+        // })
+        Axios.post("http://localhost:3001/upload", {
+            title:title, 
+            description:description,
+            author: localStorage.getItem("username")
+        }).then (() =>{
+        history.push('/home')
         })
         
     }
@@ -40,14 +50,14 @@ function Create ()  {
                         onChange={(e)=>{setTitle(e.target.value)}}
                     />
 
-                    <input 
+                    <textarea 
                         className="inputPost"
                         type="text"
                         placeholder="Description..."
                         onChange={(e)=>{setDescription(e.target.value)}}
                     />
 
-                    <UploadDoc onChange={(e)=>setImage(e.target.value)} />
+                    {/* <input type="file" onChange={(e)=>setImage(e.target.value)} /> */}
                     
                     <button className="createPost" onClick={upload}>Post</button>
 
