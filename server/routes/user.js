@@ -2,7 +2,35 @@ const express = require ('express');
 const router = express.Router()
 const { Users } = require("../models");
 const cors = require('cors')
+var passport = require('passport')
+, LocalStrategy = require('passport-local').Strategy;
 
+passport.use(new LocalStrategy(
+    async function(username, password, done) {
+       // console.log(username);
+        let u = await Users.findOne({ where : { username: username }});
+        if (!u) {
+          return done(null, false, { message: 'Nom d\'utilisateur incorrect' });
+        }
+  
+        if (password !== u.password) {
+          return done(null, false, { message: 'Mot de passe incorrect' });
+        }
+        return done(null, u);
+    }
+  ));
+  
+  passport.serializeUser(function(user, done) {
+      done(null, user.id);
+    });
+    
+  passport.deserializeUser(function(id, done) {
+      Users.findByPk(id, function(err, user) {
+        done(err, user);
+      });
+    });
+
+// Inscription de l'utilisateur
 router.post('/user/register', async (req, res)=>{
 
     flag = 1;
@@ -46,6 +74,7 @@ router.post('/user/register', async (req, res)=>{
     }
 });
 
+// Données d'un utilisateur sur base de son ID
 router.get('/user/:id', async (req,res) => {
 
     const user = await Users.findByPk(req.params.id)
@@ -59,6 +88,7 @@ router.get('/user/:id', async (req,res) => {
     }
 })
 
+// Modification d'un utilisateur sur base de son ID
 router.put('/user/:id', async (req, res)=>{
 
     flag=1
@@ -106,6 +136,7 @@ router.put('/user/:id', async (req, res)=>{
     }
 });
 
+// Suppression d'un utilisateur sur base de son ID
 router.delete('/user/:id', async (req,res) => {
 
         try{
@@ -127,4 +158,16 @@ router.delete('/user/:id', async (req,res) => {
             console.log("Une erreur est surevenue : " + error)
     }
 })
+
+// Login de l'utilisateur
+router.post('/login', passport.authenticate('local'), function(req, res) {                    
+    res.redirect('/user/' + req.user.id);
+  });
+
+// Logout de l'utilisateur
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+
 module.exports = router

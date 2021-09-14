@@ -1,26 +1,21 @@
 let express = require('express')
 let session = require('express-session')
+var passport = require('passport')
+, LocalStrategy = require('passport-local').Strategy;
 let app = express()
-let bodyParser = require('body-parser')
+app.use(passport.initialize());
+app.use(passport.session());
 let cookieParser = require('cookie-parser')
 const cors = require ('cors');
-var passport = require('passport')
+
 
 require('dotenv').config({path: './config/.env'})
 
-//Moteur de template
-app.set('view engine', 'ejs')
-
 //Middlewares
 app.use(cookieParser());
-app.use(bodyParser());
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(cors())
 app.use(express.json())
 app.use('/assets', express.static('public'));
-app.use(bodyParser.urlencoded({ extended: false}))
-app.use(bodyParser.json())
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -28,11 +23,15 @@ app.use(session({
     cookie: {secure: false}
 }));
 
+app.use((req, res, next) => {
+    console.log(req.session)
+    console.log(req.user)
+    next();
+})
+
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
 })
 
 const userRoute = require('./routes/user')
 app.use ("/", userRoute);
-const loginRoute = require('./routes/login')
-app.use ("/", loginRoute);

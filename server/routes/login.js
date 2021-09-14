@@ -3,57 +3,36 @@ const router = express.Router()
 const { Users } = require("../models");
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy;
+    
 
 passport.use(new LocalStrategy(
-    async function(username, password, done) {
-        console.log("1")
-        await Users.findOne({ where : { username: username }}, function (err, user) {
-        console.log("2")
-        if (err) { return done(err); }
-        if (!user) {
-          return done(null, false, { message: 'Nom d\'utilisateur incorrect' });
-        }
-        if (!user.validPassword(password)) {
-          return done(null, false, { message: 'Mot de passe incorrect' });
-        }
-        return done(null, user);
-      });
-    }
+  async function(username, password, done) {
+     // console.log(username);
+      let u = await Users.findOne({ where : { username: username }});
+      if (!u) {
+        return done(null, false, { message: 'Nom d\'utilisateur incorrect' });
+      }
+
+      if (password !== u.password) {
+        return done(null, false, { message: 'Mot de passe incorrect' });
+      }
+      return done(null, u);
+  }
 ));
 
-router.post('/login', passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })               
-);
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+  
+passport.deserializeUser(function(id, done) {
+    Users.findByPk(id, function(err, user) {
+      done(err, user);
+    });
+  });
 
+router.post('/login', passport.authenticate('local'), function(req, res) {                         
+                                    res.redirect('/user/' + req.user.id);
+                                  });
 
-/*
-router.post('/login', (req, res)=>{
-
-    const username = req.body.username;
-    const password = req.body.password;
-    
-    db.query(
-        "SELECT * FROM Users WHERE username =? ", 
-      username,
-     (err, results)=>{
-         if(err){
-             console.log(err);
-         }
-         if (results) {
-             console.log(results[0])
-             if (password == results[0].password) {
-                 res.send("You are logged in!")
-             } else {
-                 res.send("Wrong username / password combo")
-             }
-         } else {
-             res.send("User doesn't exist!!!")
-         }
-             
-        }
-    )
-});
-*/
-
+                                  
 module.exports = router
