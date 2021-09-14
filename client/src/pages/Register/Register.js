@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../../components/Navbar'
 import './register.css'
 import add from '../../img/icons/add.png'
+import {useHistory} from 'react-router-dom';
 // import fb from '../../img/icons/facebook.png'
 // import insta from '../../img/icons/instagram.png'
 // import twi from '../../img/icons/twitter.png'
@@ -32,12 +33,12 @@ function Register() {
     const [comment, setComment] = useState('')
 
 
-    const [role, setRole] = useState('partenaire');
-    const handleChange = function (e){
-        e.preventDefault() /* ??? */
-        setRole(e.target.value)
-    }
-
+    // const [role, setRole] = useState('partenaire');
+    // const handleChange = function (e){
+    //     e.preventDefault() /* ??? */
+    //     setRole(e.target.value)
+    // }
+    let history = useHistory()
 
     const register =() => {
         Axios.post("http://localhost:8000/user/register", 
@@ -57,6 +58,7 @@ function Register() {
          comment:comment
         }).then((response) =>{
             console.log(response)
+            history.push('/')
         });
     };
 
@@ -66,17 +68,17 @@ function Register() {
         <div className="mainRegister">
             <div className="register">
                 <div className="registerForm">
-                    <h3> Nouveau profil   - {role}</h3>
+                    <h3> Nouveau profil </h3>
                     <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      <div className="typeUser">
-                        <label className="userType" htmlFor="name">Type d'utilisateur:</label>
+                        {/* <label className="userType" htmlFor="name">Type d'utilisateur:</label>
                         <select className="type" name="type" id="type" value={role} onChange={handleChange}>
                                 <option value="partenaire">Partenaire</option>
                                 <option value="studio">Studio</option>
                                 <option value="expert">Expert</option>
                                 <option value="sponsor">Sponsor</option>
-                        </select>
+                        </select> */}
                     </div> 
                     <input type="email" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}/>
                     <input type="number" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}}/>

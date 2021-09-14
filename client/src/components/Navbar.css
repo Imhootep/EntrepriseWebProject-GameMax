@@ -13,15 +13,21 @@ a{
     padding-right: 30px;
     
 }
+.navbar .iconLink{
+    display: block;
+}
+.navbar .iconLink:hover{
+    height: 75px;
+}
 
 .navbar a:hover {
     cursor: pointer;
     
 }
 
-.navbar .IconNav:hover{
+/* .navbar .IconNav:hover{
     height:50px;
-}
+} */
 
 .logoNav{
     
@@ -56,6 +62,14 @@ a{
     height:70px;
    
 }
+
+/* .navbar .logoIcon:hover{
+    padding: 5px;
+
+
+} */
+
+
 @media screen and (max-width: 461px) {
     
     .navbar{
