@@ -51,25 +51,21 @@ function Home() {
                                      </ul>
                                  </div>
                              </div>
-                             <div className="postImageImage">
-                                 <img className="image_post" src={image_post} alt="image_post" />
+                             <div className="postImageblock">
+                                 <img className="postBanner" src={image_post} alt="postBanner" />
                              </div>
-                             <div></div>
                          </div>
                          <div className="postContent">
-                                 <div className="title"> {val.title} </div>
+                            <div className="postTitle"> {val.title} </div>
                                 <div className="description">
-                                     <div >
-                                     <ReadMore>
+                                    <div >
+                                    <ReadMore>
                                         {val.description}
-                            
                                     </ReadMore>
                                     <Comment />
                                     </div>
-                                     
                                 </div>
                             </div>
-
                         </div>
                     )
                 })} 

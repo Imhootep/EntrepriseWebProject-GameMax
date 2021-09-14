@@ -24,9 +24,9 @@
     border: 3px solid rgba(93, 47, 99, 0.8);
     border-radius: 10px 70px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    min-height:200px;
+    /*min-height:200px;*/
     width:80%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;*/
 
     /* margin:50px auto; */
 
@@ -76,47 +76,56 @@ ul{
     padding: 30px;;
 }
 
-.flexMiddle .postHome .postImageImage{
+.flexMiddle .postHome{
     flex: 60%;
     padding: 10px;
     padding: 5px;
-    border-radius: 10px 70px 10px 10px;
+    border-radius: 10px 70px;
 
 }
 
-.image_post{
-
-    height:100%;
-    width: 100%;
-    border-radius: 10px 70px 10px 10px;;
-
-}
 
 .flexMiddle .postHome .postContent{
-    flex: 60%;
     padding: 0 10px 10px 10px;
     display: flex;
     flex-direction: column;
+    min-height:100px;
 
 }
 
-.flexMiddle .postHome .postContent .title{
-    flex: 20%;
-    color: rgba(140, 77, 148, 0.8);
-    margin-bottom: 5px;
-    text-align: center;
-    font-size: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.flexMiddle .postHome .postContent .postTitle{
     font-weight: bold;
-
-}
-.flexMiddle .postHome .postContent .description{
-    flex: 80%;
-    background-color: rgba(140, 77, 148, 0.8);
-    color:rgba(242, 236, 243, 0.8) ;
+    font-size: 125%;
+    margin: 0 0 10px 0;
+    /*flex: 20%;*/
+    /*color: rgba(140, 77, 148, 0.8);*/
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-radius: 10px 10px 10px 70px;
+}
+
+.flexMiddle .postHome .postContent .description{
+    /*flex: 80%;*/
+    background-color: rgb(223, 163, 238, 0.2);
+    min-height:50px;
+    padding: 20px;
+/* ICI */
+   /* background-color: rgba(140, 77, 148, 0.8);
+    color:rgba(242, 236, 243, 0.8) ;
+    text-align: center;*/
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 10px 10px 10px 60px;
+}
+
+.postImageblock{
+    padding: 10px;
+    padding: 5px;
+    border-radius: 10px 70px 10px 10px;
+}
+
+.postBanner{
+    height:100%;
+    width: 100%;
+    border-radius:10px 50px 10px 10px;
 }
 
 /* .PostAvatar{
@@ -144,11 +153,13 @@ ul{
     width:25px;
 }
 
-.CommentButton{
+.CommentButton{/*
     display: inline-block;
     margin: 10px 0px 0 0;
     padding: 0 10px 0 0;
-    cursor:pointer;
+    cursor:pointer;*/
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 
 .CommentBlock{
@@ -173,5 +184,30 @@ ul{
     border-radius: 10px;
 }
 
+.CommentUpSection{
+    display:flex;
+    flex-direction: row;
+    margin:10px 0 0 0;
+}
 
+.SocialInteraction{
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align:center;
+    cursor:pointer;
+    border: 1px solid white;
+}
 
+.SocialInteraction:hover{
+    background-color: rgb(223, 163, 238, 0.3);
+}
+
+.SocialMiddle{
+    border-right: 1px solid black ;
+    border-left: 1px solid black ;
+}
+
+.addComment{
+    width: 60%;
+    margin: 10px 10px 10px 50px;
+}
