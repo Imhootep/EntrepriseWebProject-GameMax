@@ -15,8 +15,8 @@ body{
     background-color: #f7f7f7;
     border: 3px;
     border-radius: 6px;
-    box-shadow: 2px 2px 5px rgba(78, 39, 83, 0.8);
-    box-shadow: rgba(140, 77, 148, 0.6) 0px 54px 55px, rgba(140, 77, 148, 0.6) 0px -12px 30px, rgba(140, 77, 148, 0.6) 0px 4px 6px, rgba(140, 77, 148, 0.6) 0px 12px 13px, rgba(140, 77, 148, 0.6) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* box-shadow: rgba(140, 77, 148, 0.6) 0px 54px 55px, rgba(140, 77, 148, 0.6) 0px -12px 30px, rgba(140, 77, 148, 0.6) 0px 4px 6px, rgba(140, 77, 148, 0.6) 0px 12px 13px, rgba(140, 77, 148, 0.6) 0px -3px 5px; */
 }
 
 .registerForm{
@@ -33,7 +33,7 @@ h3{
     font-size: 40px;
     /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; AJOUTé a body*/
 }
-label{
+.userType{
     color: rgba(242, 236, 243, 0.8);
     font-size: 20px;
 }
@@ -42,7 +42,7 @@ input, textarea{
     margin-bottom: 20px;
     padding: 10px;
     border: 3px solid rgba(140,77,148,.8);
-    border-radius: 6px;
+    border-radius: 15px;
     color: rgba(78, 39, 83, 0.8);
     width: 35vmin ;
     height: 3vmin;
@@ -85,6 +85,7 @@ input, textarea{
   input:focus {
     outline-offset: 0px ;
     outline: none ;
+    background-color:rgba(243, 239, 243, 0.8); 
     }
   
   .createUser{
