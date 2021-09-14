@@ -13,7 +13,6 @@ function Login() {
 
     const [errorMessage, setErrorMessage ] = useState('')
 
-    let history = useHistory();
 
     const login = (e) => {
       e.preventDefault();
