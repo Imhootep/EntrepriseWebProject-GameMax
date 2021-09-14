@@ -15,11 +15,14 @@ passport.use(new LocalStrategy(
         if (!u) {
           return done(null, false, { message: 'Nom d\'utilisateur incorrect' });
         }
-  // A MODIF ICI
-        if (password !== u.password) {
-          return done(null, false, { message: 'Mot de passe incorrect' });
-        }
-        return done(null, u);
+        bcrypt.compare(password, u.password, function(err, res) {
+            if (err) return cb(err);
+            if (res === false) {
+            return done(null, false, { message: 'Mot de passe incorrect' });
+            } else {
+            return done(null, u);
+            }
+        });
     }
   ));
   
