@@ -125,7 +125,11 @@ ul{
     flex-direction: column;
 } */
 
-
+.postLike{
+    padding:10px;
+    height:20px;
+    width: 20px;
+}
 
 
 

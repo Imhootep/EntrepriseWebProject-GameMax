@@ -11,6 +11,6 @@ app.use ("/User", userRoute);
 const uploadRoute = require("./routes/Upload")
 app.use ("/upload", uploadRoute);
 
-app.listen(3001, (req, res) =>{
+app.listen(8000, (req, res) =>{
     console.log('server running...');
 })
