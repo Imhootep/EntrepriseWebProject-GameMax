@@ -22,12 +22,12 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }));
-
+/*
 app.use((req, res, next) => {
     console.log(req.session)
     console.log(req.user)
     next();
-})
+})*/
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);

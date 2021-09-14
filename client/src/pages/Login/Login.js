@@ -15,7 +15,7 @@ function Login() {
 
     let history = useHistory();
 
-    const login =(e) => {
+    const login = (e) => {
       e.preventDefault();
 
       Axios.post("http://localhost:8000/login", 

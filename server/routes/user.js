@@ -2,6 +2,9 @@ const express = require ('express');
 const router = express.Router()
 const { Users } = require("../models");
 const cors = require('cors')
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+const jwt = require('jsonwebtoken')
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy;
 
@@ -12,7 +15,7 @@ passport.use(new LocalStrategy(
         if (!u) {
           return done(null, false, { message: 'Nom d\'utilisateur incorrect' });
         }
-  
+  // A MODIF ICI
         if (password !== u.password) {
           return done(null, false, { message: 'Mot de passe incorrect' });
         }
@@ -20,15 +23,15 @@ passport.use(new LocalStrategy(
     }
   ));
   
-  passport.serializeUser(function(user, done) {
-      done(null, user.id);
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    Users.findByPk(id, function(err, user) {
+    done(err, user);
     });
-    
-  passport.deserializeUser(function(id, done) {
-      Users.findByPk(id, function(err, user) {
-        done(err, user);
-      });
-    });
+});
 
 // Inscription de l'utilisateur
 router.post('/user/register', async (req, res)=>{
@@ -62,17 +65,17 @@ router.post('/user/register', async (req, res)=>{
             message: "Un ou plusieurs champs obligatoires sont manquants"
         })
     }
-    else{
-        try {
-            Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })
+    else{            
+        try {                   
+            await Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })    
             res.status(200).send({
                 message: "Insertion effectuée"
             })
         } catch (error) {
             console.log("Une erreur est surevenue : " + error)
-        }
+            }                    
     }
-});
+})
 
 // Données d'un utilisateur sur base de son ID
 router.get('/user/:id', async (req,res) => {
@@ -122,7 +125,8 @@ router.put('/user/:id', async (req, res)=>{
     }
     else{
         try {
-            await Users.update({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment }, {
+            let user = await Users.findByPk(req.params.id)
+            user.update({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment }, {
                 where: {
                   id: req.params.id
                 }
@@ -162,12 +166,12 @@ router.delete('/user/:id', async (req,res) => {
 // Login de l'utilisateur
 router.post('/login', passport.authenticate('local'), function(req, res) {                    
     res.redirect('/user/' + req.user.id);
-  });
+});
 
 // Logout de l'utilisateur
 router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
-  });
+});
 
 module.exports = router
