@@ -4,8 +4,6 @@ import './Home.css'
 import Axios from 'axios';
 import avatar from '../../img/R.png'
 import image_post from '../../img/GameDevCafe.jpg'
-import like from '../../img/icons/like.svg'
-import Post from '../../components/ReadMore'
 import ReadMore from '../../components/ReadMore';
 import Comment from '../../components/Comment';
 
