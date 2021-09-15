@@ -160,9 +160,9 @@
   outline: none ;
   }
 
-
-
 .loginBut{
+  position:relative;
+
   margin-top: 2rem;
   padding: 0.5rem;
   background-color: rgba(78, 39, 83, 0.8);
@@ -189,8 +189,33 @@
      /* border: solid 3px rgba(78, 39, 83, 0.8); */
 }
 
-.loginBut:hover, .registerLink:hover{
+.registerLink:hover{ /* .loginBut:hover,  */
 background-color: rgba(99, 78, 102, 0.8);
+}
+
+.loginBut span{
+  position:relative;
+  z-index: 2;
+}
+
+.loginBut:after{
+  position:absolute;
+  content: '';
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background-color: rgba(78, 39, 83, 1);
+  border-radius: 20px;
+  transition: all 0.35s;
+}
+
+.loginBut:hover{
+  z-index: 1000;
+}
+
+.loginBut:hover:after{
+  width:100%;
 }
 
 .registerLink{
