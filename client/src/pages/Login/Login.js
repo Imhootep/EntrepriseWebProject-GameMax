@@ -43,28 +43,41 @@ function Login() {
         
         <div>
              <header className="App-header">
-        <div className="logoLog">
-        <img src={logo} className="App-logo" alt="logo" />
+               <div className="div-header">
+               <div className="logoHeader">
+                 <div className="div-logo">
+                  <div className="logoLog">
+                    <img src={logo} className="App-logo" alt="logo" />
 
-        <img src={controller} className="App-controller" alt="controller" />
-        </div>
-        <form className="login">
-         
-         <div className="form-group">
-            <input className="inputLogin" autoFocus placeholder="Username..." type="text"  onChange={(e)=>{setUsername(e.target.value)}} />
-        </div> 
-        <div className="form-group">
-            <input className="inputLogin" placeholder="Password..." type="Password"  onChange={(e)=>{setPassword(e.target.value)}} />
-        </div> 
-        <button className="loginBut" type="submit" onClick={login} >LOGIN</button>
-        <a className="registerLink" href="/register">SIGN UP</a>
-         <h3>{errorMessage}</h3>
-      </form>
-        <div className="controller2">
-        <img src={controller} className="App-controller2" alt="controller" />
-        </div>
+                    <img src={controller} className="App-controller" alt="controller" />
+                    <div>
+                      <label className="notRegistered">Pas encore inscrit?</label>
+                      <a className="registerLink" href="/register">SIGN UP</a>
+
+                    </div>
+                  </div>
+                </div>
+                <form className="login">
+                  <h2 className="signinTitle"> Sign In</h2>
+                  <div className="form-group">
+                    <label className="formLabel">Nom d'utilisateur</label>          
+                      <input className="inputLogin" autoFocus placeholder="Entrez votre nom d'utilisateur..." type="text"  onChange={(e)=>{setUsername(e.target.value)}} />
+                  </div> 
+                  <div className="form-group">
+                  <label className="formLabel">Mot de passe</label>  
+                      <input className="inputLogin" placeholder="Entrez votre mot de passe..." type="Password"  onChange={(e)=>{setPassword(e.target.value)}} />
+                  </div> 
+                  <button className="loginBut" type="submit" onClick={login} >Sign In</button>
+                  
+                  <h4>{errorMessage}</h4>
+                </form>
+                  <div className="controller2">
+                  <img src={controller} className="App-controller2" alt="controller" />
+                </div>
+              </div>
+              </div>
           </header>
-      )
+      
         </div>
         
     )
