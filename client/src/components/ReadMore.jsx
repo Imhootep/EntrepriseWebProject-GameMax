@@ -58,13 +58,14 @@ import '../pages/Home/Home.css'
         const toggleReadMore = () => {
           setIsReadMore(!isReadMore);
         };
-        return (
-          <p className="readmoreBlock">
-            {isReadMore ? text.slice(0, 200) : text}
-            <span onClick={toggleReadMore} className="ReadMore">
-              {isReadMore ? "...lire plus" : "réduire..."}
-            </span>
-          </p>
+        return (<>
+                  <p className="readmoreBlock">
+                    {isReadMore ? text.slice(0, 200) : text}
+                  </p>
+                  <div onClick={toggleReadMore} className="ReadMore">
+                    {isReadMore ? "...lire plus" : "réduire..."}
+                  </div>
+                </>
         );
       };
 
