@@ -2,39 +2,18 @@
 
 /* -----------------BASE----------------- */
 
-/* body {
-  
-  background-color: rgba(78, 39, 83, 0.8); 
-  height: 100vh ;
-} */
-
-/* .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-} */
-
-/* .App {
-  text-align: center;
-} */
-
 .App-header{
   width: 100%;
   height: 100%;
-  /* background-color:rgba(242, 236, 243, 0.8); */
   background-color:rgba(140,77,148,.8);
   display: flex;
   justify-content: center;
-
 }
 
 .div-header{
   width: 90%;
   margin: 50px;
   padding: 0;
-  /* height: 40%; */
-  /* background-color:rgba(140,77,148,.8); */
   background-color: rgba(242, 236, 243, 0.8);
   border-radius: 20px;
   height:70%;
@@ -43,11 +22,7 @@
 }
 
 .logoHeader {
-  /* height: 70%;
-  margin: 50px;
-  width: 80%; */
-  /* background-color: rgba(78, 39, 83, 0.8); */
-  /* min-height: 100vh; */
+ 
   width: 100%;
   display: flex;
   align-items: center;
@@ -60,9 +35,8 @@
   background-image: url("../../img/GameMax.jpg");
   background-position: center;
   border-radius: 20px;
-  padding: 100px 150px 100px 150px;
-  
-  
+  padding: 100px 200px 100px 150px;
+  height: 80%;
 }
 
 .logoLog{
@@ -100,9 +74,10 @@
 
 .login{
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding-left: 10%;
   /* background-color: rgba(140,77,148,.8); */
   border-radius: 6px;
@@ -110,9 +85,29 @@
   
 }
 
+.loginTitle{
+
+    padding-top: 5%;
+    padding-right: 15%;
+    color: rgba(78, 39, 83, 0.8);
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.loginTitle2{
+
+  margin-top: 0;
+  padding-right: 15%;
+  color: rgba(78, 39, 83, 0.8);
+  font-size: 25px;
+  margin-bottom: 15%;
+
+}
+
 .signinTitle{
   padding-bottom:60px;
 }
+
 
 .form-group{
   display: flex;
@@ -132,7 +127,7 @@
   border: 1px solid rgba(140,77,148,.8);
   border-radius: 20px;
   color: rgba(78, 39, 83, 0.8);
-  width: 35vmin ;
+  width: 56%;
   height: 3vmin;
   font-weight: bold;
   background-color: rgba(250, 249, 250, 0.8);
@@ -148,7 +143,7 @@
 
 .inputLogin:focus{
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 5px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+  background-color:rgba(243, 239, 243, 0.8);
   /* border: 3px solid rgba(78, 39, 83, 0.8) ;
   box-shadow: 0 0 3px rgba(78, 39, 83, 0.8) ;
   -moz-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
@@ -165,7 +160,7 @@
 .loginBut{
   margin-top: 2rem;
   padding: 0.5rem;
-  background-color: rgba(78, 39, 83, 0.8);
+  background-color: rgba(140,77,148,.8);
   border: none;
   color: rgba(250, 249, 250, 0.8);
   font-weight: bold;
@@ -190,7 +185,7 @@
 }
 
 .loginBut:hover, .registerLink:hover{
-background-color: rgba(99, 78, 102, 0.8);
+background-color: rgba(78, 39, 83, 0.8);
 }
 
 .registerLink{
@@ -198,7 +193,7 @@ background-color: rgba(99, 78, 102, 0.8);
     text-align: center;
     margin-top: 3rem;
     color: rgba(250, 249, 250, 0.8);
-    background-color: rgba(78, 39, 83, 0.8);
+    background-color: rgba(140,77,148,.8);
     width: 30%;
     height: 30px;
     align-self: center;
@@ -240,6 +235,217 @@ background-color: rgba(99, 78, 102, 0.8);
   }
 }
 
+/* --------------VERSION ECRAN -1480-------- */
+
+
+@media screen and (max-width: 1860px) {
+  .div-logo{
+    background-image: url("../../img/GameMax.jpg");
+    background-position: center;
+    border-radius: 20px;
+    padding: 100px 150px 100px 150px;
+    height: 78.1%;
+  }
+
+}
+
+@media screen and (max-width: 1600px) {
+  .div-logo{
+    background-image: url("../../img/GameMax.jpg");
+    background-position: center;
+    border-radius: 20px;
+    padding: 100px 100px 100px 100px;
+    height: 78.1%;
+  }
+
+}
+
+@media screen and (max-width: 1680px) {
+  .div-logo{
+    background-image: url("../../img/GameMax.jpg");
+    background-position: center;
+    border-radius: 20px;
+    padding: 100px 75px 100px 75px;
+    height: 79.5%;
+  }
+
+}
+@media screen and (max-width: 1280px) {
+  .div-logo{
+    background-image: url("../../img/GameMax.jpg");
+    background-position: center;
+    border-radius: 20px;
+    padding-left: 60px;
+    height: 72.1%;
+    
+    display: flex;
+    justify-content: center;
+  }
+  .logoLog {
+    display: flex;
+    padding: 50px;
+    align-self: center;
+    background-color: rgba(250, 249, 250, 0.7);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+  }
+
+  .App-logo{
+    height: 15vmin;
+    /* width: 25vmin;
+    margin: auto; */
+  }
+  
+  .App-controller {
+    height: 30vmin;
+    pointer-events: none;
+    margin: auto;
+  }
+
+  .login{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 10%;
+    /* background-color: rgba(140,77,148,.8); */
+    border-radius: 6px;
+    /* padding-left: 10%; */
+    
+  }
+  
+  .loginTitle{
+  
+      padding-top: 5%;
+      padding-right: 15%;
+      color: rgba(78, 39, 83, 0.8);
+      font-size: 30px;
+      margin-bottom: 0;
+  }
+  
+  .loginTitle2{
+  
+    margin-top: 0;
+    padding-right: 15%;
+    color: rgba(78, 39, 83, 0.8);
+    font-size: 25px;
+    margin-bottom: 15%;
+  
+  }
+  
+  .signinTitle{
+    padding-bottom:40px;
+  }
+  
+  
+  .form-group{
+    display: flex;
+    flex-direction: column;
+    
+    
+  
+  }
+  .formLabel{
+    padding: 15px;
+    
+  }
+
+  }
+
+  @media screen and (max-width: 1111px) {
+    .div-logo{
+      background-image: url("../../img/GameMax.jpg");
+      background-position: center;
+      border-radius: 20px;
+      padding-left: 30px;
+      height: 70.5%;
+      width: 40%;
+      display: flex;
+      justify-content: center;
+    }
+    .logoLog {
+      display: flex;
+      padding: 0;
+      align-self: center;
+      background-color: rgba(250, 249, 250, 0.7);
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      padding-bottom: 5%;
+    }
+  
+    .App-logo{
+      height: 15vmin;
+      /* width: 25vmin;
+      margin: auto; */
+    }
+    
+    .App-controller {
+      height: 30vmin;
+      pointer-events: none;
+      margin: auto;
+    }
+  
+    .login{
+      width: 40%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 10%;
+      /* background-color: rgba(140,77,148,.8); */
+      border-radius: 6px;
+      /* padding-left: 10%; */
+      
+    }
+    
+    .loginTitle{
+    
+        padding-top: 5%;
+        padding-right: 15%;
+        color: rgba(78, 39, 83, 0.8);
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+    
+    .loginTitle2{
+    
+      margin-top: 0;
+      padding-right: 15%;
+      color: rgba(78, 39, 83, 0.8);
+      font-size: 20px;
+      margin-bottom: 10%;
+    
+    }
+    
+    .signinTitle{
+      padding-bottom:30px;
+    }
+    
+    
+    .form-group{
+      display: flex;
+      flex-direction: column;
+      
+      
+    
+    }
+    .formLabel{
+      padding: 15px;
+      
+    }
+    .App-logo{
+      padding-top: 20px;
+    }
+    .notYetRegistered{
+      padding-top: 30px;
+      padding-bottom: 20px;;
+    }
+  
+    }
+
 
 /* -------------VERSION MOBILE--------------- */
 
@@ -252,6 +458,95 @@ background-color: rgba(99, 78, 102, 0.8);
     margin-top: 100px;
     
   }
+  
+    .div-logo{
+      background-image: url("../../img/GameMax.jpg");
+      background-position: center;
+      border-radius: 20px;
+      padding-left: 40px;
+      height: 72%;
+      width: 30%;
+      display: flex;
+      justify-content: center;
+    }
+    .logoLog {
+      display: flex;
+      padding: 0;
+      align-self: center;
+      background-color: rgba(250, 249, 250, 0.7);
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      padding: 15%;
+      margin-left: 15%;
+    }
+
+    .notYetRegistered{
+      padding-top: 30px;
+    }
+  
+    .App-logo{
+      height: 15vmin;
+      /* width: 25vmin;
+      margin: auto; */
+    }
+    
+    .App-controller {
+      height: 5vmin;
+      pointer-events: none;
+      margin: auto;
+    }
+  
+    .login{
+      width: 40%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 10%;
+      /* background-color: rgba(140,77,148,.8); */
+      border-radius: 6px;
+      /* padding-left: 10%; */
+      
+    }
+    
+    .loginTitle{
+    
+        padding-top: 5%;
+        padding-right: 15%;
+        color: rgba(78, 39, 83, 0.8);
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+    
+    .loginTitle2{
+    
+      margin-top: 0;
+      padding-right: 15%;
+      color: rgba(78, 39, 83, 0.8);
+      font-size: 20px;
+      margin-bottom: 10%;
+    
+    }
+    
+    .signinTitle{
+      padding-bottom:30px;
+    }
+    
+    
+    .form-group{
+      display: flex;
+      flex-direction: column;
+      
+      
+    
+    }
+    .formLabel{
+      padding: 15px;
+      
+    }
+  
+    
 
   .login{
     padding: 20px;

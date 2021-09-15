@@ -13,9 +13,9 @@ body{
     margin: 60px;
     width: 60%;
     background-color: #f7f7f7;
-    border: 3px;
+    border: 1px;
     border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
     /* box-shadow: rgba(140, 77, 148, 0.6) 0px 54px 55px, rgba(140, 77, 148, 0.6) 0px -12px 30px, rgba(140, 77, 148, 0.6) 0px 4px 6px, rgba(140, 77, 148, 0.6) 0px 12px 13px, rgba(140, 77, 148, 0.6) 0px -3px 5px; */
 }
 
@@ -41,10 +41,10 @@ h3{
 input, textarea{
     margin-bottom: 20px;
     padding: 10px;
-    border: 3px solid rgba(140,77,148,.8);
+    border: 1px solid rgba(140,77,148,.8);
     border-radius: 15px;
     color: rgba(78, 39, 83, 0.8);
-    width: 35vmin ;
+    width: 50%;
     height: 3vmin;
     font-weight: bold;
     background-color: rgba(250, 249, 250, 0.8);
@@ -76,7 +76,7 @@ input, textarea{
   }
   
   input:focus{
-    border: 3px solid rgba(78, 39, 83, 0.8) ;
+    border: 1.5px solid rgba(78, 39, 83, 0.8) ;
     box-shadow: 0 0 3px rgba(78, 39, 83, 0.8) ;
     -moz-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
     -webkit-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
@@ -92,7 +92,7 @@ input, textarea{
     margin-top: 1rem;
     padding: 0.5rem;
     background-color: rgba(78, 39, 83, 0.8);
-    border: 3px solid rgba(140,77,148,.8);
+    border: none;
     color: rgba(250, 249, 250, 0.8);
     font-weight: bold;
      width: 80px; 
@@ -103,7 +103,7 @@ input, textarea{
   }
 
   .createUser:hover{
-    background-color: rgba(93, 47, 99, 0.8);
+    background-color: rgba(99, 78, 102, 0.8);
   }
 
   .createUser:focus{

@@ -50,7 +50,7 @@ function Login() {
                     <img src={logo} className="App-logo" alt="logo" />
 
                     <img src={controller} className="App-controller" alt="controller" />
-                    <div>
+                    <div className="notYetRegistered">
                       <label className="notRegistered">Pas encore inscrit?</label>
                       <a className="registerLink" href="/register">SIGN UP</a>
 
@@ -58,6 +58,8 @@ function Login() {
                   </div>
                 </div>
                 <form className="login">
+                <h2 className="loginTitle">  GameMax Média, </h2>
+                <h2 className="loginTitle2">le réseau social des créateurs de jeux vidéos belges!</h2>
                   <h2 className="signinTitle"> Sign In</h2>
                   <div className="form-group">
                     <label className="formLabel">Nom d'utilisateur</label>          
