@@ -51,25 +51,25 @@ function Login() {
 
                     <img src={controller} className="App-controller" alt="controller" />
                     <div>
-                      <label>pas encore inscrit?</label>
+                      <label className="notRegistered">Pas encore inscrit?</label>
                       <a className="registerLink" href="/register">SIGN UP</a>
 
                     </div>
                   </div>
                 </div>
                 <form className="login">
-                
+                  <h2 className="signinTitle"> Sign In</h2>
                   <div className="form-group">
-                    <label className="fromLabel">Nom d'utilisateur</label>          
-                      <input className="inputLogin" autoFocus placeholder="Username..." type="text"  onChange={(e)=>{setUsername(e.target.value)}} />
+                    <label className="formLabel">Nom d'utilisateur</label>          
+                      <input className="inputLogin" autoFocus placeholder="Entrez votre nom d'utilisateur..." type="text"  onChange={(e)=>{setUsername(e.target.value)}} />
                   </div> 
                   <div className="form-group">
-                  <label className="fromLabel">Mot de passe</label>  
-                      <input className="inputLogin" placeholder="Password..." type="Password"  onChange={(e)=>{setPassword(e.target.value)}} />
+                  <label className="formLabel">Mot de passe</label>  
+                      <input className="inputLogin" placeholder="Entrez votre mot de passe..." type="Password"  onChange={(e)=>{setPassword(e.target.value)}} />
                   </div> 
-                  <button className="loginBut" type="submit" onClick={login} >LOGIN</button>
+                  <button className="loginBut" type="submit" onClick={login} >Sign In</button>
                   
-                  <h3>{errorMessage}</h3>
+                  <h4>{errorMessage}</h4>
                 </form>
                   <div className="controller2">
                   <img src={controller} className="App-controller2" alt="controller" />
@@ -77,7 +77,7 @@ function Login() {
               </div>
               </div>
           </header>
-      )
+      
         </div>
         
     )
