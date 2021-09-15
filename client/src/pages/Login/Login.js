@@ -44,7 +44,7 @@ function Login() {
         <div>
              <header className="App-header">
                <div className="div-header">
-               <div className="logoHeader">
+               {/* <div className="logoHeader"> */}
                  <div className="div-logo">
                   <div className="logoLog">
                     <img src={logo} className="App-logo" alt="logo" />
@@ -75,7 +75,7 @@ function Login() {
                   <div className="controller2">
                   <img src={controller} className="App-controller2" alt="controller" />
                 </div>
-              </div>
+              {/* </div> */}
               </div>
           </header>
       
