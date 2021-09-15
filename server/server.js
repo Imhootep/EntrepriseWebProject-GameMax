@@ -36,5 +36,7 @@ const userRoute = require('./routes/user')
 app.use ("/", userRoute);
 const loginRoute = require('./routes/login')
 app.use ("/", loginRoute);
-const postRoute = require('./routes/postRoutes')
-app.use("/", postRoute)
+const postRoute = require('./routes/postRoute')
+app.use("/", postRoute);
+const commentRoute = require('./routes/commentRoute')
+app.use("/", commentRoute);

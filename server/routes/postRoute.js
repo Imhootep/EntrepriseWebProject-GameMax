@@ -7,7 +7,7 @@ const cors = require('cors')
 router.post('/upload', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
-  const user_id = req.params.user
+  const user_id = req.user.id 
   const attachment = req.body.attachment
 
   //Vérification que les champs obligatoires sont bien remplis
@@ -38,7 +38,7 @@ router.post('/upload', async (req, res) => {
 router.get('/home', async (req, res) => {
   const posts = await Post.findAll()
 
-  if(!posts){
+  if(!posts || posts == []){
     return res.status(400).send({
       message: "Aucun post à retourner"
     })
@@ -49,7 +49,7 @@ router.get('/home', async (req, res) => {
 })
 
 //UPDATE
-router.put('//home/:id', async (req, res) => {
+router.put('/home/:id', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
   const user_id = req.params.user
@@ -58,7 +58,7 @@ router.put('//home/:id', async (req, res) => {
   //Vérification que les champs obligatoires sont bien remplis
 
   if(title === undefined || title === ""){
-    res.statut(400).send({
+    res.status(400).send({
       message: "Il n'y a pas de titre !"
     })
   }

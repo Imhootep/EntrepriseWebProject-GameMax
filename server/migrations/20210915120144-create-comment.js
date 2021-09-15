@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Posts',
-          key: 'id'
+          key: 'id',
         }
       },
       id_user: {
@@ -21,15 +21,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
         }
       },
       content: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      avatar: {
-        allowNull: true,
         type: Sequelize.STRING
       },
       createdAt: {
