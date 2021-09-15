@@ -133,12 +133,16 @@
 .inputLogin:focus{
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 5px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   background-color:rgba(243, 239, 243, 0.8);
-  }
-
-.inputLogin:focus {
   outline-offset: 0px ;
   outline: none ;
+  border-radius: 0;
+	-webkit-transition: border-radius 0.5s   linear ;
+	-moz-transition: border-radius 0.5s   linear ;
+	-o-transition: border-radius 0.5s   linear ;
+	-ms-ransition: border-radius 0.5s   linear ;
+	transition: border-radius 0.5s   linear ;
   }
+  
 
 .loginBut{
   position:relative;
