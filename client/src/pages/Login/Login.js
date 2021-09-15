@@ -69,8 +69,7 @@ function Login() {
                   <label className="formLabel">Mot de passe</label>  
                       <input className="inputLogin" placeholder="Entrez votre mot de passe..." type="Password"  onChange={(e)=>{setPassword(e.target.value)}} />
                   </div> 
-                  <button className="loginBut" type="submit" onClick={login} >Sign In</button>
-                  
+                  <button className="loginBut" type="submit" onClick={login} ><span>Sign In</span></button>
                   <h4>{errorMessage}</h4>
                 </form>
                   <div className="controller2">
