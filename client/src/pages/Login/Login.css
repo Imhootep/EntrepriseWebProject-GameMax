@@ -223,6 +223,7 @@
 }
 
 .registerLink{
+    /*display: inline-block;   ------> permet de pas avoir le bouton qui "bave sur la gauche */
     position:relative;
     overflow: hidden;
     text-decoration: none;
