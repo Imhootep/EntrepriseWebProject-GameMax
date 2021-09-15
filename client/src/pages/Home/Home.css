@@ -40,10 +40,6 @@
 }
 
 
-
-.postAvatar{
-   /* flex: 40%;*/
-}
 .userAvatar{
     width: 100px;
    /* height: 100px;*/
@@ -153,7 +149,7 @@
     cursor:pointer;
 }
 
-.comment{
+.SocialInteractionImg{
     width:25px;
 }
 
@@ -196,9 +192,10 @@
     margin:10px 0 0 0;
 }
 
-.CommentDownSection{
-    max-height:183px;
+
+.CommentDisplay{
     overflow-y:scroll;
+    max-height:183px;
 }
 
 .SocialInteraction{
@@ -206,7 +203,7 @@
     flex-grow: 1;
     text-align:center;
     cursor:pointer;
-    border: 1px solid white;
+   /* border: 1px solid white;*/
 }
 
 .SocialInteraction:hover{
@@ -218,10 +215,69 @@
     border-left: 1px solid black ;
 }
 
+.addCommentBlock{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+
 .addComment{
     width: 60%;
     margin: 10px 10px 10px 50px;
+    display:inline-block;
+    transition: border-radius 0.5s   linear ;
 }
+
+.addComment:focus{
+    border-radius: 0;
+	transition: border-radius 0.5s   linear ;
+}
+
+.addCommentButton{
+    cursor:pointer;
+    display:inline-block;
+    position:relative;
+    overflow: hidden;
+    padding:10px 5px 0px;
+    margin:15px 0 0 0;
+    background-color: rgba(140,77,148,.8);
+    border: none;
+    color: rgba(250, 249, 250, 0.8);
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    width: 60px;
+    height:3vmin;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 5px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.addCommentButton span{
+    position:relative;
+    z-index: 2;
+  }
+  
+  .addCommentButton:after {
+    position:absolute;
+    content: '';
+    top:0;
+    left:0;
+    width:0;
+    height:100%;
+    background-color: rgba(78, 39, 83, 1);
+    border-radius: 20px;
+    transition: all 0.35s;
+  }
+  
+  .addCommentButton:hover{
+    z-index: 1000;
+  }
+  
+  .addCommentButton:hover:after{
+    width:100%;
+  }
 
 .CommentDateBottom, .CommentDateTop{
     font-size: 12px;
