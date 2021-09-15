@@ -43,13 +43,15 @@ function Home() {
                                  <div className="postAvatar">
                                      <img className="userAvatar" src={avatar} alt="avatar"/>
                                  </div>
-                                 <div className="postName">@ {val.author}</div>
-                                 <div className="postDate">
-                                     <ul className="MoreInfos">
-                                         <li>Posté le:</li>
-                                         <li>{val.createdAt}</li>
-                                     </ul>
-                                 </div>
+                                 <div className="postInfos">
+                                    <div className="postName">@ {val.author}</div>
+                                    <div className="postDate">
+                                        <ul className="MoreInfos">
+                                            <li>Posté le:</li>
+                                            <li>{val.createdAt}</li>
+                                        </ul>
+                                    </div>
+                                </div>
                              </div>
                              <div className="postImageblock">
                                  <img className="postBanner" src={image_post} alt="postBanner" />
