@@ -52,7 +52,7 @@ function Login() {
                     <img src={controller} className="App-controller" alt="controller" />
                     <div className="notYetRegistered">
                       <label className="notRegistered">Pas encore inscrit?</label>
-                      <a className="registerLink" href="/register">SIGN UP</a>
+                      <a className="registerLink" href="/register"><span>SIGN UP</span></a>
 
                     </div>
                   </div>

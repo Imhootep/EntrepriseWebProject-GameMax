@@ -157,7 +157,7 @@
 
 .loginBut{
   position:relative;
-
+  overflow: hidden;
   margin-top: 2rem;
   padding: 0.5rem;
   background-color: rgba(140,77,148,.8);
@@ -184,16 +184,14 @@
      /* border: solid 3px rgba(78, 39, 83, 0.8); */
 }
 
-.registerLink:hover{ /* .loginBut:hover,  */
-background-color: rgba(99, 78, 102, 0.8);
-}
 
-.loginBut span{
+
+.loginBut span, .registerLink span{
   position:relative;
   z-index: 2;
 }
 
-.loginBut:after{
+.loginBut:after {
   position:absolute;
   content: '';
   top:0;
@@ -204,16 +202,29 @@ background-color: rgba(99, 78, 102, 0.8);
   border-radius: 20px;
   transition: all 0.35s;
 }
+.registerLink:after {
+  position:absolute;
+  content: '';
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background-color: rgba(78, 39, 83, 1);
+  border-radius: 10px;
+  transition: all 0.35s;
+}
 
-.loginBut:hover{
+.loginBut:hover, .registerLink:hover{
   z-index: 1000;
 }
 
-.loginBut:hover:after{
+.loginBut:hover:after, .registerLink:hover:after{
   width:100%;
 }
 
 .registerLink{
+    position:relative;
+    overflow: hidden;
     text-decoration: none;
     text-align: center;
     margin-top: 3rem;
