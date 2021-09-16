@@ -41,7 +41,7 @@ function Register() {
     let history = useHistory()
 
     const register =() => {
-        Axios.post("http://localhost:8000/user/register", 
+        Axios.post("http://localhost:8000/register", 
         {username:username, 
          password:password,
          email:email,
