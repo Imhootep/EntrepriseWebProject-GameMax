@@ -17,12 +17,15 @@ const options = {
     secretOrKey: PUB_KEY
   };
 
-passport.use(new LocalStrategy(
-    async function(username, password, done) {
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  },
+    async function(email, password, done) {
        // console.log(username);
-        let u = await Users.findOne({ where : { username: username }});
+        let u = await Users.findOne({ where : { email: email }});
         if (!u) {
-          return done(null, false, { message: 'Nom d\'utilisateur incorrect' });
+          return done(null, false, { message: 'E-mail incorrect' });
         }
         bcrypt.compare(password, u.password, function(err, res) {
             if (err) return cb(err);
