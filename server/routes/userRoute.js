@@ -200,10 +200,9 @@ router.delete('/user/:id', async (req,res) => {
 
 // Login de l'utilisateur
 router.post('/login', passport.authenticate('local'), function(req, res) {  
-    const signedJWT = jwt.sign(req.user.toJSON(), PRIV_KEY, { algorithm: 'RS256'})/*,(err, token) => {
-        if(err) { console.log(err) }    
-        res.send(token);
-    });;  */
+    
+    const signedJWT = jwt.sign(req.user.toJSON(), PRIV_KEY, { algorithm: 'RS256'})
+    
     jwt.verify(signedJWT, PUB_KEY, { algorithms: ['RS256'] }, (err, payload) => {
         if (err === 'TokenExpiredError') {
             console.log('Whoops, your token has expired!');
@@ -223,7 +222,7 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
         //verify the JWT token generated for the user
         console.log("Go sur la page protected !")
-        jwt.verify(req.token, PRIV_KEY, (err, authorizedData) => {
+        jwt.verify(req.payload, PRIV_KEY, (err, authorizedData) => {
             if(err){
                 //If error send Forbidden (403)
                 console.log('ERROR: Could not connect to the protected route');
