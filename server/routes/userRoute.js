@@ -42,8 +42,6 @@ passport.use(new JwtStrategy(options, async function(jwt_payload, done) {
     // We will assign the `sub` property on the JWT to the database ID of user
     await Users.findByPk({ id : jwt_payload.sub }, function(err, user) {    
         console.log("id : "+jwt_payload.sub)   
-        // This flow look familiar?  It is the same as when we implemented
-        // the `passport-local` strategy
         if (err) {
             return done(err, false);
         }
