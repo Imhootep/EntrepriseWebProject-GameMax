@@ -1,6 +1,6 @@
 let express = require('express')
 let session = require('express-session')
-var passport = require('passport')
+const passport = require('passport')
 let app = express()
 app.use(passport.initialize());
 app.use(passport.session());
