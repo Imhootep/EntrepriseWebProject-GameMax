@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar'
-import './register.css'
+import './Register.css'
 import add from '../../img/icons/add.png'
 import {useHistory} from 'react-router-dom';
 // import fb from '../../img/icons/facebook.png'
