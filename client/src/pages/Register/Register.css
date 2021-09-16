@@ -1,0 +1,263 @@
+body{
+    background-color: rgba(242, 236, 243, 0.8);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.mainRegister{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register{
+    margin: 60px;
+    width: 60%;
+    background-color: #f7f7f7;
+    border: 1px;
+    border-radius: 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    /* box-shadow: rgba(140, 77, 148, 0.6) 0px 54px 55px, rgba(140, 77, 148, 0.6) 0px -12px 30px, rgba(140, 77, 148, 0.6) 0px 4px 6px, rgba(140, 77, 148, 0.6) 0px 12px 13px, rgba(140, 77, 148, 0.6) 0px -3px 5px; */
+}
+
+.registerForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+h3{
+    color: rgba(140,77,148,.8);
+    font-size: 40px;
+    /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; AJOUTé a body*/
+}
+.userType{
+    color: rgba(242, 236, 243, 0.8);
+    font-size: 20px;
+}
+
+input, textarea{
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid rgba(140,77,148,.8);
+    border-radius: 15px;
+    color: rgba(78, 39, 83, 0.8);
+    width: 50%;
+    height: 3vmin;
+    font-weight: bold;
+    background-color: rgba(250, 249, 250, 0.8);
+  
+  }
+  .typeUser label{
+    display:block;
+    color:rgba(140,77,148,.8);
+    margin: 0 0 10px 0;
+  }
+
+  select{
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 3px solid rgba(140,77,148,.8);
+    border-radius: 6px;
+    color: rgba(78, 39, 83, 0.8);
+    width: 37vmin ;
+    height: 7vmin;
+    font-weight: bold;
+    background-color: rgba(250, 249, 250, 0.8);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  input::placeholder, textarea::placeholder{
+    color: rgba(78, 39, 83, 0.8);
+    font-weight: normal;
+    
+  }
+  
+  input:focus{
+    border: 1.5px solid rgba(78, 39, 83, 0.8) ;
+    box-shadow: 0 0 3px rgba(78, 39, 83, 0.8) ;
+    -moz-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
+    -webkit-box-shadow: 0 0 3px rgba(140,77,148,.8) ;
+    }
+  
+  input:focus {
+    outline-offset: 0px ;
+    outline: none ;
+    background-color:rgba(243, 239, 243, 0.8); 
+    }
+  
+  .createUser{
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: rgba(78, 39, 83, 0.8);
+    border: none;
+    color: rgba(250, 249, 250, 0.8);
+    font-weight: bold;
+     width: 80px; 
+    align-self: center;
+    
+    border-radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .createUser:hover{
+    background-color: rgba(99, 78, 102, 0.8);
+  }
+
+  .createUser:focus{
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 64px 65px, rgba(0, 0, 0, 0.12) 0px -20px 40px, rgba(0, 0, 0, 0.12) 4px 8px 10px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    color: rgba(204, 201, 204, 0.8);
+    -webkit-transform:scale(1.10); 
+      -moz-transform:scale(1.10);
+      -ms-transform:scale(1.10);
+      -o-transform:scale(1.10); 
+       transform:scale(1.10);
+       background-color: rgba(93, 47, 99, 0.8);
+       /* border: solid 3px rgba(78, 39, 83, 0.8); */
+  }
+
+  .register{
+    color: rgba(250, 249, 250, 0.8);
+  }
+
+  .ico{
+      padding: 5px 10px;
+      margin: 0 0 10px 0;
+      background-color: rgba(140,77,148,.0);
+      border: none;
+  }
+
+  .adress{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+ 
+  .num {
+    /* width: 75px;*/
+    width: 8vmin;
+ }
+
+ .boite {
+      width:8vmin;
+      margin:0 0 0 5px;
+  }
+ 
+
+  .cp{
+      width: 13vmin;
+      margin:0 0 0 5px;
+  }
+
+ 
+  
+
+.icone{
+    height:30px;
+    width: 40px;
+    align-self: center;
+    fill: rgba(140,77,148,.8);
+}
+.icone:hover{
+    fill: rgba(114, 63, 121, 0.8);
+}
+
+
+button:hover {
+    cursor: pointer;
+
+}
+
+.members{/*
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    size: 50px;*/
+    margin: 0 0 0 60px;
+}
+
+.member, .function{
+    max-width:16vmin;
+}
+
+.function{
+   margin:0 0 0 5px; 
+}
+
+.addingButton{
+    padding: 20px;
+    background-color: rgba(140,77,148,.0);
+    border: none;
+      
+}
+
+.add{
+    width: 20px;
+}
+
+
+.displayBlock{
+    display:none;
+}
+
+@media screen and (max-width: 670px){
+    .ico{
+        padding: 0 6px;
+    }
+    .register{
+        width:100%;
+    } 
+
+    select{
+        height: 9vmin; 
+      }
+}
+
+@media screen and (max-width: 461px){
+   .register{
+       margin:10px;
+   }
+   input, textarea, select{
+    width: 55vmin ;
+  }
+  
+  .num {
+    width: 12vmin;
+ }
+
+ .boite {
+      width:12vmin;
+  }
+
+  .cp{
+      width: 17vmin;
+  }
+
+  .members{
+      margin:0;
+      text-align: center;
+  }
+
+  .member, .function{
+      max-width: 24vmin;
+  }
+
+  select{
+    height: 45px; 
+  }
+
+}
+
+@media screen and (max-width: 330px){
+    h3{
+        font-size: 35px;
+    }
+
+    .displayBlock{
+        display:block;
+    }
+
+ }
