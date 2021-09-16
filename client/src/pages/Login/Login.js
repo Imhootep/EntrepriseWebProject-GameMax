@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 
 function Login() {
 
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const [errorMessage, setErrorMessage ] = useState('')
@@ -19,8 +19,9 @@ function Login() {
       e.preventDefault();
 
 
-      Axios.post("http://localhost:8000/user/login", 
-      {username:username, 
+      Axios.post("http://localhost:8000/login", 
+      {
+        email:email, 
         password:password
       })
       .then((response) =>{
@@ -29,8 +30,8 @@ function Login() {
         if (response.data.loggedIn) {
           
           localStorage.setItem("loggedIn", true);
-          localStorage.setItem("username", response.data.username);
-          console.log(response.data.username)
+          localStorage.setItem("email", response.data.email);
+          console.log(response.data.email)
           history.push('/home')
         } else {
           setErrorMessage(response.data.message);
@@ -63,7 +64,7 @@ function Login() {
                   <h2 className="signinTitle"> Sign In</h2>
                   <div className="form-group">
                     <label className="formLabel">Nom d'utilisateur</label>          
-                      <input className="inputLogin" autoFocus placeholder="Entrez votre nom d'utilisateur..." type="text"  onChange={(e)=>{setUsername(e.target.value)}} />
+                      <input className="inputLogin" autoFocus placeholder="Entrez votre nom email..." type="email"  onChange={(e)=>{setEmail(e.target.value)}} />
                   </div> 
                   <div className="form-group">
                   <label className="formLabel">Mot de passe</label>  
