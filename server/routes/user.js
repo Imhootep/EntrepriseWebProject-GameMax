@@ -214,15 +214,11 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
         
         if (err === null) {
             console.log('Your JWT was successfully validated!');
-        }
-        console.log(err)
-        console.log(payload);        
+        }       
+        res.send(payload)
     });
-    //console.log(req.user)
-    res.redirect('/protected');
 })
-
-/*
+// Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront
 router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
         //verify the JWT token generated for the user
         console.log("Go sur la page protected !")
@@ -241,7 +237,6 @@ router.get('/protected', passport.authenticate('jwt', { session: false }), (req,
             }
         })
 });
-*/
 
 // Logout de l'utilisateur
 router.get('/logout', function(req, res){
