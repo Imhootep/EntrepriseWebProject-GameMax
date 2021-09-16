@@ -3,10 +3,19 @@ const router = express.Router()
 const { Users } = require("../models");
 const cors = require('cors')
 const bcrypt = require('bcrypt')
-const saltRounds = 10
 const jwt = require('jsonwebtoken')
 var passport = require('passport')
-, LocalStrategy = require('passport-local').Strategy;
+, LocalStrategy = require('passport-local').Strategy;    
+const JwtStrategy = require('passport-jwt').Strategy
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const fs = require('fs');
+const PUB_KEY = fs.readFileSync(__dirname + '/jwtRS256.key.pub', 'utf8');
+const PRIV_KEY = fs.readFileSync(__dirname + '/jwtRS256.key', 'utf8');
+
+const options = {
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: PUB_KEY
+  };
 
 passport.use(new LocalStrategy(
     async function(username, password, done) {
@@ -18,35 +27,43 @@ passport.use(new LocalStrategy(
         bcrypt.compare(password, u.password, function(err, res) {
             if (err) return cb(err);
             if (res === false) {
-            return done(null, false, { message: 'Mot de passe incorrect' });
+                return done(null, false, { message: 'Mot de passe incorrect' });
             } else {
-            return done(null, u);
+                return done(null, u);
             }
         });
     }
 ));
-/*
-  passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-    User.findOne({id: jwt_payload.sub}, function(err, user) {
+
+passport.use(new JwtStrategy(options, async function(jwt_payload, done) {
+    // We will assign the `sub` property on the JWT to the database ID of user
+    await Users.findByPk({ id : jwt_payload.sub }, function(err, user) {    
+        console.log("id : "+jwt_payload.sub)   
+        // This flow look familiar?  It is the same as when we implemented
+        // the `passport-local` strategy
         if (err) {
             return done(err, false);
         }
         if (user) {
             return done(null, user);
         } else {
-            return done(null, false);   
-            //Something to do 
-        }
+            return done(null, false);
+        }  
     });
-}));*/
+}));
   
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-    Users.findByPk(id, function(err, user) {
-    done(err, user);
+ 
+    Users.findByPk(id).then(function(user) {
+        if (user) {
+            done(null, user);
+        } else {
+            done(user.errors, null);
+        }
     });
 });
 
@@ -181,9 +198,50 @@ router.delete('/user/:id', async (req,res) => {
 })
 
 // Login de l'utilisateur
-router.post('/login', passport.authenticate('local'), function(req, res) {                    
-    res.redirect('/user/' + req.user.id);
+router.post('/login', passport.authenticate('local'), function(req, res) {  
+    const signedJWT = jwt.sign(req.user.toJSON(), PRIV_KEY, { algorithm: 'RS256'})/*,(err, token) => {
+        if(err) { console.log(err) }    
+        res.send(token);
+    });;  */
+    jwt.verify(signedJWT, PUB_KEY, { algorithms: ['RS256'] }, (err, payload) => {
+        if (err === 'TokenExpiredError') {
+            console.log('Whoops, your token has expired!');
+        }
+        
+        if (err === 'JsonWebTokenError') {
+            console.log('That JWT is malformed!');
+        }
+        
+        if (err === null) {
+            console.log('Your JWT was successfully validated!');
+        }
+        console.log(err)
+        console.log(payload);        
+    });
+    //console.log(req.user)
+    res.redirect('/protected');
+})
+
+/*
+router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
+        //verify the JWT token generated for the user
+        console.log("Go sur la page protected !")
+        jwt.verify(req.token, PRIV_KEY, (err, authorizedData) => {
+            if(err){
+                //If error send Forbidden (403)
+                console.log('ERROR: Could not connect to the protected route');
+                res.sendStatus(403);
+            } else {
+                //If token is successfully verified, we can send the autorized data 
+                res.json({
+                    message: 'Successful log in',
+                    authorizedData
+                });
+                console.log('SUCCESS: Connected to protected route');
+            }
+        })
 });
+*/
 
 // Logout de l'utilisateur
 router.get('/logout', function(req, res){

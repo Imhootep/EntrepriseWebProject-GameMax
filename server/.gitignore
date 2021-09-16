@@ -1,1 +1,3 @@
 /node_modules
+/routes/jwtRS256.key
+/routes/jwtRS256.key.pub
