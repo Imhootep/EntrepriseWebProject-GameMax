@@ -26,7 +26,7 @@ function Create ()  {
 
         //     Axios.post("http://localhost:3001/upload", {title:title, description:description, image:fileName})
         // })
-        Axios.post("http://localhost:3001/upload", {
+        Axios.post("http://localhost:8000/post", {
             title:title, 
             description:description,
             author: localStorage.getItem("username")

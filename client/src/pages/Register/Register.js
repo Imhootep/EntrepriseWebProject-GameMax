@@ -3,15 +3,6 @@ import Navbar from '../../components/Navbar'
 import './Register.css'
 import add from '../../img/icons/add.png'
 import {useHistory} from 'react-router-dom';
-// import fb from '../../img/icons/facebook.png'
-// import insta from '../../img/icons/instagram.png'
-// import twi from '../../img/icons/twitter.png'
-// import you from '../../img/icons/youtube.png'
-// import linkedin from '../../img/icons/linkedin.png'
-// import discord from '../../img/icons/discord.svg'
-// import git from '../../img/icons/github.png'
-
-
 import Axios from 'axios'
 
 
@@ -41,7 +32,7 @@ function Register() {
     let history = useHistory()
 
     const register =() => {
-        Axios.post("http://localhost:8000/user/register", 
+        Axios.post("http://localhost:8000/register", 
         {username:username, 
          password:password,
          email:email,

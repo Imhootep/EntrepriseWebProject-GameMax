@@ -2,15 +2,15 @@ let express = require('express')
 let session = require('express-session')
 const passport = require('passport')
 let app = express()
-app.use(passport.initialize());
-app.use(passport.session());
 let cookieParser = require('cookie-parser')
 const cors = require ('cors');
-
 require('dotenv').config({path: './config/.env'})
 
 //Middlewares
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(cors())
 app.use(express.json())
 app.use('/assets', express.static('public')); 

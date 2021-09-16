@@ -10,17 +10,17 @@ import Comment from '../../components/Comment';
 
 function Home() {
 
-    const [uploads, setUploads] = useState ([])
+    const [posts, setPosts] = useState ([])
 
     useEffect(()=>{
-        if(!localStorage.getItem("loggedIn")) {
-            localStorage.setItem("loggedIn", false);
+        if(!localStorage.getItem("payload")) {
+            localStorage.setItem("payload", false);
         }
     }, [])
 
     useEffect(() =>{
-        Axios.get("http://localhost:8000/upload").then ((response) =>{
-            setUploads(response.data);
+        Axios.get("http://localhost:8000/post").then ((response) =>{
+            setPosts(response.data);
         })
     }, []);
 
@@ -34,7 +34,7 @@ function Home() {
 
 {/* -------------------------BLOC DES POSTS---------------------- */}
             <div className="flexMiddle">
-                {uploads.map((val)=>{
+                {posts.map((val)=>{
                     return(
 
                       <div className="postHome" key={val.id}> 

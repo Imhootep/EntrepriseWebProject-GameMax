@@ -9,11 +9,11 @@ import discord from "../img/icons/discord.png"
 
 function Navbar() {
 
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [payload, setPayload] = useState(false)
 
     useEffect (() =>{
-        setLoggedIn(localStorage.getItem("loggedIn"))
-    }, [localStorage.getItem("loggedIn")])
+        setPayload(localStorage.getItem("payload"))
+    }, [localStorage.getItem("payload")])
 
 
 
@@ -25,7 +25,7 @@ function Navbar() {
                 
             </div>
             
-         {loggedIn ? (
+         {payload ? (
          <>
           <div className="icons">
                 <div className="logoIcon">
