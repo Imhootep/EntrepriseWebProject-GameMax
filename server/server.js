@@ -19,10 +19,8 @@ app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
 })
 
-const userRoute = require('./routes/user')
+const userRoute = require('./routes/userRoute')
 app.use ("/", userRoute);
-const loginRoute = require('./routes/login')
-app.use ("/", loginRoute);
 const postRoute = require('./routes/postRoute')
 app.use("/", postRoute);
 const commentRoute = require('./routes/commentRoute')

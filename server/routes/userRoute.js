@@ -68,7 +68,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Inscription de l'utilisateur
-router.post('/user/register', async (req, res)=>{
+router.post('/register', async (req, res)=>{
 
     flag = 1;
     const username = req.body.username
@@ -218,7 +218,7 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
         res.send(payload)
     });
 })
-// Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront
+// Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront ///// ROUTE DE TEST
 router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
         //verify the JWT token generated for the user
         console.log("Go sur la page protected !")

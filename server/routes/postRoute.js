@@ -35,7 +35,7 @@ router.post('/upload', async (req, res) => {
 })
 
 //READ
-router.get('/home', async (req, res) => {
+router.get('/post', async (req, res) => {
   const posts = await Post.findAll()
 
   if(!posts || posts == []){
@@ -49,7 +49,7 @@ router.get('/home', async (req, res) => {
 })
 
 //UPDATE
-router.put('/home/:id', async (req, res) => {
+router.put('/post/:id', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
   const user_id = req.params.user
@@ -84,7 +84,7 @@ router.put('/home/:id', async (req, res) => {
 })
 
 //DELETE
-router.delete('/home/:id', async (req,res) => {
+router.delete('/post/:id', async (req,res) => {
   try{
     const deleted = await Post.destroy({
       where: {

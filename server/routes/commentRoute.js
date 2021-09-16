@@ -4,7 +4,7 @@ const { Comment } = require('../models')
 const cors = require('cors')
 
 //CREATE 
-router.post('/home/:idPost', async (req, res) => {
+router.post('/post/comment/:idPost', async (req, res) => {
   const id_post = req.post.id
   const id_user = req.user.id
   const content = req.body.content
@@ -29,14 +29,14 @@ router.post('/home/:idPost', async (req, res) => {
 })
 
 //READ
-router.get('/home/:idPost', async(req, res) => {
+router.get('/post/:idPost', async(req, res) => {
   const comments = await Comment.findAll()
 
   return res.send(comments)
 })
 
 //UPDATE
-router.put('/home/:idPost/:id', async (req, res) => {
+router.put('/post/:idPost/:id', async (req, res) => {
   const id_post = req.post.id
   const id_user = req.user.id
   const content = req.body.content
@@ -65,7 +65,7 @@ router.put('/home/:idPost/:id', async (req, res) => {
 })
 
 //DELETE
-router.delete('/home/:idPost/:id', async (req,res) => {
+router.delete('/post/:idPost/:id', async (req,res) => {
   try{
     const deleted = await Comment.destroy({
       where: {
