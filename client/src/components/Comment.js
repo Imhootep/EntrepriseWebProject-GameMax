@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import avatar from '../img/R.png' //testing
-import like from '../img/like.png' //testing
-import share from '../img/share.png' //testing
-import comment2 from '../img/comment.png' //testing
+import like from '../img/star.png' //testing
+import comment2 from '../img/comment-icon2.png' //testing
 
       //  PARTIE COMMENTAIRES 
       const Comment = () => {
@@ -23,9 +22,7 @@ import comment2 from '../img/comment.png' //testing
                         {/*<p className="CommentButton" onClick={handleClick}> {isCommentDisplayed ? "cacher" : "12 commentaires"} </p>
                         <img src={comment} className="comment" alt="comment"/>*/}
                     </div>
-                    <div className="SocialInteraction">
-                        <img src={share}  alt="partage" className="SocialInteractionImg"/>
-                    </div>
+                    
                  </div>
                         {isCommentDisplayed ? 
                 <div className="CommentDownSection"> {/*ici faire boucle pour afficher les blocs*/}

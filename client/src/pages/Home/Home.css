@@ -150,10 +150,6 @@
     cursor:pointer;
 }
 
-.SocialInteractionImg{
-    width:25px;
-}
-
 .CommentButton{/*
     display: inline-block;
     margin: 10px 0px 0 0;
@@ -199,16 +195,28 @@
     max-height:183px;
 }
 
+
 .SocialInteraction{
     flex-basis: 0;
     flex-grow: 1;
     text-align:center;
+    padding: 5px 20px;
     cursor:pointer;
+    height: 30px;
+    display: flex;
+    justify-content: center
    /* border: 1px solid white;*/
 }
 
-.SocialInteraction:hover{
-    background-color: RGBA(140,77,148,0.5);
+.SocialInteractionImg:hover{
+    background-color: rgba(250, 249, 250, 0.3);
+    padding:5px 100px;
+    border-radius: 15px;
+}
+
+.SocialInteractionImg{
+    width:25px;
+    align-self: center;
 }
 
 .SocialMiddle{
