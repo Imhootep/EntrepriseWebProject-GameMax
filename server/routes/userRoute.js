@@ -220,25 +220,6 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
         })
     });
 })
-// Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront ///// ROUTE DE TEST
-router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
-        //verify the JWT token generated for the user
-        console.log("Go sur la page protected !")
-        jwt.verify(req.payload, PRIV_KEY, (err, authorizedData) => {
-            if(err){
-                //If error send Forbidden (403)
-                console.log('ERROR: Could not connect to the protected route');
-                res.sendStatus(403);
-            } else {
-                //If token is successfully verified, we can send the autorized data 
-                res.json({
-                    message: 'Successful log in',
-                    authorizedData
-                });
-                console.log('SUCCESS: Connected to protected route');
-            }
-        })
-});
 
 // Logout de l'utilisateur
 router.get('/logout', function(req, res){

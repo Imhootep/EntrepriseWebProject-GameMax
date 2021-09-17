@@ -9,11 +9,11 @@ import discord from "../img/icons/discord.png"
 
 function Navbar() {
 
-    const [payload, setPayload] = useState(false)
+    const [JWT, setJWT] = useState(false)
 
     useEffect (() =>{
-        setPayload(localStorage.getItem("payload"))
-    }, [localStorage.getItem("payload")])
+        setJWT(localStorage.getItem("JWT"))
+    }, [localStorage.getItem("JWT")])
 
 
 
@@ -28,7 +28,7 @@ function Navbar() {
                 
             </div>
             
-         {payload ? (
+         {JWT ? (
          <>
           <div className="icons">
                 <div className="logoIcon">
