@@ -17,6 +17,12 @@
     
 }
 
+.IconNavMario{
+    background-color: white;
+    border-radius: 15px;
+
+}
+
 .discordLogo{
     padding-top: 20px;
     padding-left: 40px;
@@ -67,6 +73,40 @@
 .iconeYoutube:hover{
     fill: rgba(250, 249, 250, 0.8)
 }
+
+.iconeVimeo{
+    padding-top: 30px;
+    padding-left: 20px;
+    height:30px;
+    width: 50px;
+    fill: white;
+}
+.iconeVimeo:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
+
+.iconeReddit{
+    padding-top: 30px;
+    padding-left: 5px;
+    height:30px;
+    width: 50px;
+    fill: white;
+}
+.iconeReddit:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
+
+.iconeSteam{
+    padding-top: 30px;
+    padding-left: 5px;
+    height:30px;
+    width: 50px;
+    fill: white;
+}
+.iconeSteam:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
+
 .iconeHome{
     padding-top: 10px;
     padding-left: 20px;
@@ -89,9 +129,10 @@
     cursor: pointer;
     
 }
-.IconNav{
+.IconNav, .IconNavMario{
     height:50px;
     width: 50px;
+    margin-right: 50px;
     
 }
 
@@ -111,7 +152,7 @@
     
     
     padding-top: 15px;
-    height: 75px;
+    height: 70px;
     width: 10vmin;
 }
 
