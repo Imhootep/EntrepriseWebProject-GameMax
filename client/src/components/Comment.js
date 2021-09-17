@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import comment from '../img/comment-icon2.png'
 import avatar from '../img/R.png' //testing
 import like from '../img/like.png' //testing
 import share from '../img/share.png' //testing
