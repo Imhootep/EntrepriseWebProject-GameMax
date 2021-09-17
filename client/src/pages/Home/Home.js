@@ -84,7 +84,7 @@ function Home() {
                     </div>
                     <div className="rightContent">
                         <div className="favoriteBlock">
-                            <img src={star} className="starYellow" />
+                            <img src={star} className="starYellow" alt="favoris"/>
                             <div className="favoriteText">mons game dev cafe </div>
                         </div>
                         

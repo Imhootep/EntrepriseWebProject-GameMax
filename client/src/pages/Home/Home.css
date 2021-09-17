@@ -317,12 +317,12 @@
 .rightBlock{
     display: flex;
     flex-direction: column;
-    background-color: rgb(223, 163, 238, 0.2);
+    background-color: RGBA(140,77,148,0.3);
     border-radius: 20px;
     min-height: 500px;
-    margin: 20px 20px 0 0;
+    margin: 20px 50px 0 0;
     padding: 20px 10px 20px 10px;
-    max-width: 300px;
+    max-width: 400px;
     /*min-height: 500px;*/
     /*min-width: 500px;*/
 }
