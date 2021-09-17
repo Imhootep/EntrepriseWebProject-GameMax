@@ -7,6 +7,7 @@ import image_post from '../../img/GameDevCafe.jpg'
 import ReadMore from '../../components/ReadMore';
 import Comment from '../../components/Comment';
 import star from '../../img/star_yellow.png';
+import cross from '../../img/cross.png';
 
 
 function Home() {
@@ -83,6 +84,14 @@ function Home() {
                         Prochain évènement
                     </div>
                     <div>
+                        <div className="nextEvent">
+                            <div className="nextEventTitle">
+                                La boum chez francois
+                            </div>
+                            <div>
+                                04/10/2021
+                            </div>
+                        </div>
                         <img src={image_post} className="favoriteEvent" />
                     </div>
                     <div className="rightTitle">
@@ -90,8 +99,13 @@ function Home() {
                     </div>
                     <div className="rightContent">
                         <div className="favoriteBlock">
-                            <img src={star} className="starYellow" alt="favoris"/>
-                            <div className="favoriteText">mons game dev cafe </div>
+                            <div className="favoriteGrow">
+                                <img src={star} className="starYellow" alt="favoris"/>
+                                <div className="favoriteText">mons game dev cafe </div>
+                            </div>
+                            <div>
+                                <img src={cross} className="cross" alt="cross"/>
+                            </div>
                         </div>
                     </div>
                 </div>

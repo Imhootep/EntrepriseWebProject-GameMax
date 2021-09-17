@@ -333,11 +333,15 @@
     font-weight: bold;
     font-size: 125%;
     text-align: center;
+    border-bottom: 1px solid white;
+    padding: 0 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 .favoriteBlock{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .starYellow{ /* onclick enlever le favori de la liste */
@@ -347,8 +351,26 @@
 
 .favoriteText{
     padding:0 10px 0 10px;
+    display:inline;
+    vertical-align: top;
 }
 
 .favoriteEvent{
     width:100%;
+}
+
+.cross{
+    width:25px;
+}
+
+.favoriteGrow{
+    display: inline-block;
+}
+
+.nextEvent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 10px 0 10px 0;
 }
