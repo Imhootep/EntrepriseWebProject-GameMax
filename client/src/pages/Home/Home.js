@@ -28,9 +28,9 @@ function Home() {
         <>
         <Navbar/>
         <div className="containerHome">
-            <div className="flexCote">
+            {/* <div className="flexCote">
                 Block de gauche
-            </div>
+            </div> */}
 
 {/* -------------------------BLOC DES POSTS---------------------- */}
             <div className="flexMiddle">
