@@ -314,7 +314,34 @@
 /* ----------------------- right block home ---------------------- */
 
 .rightBlock{
+    display: flex;
+    flex-direction: column;
     background-color: rgb(223, 163, 238, 0.2);
+    border-radius: 20px;
+    min-height: 500px;
+    margin: 20px 20px 0 0;
+    padding: 20px 10px 20px 10px;
+    max-width: 300px;
     /*min-height: 500px;*/
     /*min-width: 500px;*/
+}
+
+.rightTitle{
+    font-weight: bold;
+    font-size: 125%;
+    text-align: center;
+}
+
+.favoriteBlock{
+    display: flex;
+    flex-direction: row;
+}
+
+.starYellow{ /* onclick enlever le favori de la liste */
+    width:25px;
+    cursor:pointer;
+}
+
+.favoriteText{
+    padding:0 10px 0 10px;
 }

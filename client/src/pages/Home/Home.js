@@ -6,6 +6,7 @@ import avatar from '../../img/R.png'
 import image_post from '../../img/GameDevCafe.jpg'
 import ReadMore from '../../components/ReadMore';
 import Comment from '../../components/Comment';
+import star from '../../img/star_yellow.png';
 
 
 function Home() {
@@ -76,8 +77,19 @@ function Home() {
             
             </div>
             {/* ------------------------------------------------------------ */}
-            <div className="flexCote rightBlock">
-                block de droite
+            <div className="flexCote">
+                <div className="rightBlock">
+                    <div className="rightTitle">
+                        Favoris
+                    </div>
+                    <div className="rightContent">
+                        <div className="favoriteBlock">
+                            <img src={star} className="starYellow" />
+                            <div className="favoriteText">mons game dev cafe </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
 
         </div>
