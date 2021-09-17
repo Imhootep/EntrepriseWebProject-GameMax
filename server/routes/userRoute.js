@@ -215,7 +215,10 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
         if (err === null) {
             console.log('Your JWT was successfully validated!');
         }       
-        res.send(payload)
+        res.send({
+            payload,
+            signedJWT
+        })
     });
 })
 // Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront ///// ROUTE DE TEST
