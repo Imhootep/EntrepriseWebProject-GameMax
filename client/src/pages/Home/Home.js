@@ -80,6 +80,12 @@ function Home() {
             <div className="flexCote">
                 <div className="rightBlock">
                     <div className="rightTitle">
+                        Prochain évènement
+                    </div>
+                    <div>
+                        <img src={image_post} className="favoriteEvent" />
+                    </div>
+                    <div className="rightTitle">
                         Favoris
                     </div>
                     <div className="rightContent">
@@ -87,7 +93,6 @@ function Home() {
                             <img src={star} className="starYellow" alt="favoris"/>
                             <div className="favoriteText">mons game dev cafe </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>

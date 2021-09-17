@@ -348,3 +348,7 @@
 .favoriteText{
     padding:0 10px 0 10px;
 }
+
+.favoriteEvent{
+    width:100%;
+}
