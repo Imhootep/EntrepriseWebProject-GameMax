@@ -30,6 +30,7 @@ function Login() {
         if (response.data) {
           
           localStorage.setItem("payload", true);
+          // localStorage.setItem("token", response.data.signedJWT);
           localStorage.setItem("email", response.data.email);
           console.log(response.data.email)
           history.push('/home')
