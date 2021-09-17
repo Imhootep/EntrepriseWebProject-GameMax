@@ -10,12 +10,40 @@
     
 }
 
-a{
-    padding-right: 30px;
+.iconLink{
+    padding-right: 40px;
+    padding-left: 30px;
     
 }
 
-.Navbar .discordLogo
+.discordLogo{
+    padding-top: 20px;
+    padding-left: 40px;
+    height:50px;
+    width:100px;
+}
+.iconeFb{
+    padding-top: 30px;
+    padding-left: 10px;
+    height:30px;
+    width: 30px;
+    fill: white;
+}
+.iconeTwitter{
+    padding-top: 30px;
+    padding-left: 10px;
+    height:30px;
+    width: 30px;
+    fill: white;
+}
+.iconeTwitch{
+    padding-top: 30px;
+    padding-left: 20px;
+    height:30px;
+    width: 30px;
+    fill: white;
+}
+
 .navbar .iconLink{
     display: block;
 }

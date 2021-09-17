@@ -1,6 +1,6 @@
 const express = require ('express')
 const router = express.Router()
-const { Upload } = require('../models')
+const { Upload, sequelize } = require('../models')
 const cors = require('cors')
 
 //CREATE 
@@ -35,7 +35,9 @@ router.post('/upload', async (req, res) => {
 
 //READ ALL 
 router.get('/upload', async(req, res) => {
-  const uploads = await Upload.findAll()
+  const uploads = await Upload.findAll({
+      order:sequelize.literal('id DESC')
+  })
 
   return res.send(uploads)
 })
