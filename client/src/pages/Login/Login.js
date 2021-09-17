@@ -27,9 +27,10 @@ function Login() {
       .then((response) =>{
         console.log(response)
           
-        if (response.data.loggedIn) {
+        if (response.data) {
           
-          localStorage.setItem("loggedIn", true);
+          localStorage.setItem("payload", true);
+          // localStorage.setItem("token", response.data.signedJWT);
           localStorage.setItem("email", response.data.email);
           console.log(response.data.email)
           history.push('/home')

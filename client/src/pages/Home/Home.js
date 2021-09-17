@@ -13,8 +13,8 @@ function Home() {
     const [uploads, setUploads] = useState ([])
 
     useEffect(()=>{
-        if(!localStorage.getItem("loggedIn")) {
-            localStorage.setItem("loggedIn", false);
+        if(!localStorage.getItem("payload")) {
+            localStorage.setItem("payload", false);
         }
     }, [])
 
@@ -44,7 +44,7 @@ function Home() {
                                      <img className="userAvatar" src={avatar} alt="avatar"/>
                                  </div>
                                  <div className="postInfos">
-                                    <div className="postName">@ {val.author}</div>
+                                    <div className="postName">{val.author}</div>
                                     <div className="postDate">
                                         <ul className="MoreInfos">
                                             <li>Posté le:</li>
