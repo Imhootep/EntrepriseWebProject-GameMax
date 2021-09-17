@@ -92,7 +92,7 @@ function Home() {
                                 04/10/2021
                             </div>
                         </div>
-                        <img src={image_post} className="favoriteEvent" />
+                        <img src={image_post} className="favoriteEvent" alt="favorite Event" />
                     </div>
                     <div className="rightTitle">
                         Favoris

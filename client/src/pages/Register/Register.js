@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import './Register.css'
 import add from '../../img/icons/add.png'
@@ -52,6 +52,12 @@ function Register() {
             history.push('/')
         });
     };
+
+    useEffect(()=>{
+        if(!localStorage.getItem("JWT")) {
+            localStorage.setItem("JWT", false);
+        }
+    }, [])
 
     return (
         <>

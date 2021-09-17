@@ -23,12 +23,18 @@
     height:50px;
     width:100px;
 }
+.discordLogo:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
 .iconeFb{
     padding-top: 30px;
     padding-left: 10px;
     height:30px;
     width: 30px;
     fill: white;
+}
+.iconeFb:hover{
+    fill: rgba(250, 249, 250, 0.8)
 }
 .iconeTwitter{
     padding-top: 30px;
@@ -37,8 +43,32 @@
     width: 30px;
     fill: white;
 }
+.iconeTwitter:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
 .iconeTwitch{
     padding-top: 30px;
+    padding-left: 20px;
+    height:30px;
+    width: 30px;
+    fill: white;
+}
+.iconeTwitch:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
+
+.iconeYoutube{
+    padding-top: 30px;
+    padding-left: 20px;
+    height:30px;
+    width: 50px;
+    fill: white;
+}
+.iconeYoutube:hover{
+    fill: rgba(250, 249, 250, 0.8)
+}
+.iconeHome{
+    padding-top: 10px;
     padding-left: 20px;
     height:30px;
     width: 30px;
@@ -48,12 +78,20 @@
 .navbar .iconLink{
     display: block;
 }
-.navbar .iconLink:hover{
+.iconeHome:focus{
     height: 75px;
+}
+.iconeHome:hover{
+    fill: rgba(250, 249, 250, 0.8)
 }
 
 .navbar a:hover {
     cursor: pointer;
+    
+}
+.IconNav{
+    height:50px;
+    width: 50px;
     
 }
 
@@ -113,3 +151,5 @@
         
     }
 }
+
+
