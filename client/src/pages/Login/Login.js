@@ -63,7 +63,7 @@ function Login() {
                 <h2 className="loginTitle2">le réseau social des créateurs de jeux vidéos belges!</h2>
                   <h2 className="signinTitle"> Sign In</h2>
                   <div className="form-group">
-                    <label className="formLabel">Nom d'utilisateur</label>          
+                    <label className="formLabel">E-mail</label>          
                       <input className="inputLogin" autoFocus placeholder="Entrez votre nom email..." type="email"  onChange={(e)=>{setEmail(e.target.value)}} />
                   </div> 
                   <div className="form-group">
@@ -79,9 +79,7 @@ function Login() {
               {/* </div> */}
               </div>
           </header>
-      
-        </div>
-        
+        </div>       
     )
 }
 

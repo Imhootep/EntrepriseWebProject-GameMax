@@ -202,7 +202,6 @@ router.delete('/user/:id', async (req,res) => {
 router.post('/login', passport.authenticate('local'), function(req, res) {  
     
     const signedJWT = jwt.sign(req.user.toJSON(), PRIV_KEY, { algorithm: 'RS256'})
-    
     jwt.verify(signedJWT, PUB_KEY, { algorithms: ['RS256'] }, (err, payload) => {
         if (err === 'TokenExpiredError') {
             console.log('Whoops, your token has expired!');
@@ -215,7 +214,10 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
         if (err === null) {
             console.log('Your JWT was successfully validated!');
         }       
-        res.send(payload)
+        res.send({
+            payload,
+            signedJWT
+        })
     });
 })
 // Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront ///// ROUTE DE TEST
