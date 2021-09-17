@@ -17,6 +17,7 @@ router.post('/upload', async (req, res) => {
     })
   }
   else if(description === undefined || description === ""){
+    req.flash('error', 'Post description is empty ! ')
     return res.status(400).send({
       message: "La description du post est vide !"
     })
@@ -38,8 +39,9 @@ router.get('/upload', async(req, res) => {
   const uploads = await Upload.findAll({
       order:sequelize.literal('id DESC')
   })
-
+  
   return res.send(uploads)
+
 })
 
 //UPDATE
