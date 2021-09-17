@@ -76,7 +76,7 @@ function Home() {
             
             </div>
             {/* ------------------------------------------------------------ */}
-            <div className="flexCote">
+            <div className="flexCote rightBlock">
                 block de droite
             </div>
 
