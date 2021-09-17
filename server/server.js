@@ -21,7 +21,9 @@ app.listen(process.env.PORT, () => {
 
 const userRoute = require('./routes/userRoute')
 app.use ("/", userRoute);
-const postRoute = require('./routes/postRoute')
-app.use("/", postRoute);
+// const postRoute = require('./routes/postRoute')
+// app.use("/", postRoute);
 const commentRoute = require('./routes/commentRoute')
 app.use("/", commentRoute);
+const uploadRoute = require('./routes/uploadRoute')
+app.use("/", uploadRoute);

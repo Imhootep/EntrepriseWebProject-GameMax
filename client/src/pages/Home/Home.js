@@ -10,7 +10,7 @@ import Comment from '../../components/Comment';
 
 function Home() {
 
-    const [posts, setPosts] = useState ([])
+    const [uploads, setUploads] = useState ([])
 
     useEffect(()=>{
         if(!localStorage.getItem("payload")) {
@@ -19,8 +19,8 @@ function Home() {
     }, [])
 
     useEffect(() =>{
-        Axios.get("http://localhost:8000/post").then ((response) =>{
-            setPosts(response.data);
+        Axios.get("http://localhost:8000/upload").then ((response) =>{
+            setUploads(response.data);
         })
     }, []);
 
@@ -34,7 +34,7 @@ function Home() {
 
 {/* -------------------------BLOC DES POSTS---------------------- */}
             <div className="flexMiddle">
-                {posts.map((val)=>{
+                {uploads.map((val)=>{
                     return(
 
                       <div className="postHome" key={val.id}> 
@@ -44,7 +44,7 @@ function Home() {
                                      <img className="userAvatar" src={avatar} alt="avatar"/>
                                  </div>
                                  <div className="postInfos">
-                                    <div className="postName">@ {val.author}</div>
+                                    <div className="postName">{val.author}</div>
                                     <div className="postDate">
                                         <ul className="MoreInfos">
                                             <li>Posté le:</li>

@@ -62,7 +62,7 @@ import '../pages/Home/Home.css'
                   <p className="readmoreBlock">
                     {isReadMore ? text.slice(0, 200) : text}
                   </p>
-                  {text.length <= 200 ? "MOINS DE 200" : 
+                  {text.length <= 200 ? "" : 
                   <div onClick={toggleReadMore} className="ReadMore">
                     {isReadMore ? "...lire plus" : "réduire..."}
                   </div>
