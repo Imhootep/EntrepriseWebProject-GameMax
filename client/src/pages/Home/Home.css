@@ -96,7 +96,8 @@
 
 .flexMiddle .postHome .postContent .description{
     /*flex: 80%;*/
-    background-color: rgb(223, 163, 238, 0.2);
+    background-color: RGBA(140,77,148,0.3);
+    
     min-height:50px;
     padding: 20px;
 /* ICI */
@@ -207,7 +208,7 @@
 }
 
 .SocialInteraction:hover{
-    background-color: rgb(223, 163, 238, 0.3);
+    background-color: RGBA(140,77,148,0.5);
 }
 
 .SocialMiddle{

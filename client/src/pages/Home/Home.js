@@ -14,8 +14,8 @@ function Home() {
     const [uploads, setUploads] = useState ([])
 
     useEffect(()=>{
-        if(!localStorage.getItem("payload")) {
-            localStorage.setItem("payload", false);
+        if(!localStorage.getItem("JWT")) {
+            localStorage.setItem("JWT", false);
         }
     }, [])
 
