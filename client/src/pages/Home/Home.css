@@ -353,6 +353,7 @@
     padding:0 10px 0 10px;
     display:inline;
     vertical-align: top;
+    cursor: pointer;
 }
 
 .favoriteEvent{
@@ -361,6 +362,7 @@
 
 .cross{
     width:25px;
+    cursor: pointer;
 }
 
 .favoriteGrow{
