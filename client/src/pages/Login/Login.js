@@ -8,38 +8,32 @@ import { useHistory } from 'react-router-dom';
 
 function Login() {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    const [errorMessage, setErrorMessage ] = useState('')
+  const [errorMessage, setErrorMessage ] = useState('')
 
-    let history = useHistory();
+  let history = useHistory();
 
-    const login =(e) => {
-      e.preventDefault();
+  const login =(e) => {
+    e.preventDefault();
 
-
-      Axios.post("http://localhost:8000/login", 
-      {
-        email:email, 
-        password:password
-      })
-      .then((response) =>{
-        console.log(response)
-          
-        if (response.data) {
-          
-          localStorage.setItem("payload", true);
-          // localStorage.setItem("token", response.data.signedJWT);
-          localStorage.setItem("email", response.data.email);
-          console.log(response.data.email)
+    Axios.post("http://localhost:8000/login", 
+    {
+      email:email, 
+      password:password
+    })
+    .then((response) =>{
+          console.log(response)
+      if (response.data) {
+          localStorage.setItem("JWT", response.data.signedJWT);
+          localStorage.setItem("email", response.data.payload.email);
           history.push('/home')
-        } else {
+      } else {
           setErrorMessage(response.data.message);
-        }
-
-      });
-    };
+      }
+    });
+  };
 
     return (
         
