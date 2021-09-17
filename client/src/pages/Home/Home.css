@@ -319,10 +319,12 @@
     flex-direction: column;
     background-color: RGBA(140,77,148,0.3);
     border-radius: 20px;
-    min-height: 500px;
+    min-height: 700px;
     margin: 20px 50px 0 0;
     padding: 20px 10px 20px 10px;
     max-width: 400px;
+    position: sticky;
+    top: 130px;
     /*min-height: 500px;*/
     /*min-width: 500px;*/
 }
