@@ -24,12 +24,12 @@ function Create ()  {
         Axios.post('https://api.cloudinary.com/v1_1/ewp-team/image/upload', formData).then((response) =>{
             const fileName = response.data.public_id
 
-            Axios.post("http://localhost:3001/upload", {title:title, description:description, image:fileName})
+            Axios.post("http://localhost:8000/upload", {title:title, description:description, image:fileName})
         })
         Axios.post("http://localhost:8000/upload", {
             title:title, 
             description:description,
-            author: localStorage.getItem("email")
+            author: localStorage.getItem("username")
         }).then (() =>{
         history.push('/home')
         })

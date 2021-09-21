@@ -7,7 +7,9 @@ const cors = require('cors')
 router.post('/upload', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
-  const author = req.body.author
+  // const author = req.body.author
+  const id_user = req.user.id
+  // const author = req.body.author
 
   //Vérification que le titre/description n'est pas vide
 
@@ -46,7 +48,8 @@ router.get('/upload', async(req, res) => {
 router.put('/home/:id', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
-  const author = req.body.author
+  // const author = req.body.author
+  const id_user = req.user.id
 
   //Vérification que les champs obligatoires sont bien remplis
 

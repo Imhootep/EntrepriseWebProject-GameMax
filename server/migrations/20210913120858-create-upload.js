@@ -27,6 +27,14 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      id_user:{
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references:{
+          model: 'Users',
+          key: 'id'
+        }
       }
     });
   },

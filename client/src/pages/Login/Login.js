@@ -30,8 +30,8 @@ function Login() {
         if (response.data) {
           
           localStorage.setItem("JWT", response.data.signedJWT);
-          localStorage.setItem("email", response.data.payload.email);
-          console.log(response.data.email)
+          localStorage.setItem("username", response.data.payload.username);
+          console.log(response.data.payload.username)
           history.push('/home')
         } else {
           setErrorMessage(response.data.message);
