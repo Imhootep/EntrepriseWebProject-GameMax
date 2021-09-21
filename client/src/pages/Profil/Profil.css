@@ -1,5 +1,21 @@
+.ensProfil{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+
+.showProfil{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+   
+}
+
 .postProfil{
-    max-width: 300px; 
+    max-width: 500px; 
     border: solid 1px black;
     margin: 20px;
+    
 }
