@@ -11,19 +11,15 @@ function Profil() {
         Axios.get("http://localhost:8000/user").then ((response) =>{
             setUsers(response.data);
             console.log(response.data);
-
+/* --- pas au bon endroit
             for(let i in response.data){
                 //console.log(response.data[i]);
                 console.log(response.data[i].username);
                 if(response.data[i].id == localStorage.userId){
                     console.log("le bon "+response.data[i].username);
                 }
-             }
-/*
-            if(response.data.id === users.userId){
-                console.log("reussi")
-                console.log("wtf:"+response.data.id)
-            }*/
+             }*/
+
         })
     }, []);
     
@@ -31,10 +27,19 @@ function Profil() {
     useEffect(() =>{
         Axios.get("http://localhost:8000/user").then ((response) =>{
        
-        if (response.data.username === localStorage.username){
-            setUser(response.data)
-            console.log(user.username)
-        } 
+            for(let i in response.data){
+                //console.log(response.data[i]);
+                console.log(response.data[i].username);
+                if(response.data[i].id == localStorage.userId){
+
+                    //console.log("le bon "+response.data[i].username);
+                    //console.log(response.data[i]);
+
+                    console.log(Object.values(response.data[i]));
+                    setUser(Object.values(response.data[i])) // il me manque les clés du tableau
+                   // console.log(user)
+                }
+             }
     })
         
     }, []);
@@ -48,13 +53,15 @@ function Profil() {
 
             <div>
             {user.map((val)=>{
+
+               // console.log(val)
                     return(
                         <div>
-                        <div>{val.username }</div>
-            <div>{val.email }</div>
-            <div>{val.phone }</div>
-            <div>{val.street }</div>
-            <div>{val.website }</div>
+                        <div>c'est toi:{val.username }</div>
+                        <div>{val.email }</div>
+                        <div>{val.phone }</div>
+                        <div>{val.street }</div>
+                        <div>{val.website }</div>
                         </div>
             
                     )
