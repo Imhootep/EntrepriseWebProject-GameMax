@@ -38,7 +38,9 @@ function Create ()  {
             description:description,
             id_user: localStorage.getItem("userId"),
             username: localStorage.getItem("username"),
-            type: type         
+            type: type  
+            
+            
         }).then (() =>{
         //history.push('/home')
         setInterval(function(){ history.push('/home') }, 500);
