@@ -7,7 +7,8 @@ const cors = require('cors')
 router.post('/upload', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
-  const author = req.body.author
+  const type = req.body.type
+  const id_user = res.locals.user
 
   //Vérification que le titre/description n'est pas vide
 
@@ -23,7 +24,7 @@ router.post('/upload', async (req, res) => {
   }
   else{
     try{
-      Upload.create({ title, description, author})
+      Upload.create({ title, description, id_user, type})
       res.status(200).send({
         message: "Insertion effectuée"
       })

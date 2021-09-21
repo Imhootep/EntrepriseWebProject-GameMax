@@ -10,7 +10,14 @@ function Create ()  {
 
     const [title, setTitle] = useState ("")
     const [description, setDescription] = useState ("")
+    
     // const [image, setImage] = useState ([])
+
+    const [type, setType] = useState('post');
+    const handleChange = function (e){
+        e.preventDefault() /* ??? */
+        setType(e.target.value)
+    }
 
     let history = useHistory()
 
@@ -29,7 +36,8 @@ function Create ()  {
         Axios.post("http://localhost:8000/upload", {
             title:title, 
             description:description,
-            author: localStorage.getItem("username")
+            id_user: localStorage.getItem("userId"),
+            type: type
         }).then (() =>{
         history.push('/home')
         })
@@ -43,11 +51,11 @@ function Create ()  {
         <div className="creationPost">
             <h3>Crée un Post</h3>
                 <div className="postForm">
-                    {/* <select>
-                        <option>Event</option>
-                        <option>Doc</option>
-                        <option>Post</option>
-                    </select> */}
+                    <select className="type" name="type" id="type" value={type} onChange={handleChange}>
+                        <option value="event">Event</option>
+                        <option value="doc">Doc</option>
+                        <option value="post">Post</option>
+                    </select>
                     <input 
                         className="inputPost"
                         type="text"

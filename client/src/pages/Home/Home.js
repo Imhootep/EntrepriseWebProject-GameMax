@@ -47,7 +47,7 @@ function Home() {
                                      <img className="userAvatar" src={avatar} alt="avatar"/>
                                  </div>
                                  <div className="postInfos">
-                                    <div className="postName">{val.author}</div>
+                                    <div className="postName"> posté par {val.id_user}</div>
                                     <div className="postDate">
                                         <ul className="MoreInfos">
                                             <li>Posté le:</li>
