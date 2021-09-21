@@ -28,14 +28,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      id_user:{
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references:{
-          model: 'Users',
-          key: 'id'
-        }
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {
