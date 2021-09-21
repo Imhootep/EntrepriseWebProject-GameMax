@@ -9,6 +9,7 @@ router.post('/upload', async (req, res) => {
   const description = req.body.description
   const type = req.body.type
   const id_user = req.body.id_user
+  const username = req.body.username
   
   //Vérification que le titre/description n'est pas vide
   
@@ -29,7 +30,7 @@ router.post('/upload', async (req, res) => {
   }
   else{
     try{
-      Upload.create({ title, id_user, description, type})
+      Upload.create({ title, id_user, username, description, type})
       res.status(200).send({
         message: "Insertion effectuée"
       })

@@ -23,6 +23,9 @@ module.exports = {
           key: 'id'
         }
       },
+      username: {
+        type: Sequelize.STRING,
+      },
       isFav: {
         allowNull: true,
         type: Sequelize.STRING
