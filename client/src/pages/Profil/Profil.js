@@ -46,11 +46,11 @@ function Profil() {
               
               <div className="postProfil" key={val.id}>
               
-            <div>{val.username }</div>
-            <div>{val.email }</div>
-            <div>{val.phone }</div>
-            <div>{val.street }</div>
-            <div>{val.website }</div>
+            <div>Nom d'utilisateur : {val.username }</div>
+            <div>Email : {val.email }</div>
+            <div>Téléphone : {val.phone }</div>
+            <div>Adresse : {val.street }</div>
+            <div>Site Web : {val.website }</div>
             <br></br>
             </div>
             </div>
