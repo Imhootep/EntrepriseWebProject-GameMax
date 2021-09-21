@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Axios from 'axios'
-import "./Profil.css"
 
 function Profil() {
 
@@ -21,11 +20,6 @@ function Profil() {
                 }
              }*/
 
-/*
-            if(response.data.id === users.userId){
-                console.log("reussi")
-                console.log("wtf:"+response.data.id)
-            }*/
         })
     }, []);
     
@@ -48,8 +42,6 @@ function Profil() {
              }
     })
         
-                })
-
     }, []);
 
 
@@ -65,33 +57,27 @@ function Profil() {
                // console.log(val)
                     return(
                         <div>
-                        <div>c'est toi:{val.username }</div>
+                        {/* <div>c'est toi:{val.username }</div>
                         <div>{val.email }</div>
                         <div>{val.phone }</div>
                         <div>{val.street }</div>
-                        <div>{val.website }</div>
+                        <div>{val.website }</div> */}
                         </div>
             
                     )
                     })}
-
-            <hr/>
             </div>
             
         {users.map((val)=>{
                     return(
           <div>
-              
               <div className="postProfil" key={val.id}>
-                  
             <div>{val.username }</div>
             <div>{val.email }</div>
             <div>{val.phone }</div>
             <div>{val.street }</div>
             <div>{val.website }</div>
             <br></br>
-            <button>voir profil</button>
-            <button>favoris</button>
             </div>
             </div>
           
