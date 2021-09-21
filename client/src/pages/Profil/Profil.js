@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Axios from 'axios'
+import "./Profil.css"
 
 function Profil() {
 
@@ -11,14 +12,6 @@ function Profil() {
         Axios.get("http://localhost:8000/user").then ((response) =>{
             setUsers(response.data);
             console.log(response.data);
-
-            for(let i in response.data){
-                //console.log(response.data[i]);
-                console.log(response.data[i].username);
-                if(response.data[i].id == localStorage.userId){
-                    console.log("le bon "+response.data[i].username);
-                }
-             }
 /*
             if(response.data.id === users.userId){
                 console.log("reussi")
@@ -31,12 +24,19 @@ function Profil() {
     useEffect(() =>{
         Axios.get("http://localhost:8000/user").then ((response) =>{
        
-        if (response.data.username === localStorage.username){
-            setUser(response.data)
-            console.log(user.username)
-        } 
-    })
+            
+            console.log(user.id)
+            for(let i in response.data){
+                //console.log(response.data[i]);
+                console.log(response.data[i].username);
+                if(response.data[i].id === localStorage.userId){
+                    setUser(response.data)
+                    console.log(Object.value(response.data[i].username));
+                }
+            }
         
+                })
+
     }, []);
 
 
@@ -50,7 +50,8 @@ function Profil() {
             {user.map((val)=>{
                     return(
                         <div>
-                        <div>{val.username }</div>
+            <h5> profil d'utilisateur </h5>
+            <div>{val.username }</div>
             <div>{val.email }</div>
             <div>{val.phone }</div>
             <div>{val.street }</div>
@@ -59,18 +60,24 @@ function Profil() {
             
                     )
                     })}
+
+            <hr/>
             </div>
             
         {users.map((val)=>{
                     return(
           <div>
+              
               <div className="postProfil" key={val.id}>
+                  
             <div>{val.username }</div>
             <div>{val.email }</div>
             <div>{val.phone }</div>
             <div>{val.street }</div>
             <div>{val.website }</div>
             <br></br>
+            <button>voir profil</button>
+            <button>favoris</button>
             </div>
             </div>
           
