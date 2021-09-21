@@ -16,7 +16,7 @@ function App() {
         <Route path="/" exact render ={ ()=> <Login/> } />
         <Route path="/home" exact render ={ ()=> <Home/> } />
         <Route path="/upload" exact render ={ ()=> <Create/> } />
-        <Route path="/profil" exact render ={ ()=> <Profil/> } />
+        <Route path="/user" exact render ={ ()=> <Profil/> } />
         <Route path="/register" exact render ={ ()=> <Register/> } />
         
       </Router>

@@ -13,6 +13,7 @@ import cross from '../../img/cross.png';
 function Home() {
 
     const [uploads, setUploads] = useState ([])
+    
 
     useEffect(()=>{
         if(!localStorage.getItem("JWT")) {
@@ -23,9 +24,13 @@ function Home() {
     useEffect(() =>{
         Axios.get("http://localhost:8000/upload").then ((response) =>{
             setUploads(response.data);
+            // const user = localStorage.getItem("username")
             console.log(response.data);
+            // console.log(user)
         })
     }, []);
+
+
 
     return (
         <>
@@ -47,7 +52,7 @@ function Home() {
                                      <img className="userAvatar" src={avatar} alt="avatar"/>
                                  </div>
                                  <div className="postInfos">
-                                    <div className="postName"> posté par {val.id_user}</div>
+                                    <div className="postName">{val.username}</div>
                                     <div className="postDate">
                                         <ul className="MoreInfos">
                                             <li>Posté le:</li>

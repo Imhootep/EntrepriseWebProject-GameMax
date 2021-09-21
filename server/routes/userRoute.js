@@ -116,7 +116,23 @@ router.post('/register', async (req, res)=>{
     }
 })
 
+// Données de tous les utilisateurs
+
+router.get('/user', async (req,res) => {
+
+    const users = await User.findAll()
+    
+    if (!users) {
+        return res.status(400).send({
+            message: "Utilisateur introuvable"
+        })
+    } else {
+        return res.send(users)
+    }
+})
+
 // Données d'un utilisateur sur base de son ID
+
 router.get('/user/:id', async (req,res) => {
 
     const user = await User.findByPk(req.params.id)

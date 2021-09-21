@@ -23,7 +23,7 @@ function Create ()  {
 
     const upload =() =>{
 
-        const formData = new FormData()
+        // const formData = new FormData()
         
         // formData.append("file", image[0])
         // formData.append("upload_preset", "ml_default" )
@@ -37,7 +37,10 @@ function Create ()  {
             title:title, 
             description:description,
             id_user: localStorage.getItem("userId"),
-            type: type         
+            username: localStorage.getItem("username"),
+            type: type  
+            
+            
         }).then (() =>{
         //history.push('/home')
         setInterval(function(){ history.push('/home') }, 500);
