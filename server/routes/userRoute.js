@@ -1,6 +1,6 @@
 const express = require ('express');
 const router = express.Router()
-const { Users } = require("../models");
+const { User } = require("../models");
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -23,7 +23,7 @@ passport.use(new LocalStrategy({
   },
     async function(email, password, done) {
        // console.log(username);
-        let u = await Users.findOne({ where : { email: email }});
+        let u = await User.findOne({ where : { email: email }});
         if (!u) {
           return done(null, false, { message: 'E-mail incorrect' });
         }
@@ -40,7 +40,7 @@ passport.use(new LocalStrategy({
 
 passport.use(new JwtStrategy(options, async function(jwt_payload, done) {
     // We will assign the `sub` property on the JWT to the database ID of user
-    await Users.findByPk({ id : jwt_payload.sub }, function(err, user) {    
+    await User.findByPk({ id : jwt_payload.sub }, function(err, user) {    
         console.log("id : "+jwt_payload.sub)   
         if (err) {
             return done(err, false);
@@ -59,7 +59,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
  
-    Users.findByPk(id).then(function(user) {
+    User.findByPk(id).then(function(user) {
         if (user) {
             done(null, user);
         } else {
@@ -80,7 +80,7 @@ router.post('/register', async (req, res)=>{
     const number = req.body.number
     const box = req.body.box
     const cp = req.body.cp
-    const commune = req.body.commune
+    const city = req.body.city
     const social = req.body.social
     const website = req.body.website
     const member = req.body.member
@@ -89,7 +89,7 @@ router.post('/register', async (req, res)=>{
  
  //Vérification que les champs obligatoires sont bien remplis
     var champsObligatoires = []
-    champsObligatoires.push(username, password, email, phone, street, number, cp, commune, member)
+    champsObligatoires.push(username, password, email, phone, street, number, cp, city, member)
     champsObligatoires.forEach(function(item, index) {
      if(!item){    
      flag = 0
@@ -102,7 +102,7 @@ router.post('/register', async (req, res)=>{
     }
     else{            
         try {                   
-            await Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })    
+            await User.create({ username, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
             res.status(200).send({
                 message: "Insertion effectuée"
             })
@@ -115,7 +115,7 @@ router.post('/register', async (req, res)=>{
 // Données d'un utilisateur sur base de son ID
 router.get('/user/:id', async (req,res) => {
 
-    const user = await Users.findByPk(req.params.id)
+    const user = await User.findByPk(req.params.id)
     
     if (!user) {
         return res.status(400).send({
@@ -138,7 +138,7 @@ router.put('/user/:id', async (req, res)=>{
     const number = req.body.number
     const box = req.body.box
     const cp = req.body.cp
-    const commune = req.body.commune
+    const city = req.body.city
     const social = req.body.social
     const website = req.body.website
     const member = req.body.member
@@ -147,7 +147,7 @@ router.put('/user/:id', async (req, res)=>{
  
 
     var champsObligatoires = []
-    champsObligatoires.push(username, password, email, phone, street, number, cp, commune, member)
+    champsObligatoires.push(username, password, email, phone, street, number, cp, city, member)
     champsObligatoires.forEach(function(item, index) {
     if(!item){    
      flag = 0
@@ -160,8 +160,8 @@ router.put('/user/:id', async (req, res)=>{
     }
     else{
         try {
-            let user = await Users.findByPk(req.params.id)
-            user.update({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment }, {
+            let user = await User.findByPk(req.params.id)
+            user.update({ username, password, email, phone, street, number, box, cp, city, social, website, member, games, comment }, {
                 where: {
                   id: req.params.id
                 }
@@ -179,7 +179,7 @@ router.put('/user/:id', async (req, res)=>{
 router.delete('/user/:id', async (req,res) => {
 
         try{
-        const deleted = await Users.destroy({
+        const deleted = await User.destroy({
             where: {
                 id: req.params.id
             }
