@@ -21,6 +21,10 @@ app.listen(process.env.PORT, () => {
 
 const userRoute = require('./routes/userRoute')
 app.use ("/", userRoute);
+app.get('*', function(req, res,next){
+    res.locals.user = req.user || null;
+    next();
+})
 // const postRoute = require('./routes/postRoute')
 // app.use("/", postRoute);
 const commentRoute = require('./routes/commentRoute')
