@@ -74,7 +74,7 @@ function Register() {
                     <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <div className="profilePic" >
                     <h5 className="userPic"> Ajoutez une photo de profil</h5>
-                    <input type="file" placeholder="photo de profil" onChange={(e)=>{setAvatar(e.target.value)}} />
+                    <input type="file" placeholder="Photo de profil" onChange={(e)=>{setAvatar(e.target.value)}} />
                     </div>
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      {/* <div className="typeUser">
