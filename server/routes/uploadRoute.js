@@ -28,11 +28,7 @@ router.post('/upload', async (req, res) => {
   }
   else{
     try{
-<<<<<<< HEAD
-      Upload.create({ title, description, id_user, type})
-=======
       Upload.create({ title, description, type})
->>>>>>> eac037566e6345576e751aed88053289a5f2581a
       res.status(200).send({
         message: "Insertion effectuée"
       })
