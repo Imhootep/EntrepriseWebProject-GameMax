@@ -7,7 +7,7 @@ const cors = require('cors')
 router.post('/upload', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
-  const author = req.body.author
+  const type = req.body.type
 
   //Vérification que le titre/description n'est pas vide
 
@@ -21,9 +21,14 @@ router.post('/upload', async (req, res) => {
       message: "La description du post est vide !"
     })
   }
+  else if(type === undefined || type === ""){
+    return res.status(400).send({
+      message: "Le type du post est vide !"
+    })
+  }
   else{
     try{
-      Upload.create({ title, description, author})
+      Upload.create({ title, description, type})
       res.status(200).send({
         message: "Insertion effectuée"
       })
