@@ -10,6 +10,10 @@ function Profil() {
         Axios.get("http://localhost:8000/user").then ((response) =>{
             setUsers(response.data);
             console.log(response.data);
+
+            if(response.data.id === users.userId){
+                console.log("reussi")
+            }
         })
     }, []);
 
