@@ -12,9 +12,18 @@ function Profil() {
             setUsers(response.data);
             console.log(response.data);
 
+            for(let i in response.data){
+                //console.log(response.data[i]);
+                console.log(response.data[i].username);
+                if(response.data[i].id == localStorage.userId){
+                    console.log("le bon "+response.data[i].username);
+                }
+             }
+/*
             if(response.data.id === users.userId){
                 console.log("reussi")
-            }
+                console.log("wtf:"+response.data.id)
+            }*/
         })
     }, []);
     
