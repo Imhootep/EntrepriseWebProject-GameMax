@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     author: DataTypes.STRING
+    
   }, {
     sequelize,
     modelName: 'Upload',

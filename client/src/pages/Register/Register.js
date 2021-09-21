@@ -67,6 +67,10 @@ function Register() {
                 <div className="registerForm">
                     <h3> Nouveau profil </h3>
                     <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
+                    <div className="profilePic" >
+                    <h5> Ajoutez une photo de profil</h5>
+                    <input type="file" placeholder="photo de profil" />
+                    </div>
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      <div className="typeUser">
                         {/* <label className="userType" htmlFor="name">Type d'utilisateur:</label>
@@ -129,7 +133,7 @@ function Register() {
                             <img src= {add} alt="fb" className="add" />
                         </button>
                     </div>
-                    <input type="text" placeholder="jeux a leur actif" onChange={(e)=>{setGames(e.target.value)}}/>
+                    <input type="text" placeholder="jeux à votre actif" onChange={(e)=>{setGames(e.target.value)}}/>
                     <textarea type="text" placeholder="commentaires" onChange={(e)=>{setComment(e.target.value)}}/>
                     <button className="createUser" onClick={register} >Créer</button>
                 </div>
