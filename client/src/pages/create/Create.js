@@ -10,22 +10,22 @@ function Create ()  {
 
     const [title, setTitle] = useState ("")
     const [description, setDescription] = useState ("")
-    // const [image, setImage] = useState ([])
+    const [image, setImage] = useState ([])
 
     let history = useHistory()
 
     const upload =() =>{
 
-    //     const formData = new FormData()
+        const formData = new FormData()
         
-    //     formData.append("file", image[0])
-    //     formData.append("upload_preset", "ml_default" )
+        formData.append("file", image[0])
+        formData.append("upload_preset", "ml_default" )
         
-        // Axios.post('https://api.cloudinary.com/v1_1/ewp-team/image/upload', formData).then((response) =>{
-        //     const fileName = response.data.public_id
+        Axios.post('https://api.cloudinary.com/v1_1/ewp-team/image/upload', formData).then((response) =>{
+            const fileName = response.data.public_id
 
-        //     Axios.post("http://localhost:3001/upload", {title:title, description:description, image:fileName})
-        // })
+            Axios.post("http://localhost:3001/upload", {title:title, description:description, image:fileName})
+        })
         Axios.post("http://localhost:8000/upload", {
             title:title, 
             description:description,
@@ -43,6 +43,11 @@ function Create ()  {
         <div className="creationPost">
             <h3>Crée un Post</h3>
                 <div className="postForm">
+                    <select>
+                        <option>Event</option>
+                        <option>Doc</option>
+                        <option>Post</option>
+                    </select>
                     <input 
                         className="inputPost"
                         type="text"
@@ -57,7 +62,7 @@ function Create ()  {
                         onChange={(e)=>{setDescription(e.target.value)}}
                     />
 
-                    {/* <input type="file" onChange={(e)=>setImage(e.target.value)} /> */}
+                    <input type="file" onChange={(e)=>setImage(e.target.value)} />
                     
                     <button className="createPost" onClick={upload}>Post</button>
 

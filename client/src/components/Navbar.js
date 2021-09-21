@@ -39,17 +39,19 @@ function Navbar() {
             //  a régler - trouver une solus pour quand JWT n'existe pas !!!!
          <>
           <div className="icons">
+
+          
+                <div className="logoIcon">
+                <a href="/home" className="iconLink"> <img src={homeLogo} alt="home" className="IconNav"/> </a>
+                </div>
                 <div className="logoIcon">
                 <a href="/upload" className="iconLink"> <img src={create} alt="create doc" className="IconNav" /> </a>
                 </div>
                 <div className="logoIcon">
                 {/* <a href="/profil" className="iconLink"> <img className="IconNavMario" src="data:image/png;base64,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" alt="profile"/> </a> */}
                 <a href="/home" className="iconLink"> <img src={user} alt="home" className="IconNav"/> </a>
+                </div>
                 
-                </div>
-                <div className="logoIcon">
-                <a href="/home" className="iconLink"> <img src={homeLogo} alt="home" className="IconNav"/> </a>
-                </div>
                 
             </div>
          </>
