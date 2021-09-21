@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      avatar: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       email: {
         allowNull: false,
         type: Sequelize.STRING
@@ -33,24 +37,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       box: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       cp: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      commune: {
+      city: {
         allowNull: false,
         type: Sequelize.STRING
       },
       social: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       website: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       member: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       games: {
@@ -58,6 +65,12 @@ module.exports = {
       },
       comment: {
         type: Sequelize.STRING
+      },
+      role: {
+        type: Sequelize.STRING
+      },
+      isAdmin: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
