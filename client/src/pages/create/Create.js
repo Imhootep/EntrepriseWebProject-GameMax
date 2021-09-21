@@ -8,8 +8,8 @@ import {useHistory} from 'react-router-dom';
 
 function Create ()  {
 
-    const [title, setTitle] = useState ("")
-    const [description, setDescription] = useState ("")
+    const [title, setTitle] = useState ('')
+    const [description, setDescription] = useState ('')
     // const [image, setImage] = useState ([])
 
     let history = useHistory()
@@ -30,7 +30,8 @@ function Create ()  {
             title:title, 
             description:description,
             author: localStorage.getItem("email")
-        }).then (() =>{
+        }).then ((response) =>{
+            console.log(response)
         history.push('/home')
         })
         
