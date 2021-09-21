@@ -40,7 +40,7 @@ function Create ()  {
             type: type         
         }).then (() =>{
         //history.push('/home')
-        setInterval(function(){ history.push('/home') }, 1);
+        setInterval(function(){ history.push('/home') }, 500);
         })
         
     }
