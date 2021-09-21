@@ -23,7 +23,6 @@ function Register() {
     const [member, setMember] = useState('')
     const [games, setGames] = useState('')
     const [comment, setComment] = useState('')
-    const [role, setRole] = useState('')
     const [isAdmin, setIsAdmin] = useState('')
 
 
@@ -51,8 +50,8 @@ function Register() {
          member:member,
          game:games,
          comment:comment,
-         role:role,
-         isAdmin:isAdmin
+        //  role:role,
+        //  isAdmin:isAdmin
         }).then((response) =>{
             console.log(response)
             history.push('/')
@@ -74,19 +73,19 @@ function Register() {
                     <h3> Nouveau profil </h3>
                     <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <div className="profilePic" >
-                    <h5> Ajoutez une photo de profil</h5>
+                    <h5 className="userPic"> Ajoutez une photo de profil</h5>
                     <input type="file" placeholder="photo de profil" onChange={(e)=>{setAvatar(e.target.value)}} />
                     </div>
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
-                     <div className="typeUser">
-                        {/* <label className="userType" htmlFor="name">Type d'utilisateur:</label>
+                     {/* <div className="typeUser">
+                        <label className="userType" htmlFor="name">Type d'utilisateur:</label>
                         <select className="type" name="type" id="type" value={role} onChange={handleChange}>
                                 <option value="partenaire">Partenaire</option>
                                 <option value="studio">Studio</option>
                                 <option value="expert">Expert</option>
                                 <option value="sponsor">Sponsor</option>
-                        </select> */}
-                    </div> 
+                        </select>
+                    </div>  */}
                     <input type="email" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}/>
                     <input type="number" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}}/>
                     {/*<div className="adress"> */}

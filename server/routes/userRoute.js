@@ -1,6 +1,6 @@
 const express = require ('express');
 const router = express.Router()
-const { Users } = require("../models");
+const { User } = require("../models");
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -73,6 +73,7 @@ router.post('/register', async (req, res)=>{
 
     flag = 1;
     const username = req.body.username
+    const avatar = req.body.avatar
     const password = req.body.password
     const email = req.body.email
     const phone = req.body.phone
@@ -86,6 +87,9 @@ router.post('/register', async (req, res)=>{
     const member = req.body.member
     const games = req.body.games
     const comment = req.body.comment
+    const role = req.body.role
+    const isAdmin = 0
+    
  
  //Vérification que les champs obligatoires sont bien remplis
     var champsObligatoires = []
@@ -102,7 +106,7 @@ router.post('/register', async (req, res)=>{
     }
     else{            
         try {                   
-            await Users.create({ username, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment })    
+            await User.create({ username, avatar, password, email, phone, street, number, box, cp, commune, social, website, member, games, comment, role, isAdmin })    
             res.status(200).send({
                 message: "Insertion effectuée"
             })
