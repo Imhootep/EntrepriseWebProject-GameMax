@@ -24,10 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     box: DataTypes.STRING,
     cp: DataTypes.INTEGER,
     city: DataTypes.STRING,
-    social: DataTypes.JSONTYPE,
+    social: DataTypes.STRING,
     website: DataTypes.STRING,
-    member: DataTypes.JSONTYPE,
-    games: DataTypes.JSONTYPE,
+    member: DataTypes.STRING,
+    games: DataTypes.STRING,
     comment: DataTypes.STRING,
     role: DataTypes.STRING,
     isAdmin: DataTypes.BOOLEAN
