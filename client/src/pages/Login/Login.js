@@ -31,7 +31,6 @@ function Login() {
           
           localStorage.setItem("JWT", response.data.signedJWT);
           localStorage.setItem("userId", response.data.payload.id);
-          console.log(response.data.payload.username)
           history.push('/home')
         } else {
           setErrorMessage(response.data.message);
