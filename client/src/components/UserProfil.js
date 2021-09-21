@@ -7,18 +7,22 @@ function UserProfil() {
 
     useEffect(() =>{
         Axios.get("http://localhost:8000/user").then ((response) =>{
-            console.log(user.id)
+       
             for(let i in response.data){
                 //console.log(response.data[i]);
                 console.log(response.data[i].username);
                 if(response.data[i].id === localStorage.userId){
-                    setUser(response.data)
-                    console.log(Object.value(response.data[i].username));
-                }
-            }
-        
-                })
 
+                    //console.log("le bon "+response.data[i].username);
+                    //console.log(response.data[i]);
+
+                    console.log(Object.values(response.data[i]));
+                    setUser(Object.values(response.data[i])) // il me manque les clés du tableau
+                   // console.log(user)
+                }
+             }
+    })
+        
     }, []);
 
 
@@ -31,11 +35,11 @@ function UserProfil() {
                         <div className="postProfil" key={val.id}>
                         
             
-            <div>{val.username }</div>
+            {/* <div>{val.username }</div>
             <div>{val.email }</div>
             <div>{val.phone }</div>
             <div>{val.street }</div>
-            <div>{val.website }</div>
+            <div>{val.website }</div> */}
                         </div>
             
                     )
