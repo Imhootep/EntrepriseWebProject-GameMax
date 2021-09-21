@@ -23,6 +23,7 @@ function Home() {
     useEffect(() =>{
         Axios.get("http://localhost:8000/upload").then ((response) =>{
             setUploads(response.data);
+            console.log(response.data);
         })
     }, []);
 
