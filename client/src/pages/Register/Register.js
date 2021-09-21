@@ -9,6 +9,7 @@ import Axios from 'axios'
 function Register() {
 
     const [username, setUsername] = useState('')
+    const [avatar, setAvatar] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -16,12 +17,14 @@ function Register() {
     const [number, setNumber] = useState('')
     const [box, setBox] = useState('')
     const [cp, setCp] = useState('')
-    const [commune, setCommune] = useState('')
+    const [city, setCity] = useState('')
     const [social, setSocial] = useState('')
     const [website, setwebsite] = useState('')
     const [member, setMember] = useState('')
     const [games, setGames] = useState('')
     const [comment, setComment] = useState('')
+    const [role, setRole] = useState('')
+    const [isAdmin, setIsAdmin] = useState('')
 
 
     // const [role, setRole] = useState('partenaire');
@@ -33,7 +36,8 @@ function Register() {
 
     const register =() => {
         Axios.post("http://localhost:8000/register", 
-        {username:username, 
+        {username:username,
+         avatar:avatar, 
          password:password,
          email:email,
          phone:phone,
@@ -41,12 +45,14 @@ function Register() {
          number:number,
          box:box,
          cp:cp,
-         commune:commune,
+         city:city,
          social:social,
          website:website,
          member:member,
          game:games,
-         comment:comment
+         comment:comment,
+         role:role,
+         isAdmin:isAdmin
         }).then((response) =>{
             console.log(response)
             history.push('/')
@@ -69,7 +75,7 @@ function Register() {
                     <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <div className="profilePic" >
                     <h5> Ajoutez une photo de profil</h5>
-                    <input type="file" placeholder="photo de profil" />
+                    <input type="file" placeholder="photo de profil" onChange={(e)=>{setAvatar(e.target.value)}} />
                     </div>
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      <div className="typeUser">
@@ -90,7 +96,7 @@ function Register() {
                             <input type="text" className="boite" id="box" placeholder="Boite" onChange={(e)=>{setBox(e.target.value)}}/>
                             <input type="number" className="cp" placeholder="Code postal" onChange={(e)=>{setCp(e.target.value)}}/>
                         </div>
-                        <input type="text" className="comm" placeholder="Localité" onChange={(e)=>{setCommune(e.target.value)}}/>
+                        <input type="text" className="comm" placeholder="Localité" onChange={(e)=>{setCity(e.target.value)}}/>
                     {/*</div>*/}
                     
                     <div className="buttonContainer">
