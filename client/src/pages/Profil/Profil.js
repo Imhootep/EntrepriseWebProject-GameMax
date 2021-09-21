@@ -9,10 +9,11 @@ function Profil() {
     useEffect(() =>{
         Axios.get("http://localhost:8000/user").then ((response) =>{
             setUsers(response.data);
-            
             console.log(response.data);
         })
     }, []);
+
+    
 
     return (
     <>
@@ -29,6 +30,7 @@ function Profil() {
             <div>{val.phone }</div>
             <div>{val.street }</div>
             <div>{val.website }</div>
+            <br></br>
             </div>
             </div>
           
