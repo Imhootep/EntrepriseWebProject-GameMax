@@ -8,9 +8,10 @@ router.post('/upload', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
   const type = req.body.type
-
+  const id_user = req.body.id_user
+  
   //Vérification que le titre/description n'est pas vide
-
+  
   if(title === undefined || title === ""){
     return res.status(400).send({
       message: "Le titre est vide !"
@@ -28,7 +29,7 @@ router.post('/upload', async (req, res) => {
   }
   else{
     try{
-      Upload.create({ title, description, type})
+      Upload.create({ title, id_user, description, type})
       res.status(200).send({
         message: "Insertion effectuée"
       })
@@ -48,7 +49,7 @@ router.get('/upload', async(req, res) => {
 })
 
 //UPDATE
-router.put('/home/:id', async (req, res) => {
+router.put('/upload/:id', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
   const author = req.body.author
@@ -82,7 +83,7 @@ router.put('/home/:id', async (req, res) => {
 })
 
 //DELETE
-router.delete('/home/:id', async (req,res) => {
+router.delete('/upload/:id', async (req,res) => {
   try{
     const deleted = await Upload.destroy({
       where: {

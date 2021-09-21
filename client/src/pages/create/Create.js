@@ -29,7 +29,8 @@ function Create ()  {
         Axios.post("http://localhost:8000/upload", {
             title:title, 
             description:description,
-            author: localStorage.getItem("username")
+            id_user: localStorage.getItem("id_user"),
+            type: "evènement"         
         }).then (() =>{
         history.push('/home')
         })
