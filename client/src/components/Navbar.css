@@ -49,9 +49,44 @@
     width: 30px;
     fill: white;
 }
+/*
 .iconeTwitter:hover{
     fill: rgba(250, 249, 250, 0.8)
 }
+*/
+/* */
+a{
+    position:relative;
+    overflow: hidden;
+}
+
+a .iconeYoutube{ /* was span */
+    position:relative;
+    z-index: 2;
+  }
+
+a:after {
+    position:absolute;
+    content: '';
+    top:0;
+    left:0;
+    width:0;
+    height:100%;
+    background-color: rgba(78, 39, 83, 1);
+    transition: all 0.35s;
+  }
+
+  a:hover{
+    z-index: 1000;
+  }
+  
+  a:hover:after{
+    width:100%;
+  }
+  
+
+/* */
+
 .iconeTwitch{
     padding-top: 30px;
     padding-left: 20px;
