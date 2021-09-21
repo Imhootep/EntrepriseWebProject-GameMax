@@ -43,7 +43,7 @@ router.get('/upload', async(req, res) => {
 })
 
 //UPDATE
-router.put('/home/:id', async (req, res) => {
+router.put('/upload/:id', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
   const author = req.body.author
@@ -77,7 +77,7 @@ router.put('/home/:id', async (req, res) => {
 })
 
 //DELETE
-router.delete('/home/:id', async (req,res) => {
+router.delete('/upload/:id', async (req,res) => {
   try{
     const deleted = await Upload.destroy({
       where: {
