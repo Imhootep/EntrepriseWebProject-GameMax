@@ -8,7 +8,6 @@ router.post('/upload', async (req, res) => {
   const title = req.body.title
   const description = req.body.description
   const type = req.body.type
-  const id_user = res.locals.user
 
   //Vérification que le titre/description n'est pas vide
 
@@ -22,9 +21,18 @@ router.post('/upload', async (req, res) => {
       message: "La description du post est vide !"
     })
   }
+  else if(type === undefined || type === ""){
+    return res.status(400).send({
+      message: "Le type du post est vide !"
+    })
+  }
   else{
     try{
+<<<<<<< HEAD
       Upload.create({ title, description, id_user, type})
+=======
+      Upload.create({ title, description, type})
+>>>>>>> eac037566e6345576e751aed88053289a5f2581a
       res.status(200).send({
         message: "Insertion effectuée"
       })
