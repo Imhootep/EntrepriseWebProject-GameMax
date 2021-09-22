@@ -10,7 +10,7 @@ function Profil() {
     const [user, setUser] = useState([]) //a enlever
 
     useEffect(() =>{
-        Axios.get("http://localhost:8000/user").then ((response) =>{
+        Axios.get(`${process.env.REACT_APP_API_URL}/user`).then ((response) =>{
             setUsers(response.data);
             //console.log(response.data);
 /* --- pas au bon endroit

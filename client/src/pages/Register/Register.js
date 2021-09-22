@@ -34,7 +34,7 @@ function Register() {
     let history = useHistory()
 
     const register =() => {
-        Axios.post("http://localhost:8000/register", 
+        Axios.post(`${process.env.REACT_APP_API_URL}/register`, 
         {username:username,
          avatar:avatar, 
          password:password,
