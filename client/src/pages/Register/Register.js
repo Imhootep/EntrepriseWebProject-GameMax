@@ -9,7 +9,7 @@ import Axios from 'axios'
 function Register() {
 
     const [username, setUsername] = useState('')
-    const [avatar, setAvatar] = useState('')
+    const [avatar, setAvatar] = useState()
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -25,7 +25,6 @@ function Register() {
     const [comment, setComment] = useState('')
     const [isAdmin, setIsAdmin] = useState('')
 
-
     // const [role, setRole] = useState('partenaire');
     // const handleChange = function (e){
     //     e.preventDefault() /* ??? */
@@ -34,27 +33,29 @@ function Register() {
     let history = useHistory()
 
     const register =() => {
+       
+        const data = new FormData();
+        data.append("username",username);
+        data.append("avatar",avatar);
+        data.append("password",password);
+        data.append("email",email);
+        data.append("phone",phone);
+        data.append("street",street);
+        data.append("number",number);
+        data.append("box",box);
+        data.append("cp",cp);
+        data.append("city",city);
+        data.append("social",social);
+        data.append("website",website);
+        data.append("member",member);
+        data.append("games",games);
+        data.append("comment",comment);
+
         Axios.post(`${process.env.REACT_APP_API_URL}/register`, 
-        {username:username,
-         avatar:avatar, 
-         password:password,
-         email:email,
-         phone:phone,
-         street:street,
-         number:number,
-         box:box,
-         cp:cp,
-         city:city,
-         social:social,
-         website:website,
-         member:member,
-         game:games,
-         comment:comment,
-        //  role:role,
-        //  isAdmin:isAdmin
-        }).then((response) =>{
+        data)
+        .then((response) =>{
             console.log(response)
-            history.push('/')
+            // history.push('/')
         });
     };
 
@@ -67,14 +68,18 @@ function Register() {
     return (
         <>
         <Navbar/>
+        <form action="#" encType="multipart/form-data">
         <div className="mainRegister">
             <div className="register">
                 <div className="registerForm">
                     <h3> Nouveau profil </h3>
-                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
+                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value); console.log("avatar : ",avatar)}} />
                     <div className="profilePic" >
                     <h5 className="userPic"> Ajoutez une photo de profil</h5>
-                    <input type="file" placeholder="Photo de profil" onChange={(e)=>{setAvatar(e.target.value)}} />
+                    <input type="file" name="avatar" placeholder="Photo de profil" onChange={(e) => {                   
+                        setAvatar(e.target.files[0]);
+                        console.log("avatar : ",avatar)
+                    }} />
                     </div>
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      {/* <div className="typeUser">
@@ -144,6 +149,7 @@ function Register() {
                 </div>
             </div>
         </div>
+        </form>
         </>
     )
 }
