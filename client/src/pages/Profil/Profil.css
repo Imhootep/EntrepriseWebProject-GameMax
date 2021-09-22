@@ -24,12 +24,21 @@
 }
 
 .bigBlock{
-   
+    display: flex;
+    flex-direction:row;
     border: 2px solid purple;
     border-radius: 20px;
     height: 200px;
     margin: 20px;
     padding:20px;
+}
+
+.sectionProfil{
+    width:24%;
+}
+
+.modifyProfil{
+    width:5%;
 }
 
 .littleBlock{
@@ -83,4 +92,15 @@
     border: solid 1px black;
     margin: 20px;
     
+}
+
+.goProfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.arrowup{
+    width:20px;
 }
