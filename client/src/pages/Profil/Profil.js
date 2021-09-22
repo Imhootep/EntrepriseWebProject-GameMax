@@ -93,10 +93,11 @@ function Profil() {
                                     <div className="sectionProfil">
                                         <div>
                                             {/* <img src="" /> avatar */}
-                                            <b>{val.username}</b> créé le {val.createdAt }
+                                            <b>{val.username}</b>
                                         </div>
                                         
                                         {/* <div>{val.username}</div> */}
+                                        <div>créé le {val.createdAt}</div>
                                         <div>{val.email }</div>
                                         <div>{val.phone }</div>
                                         <div>{val.street+", "+val.number+" "+val.box}</div>
@@ -104,15 +105,15 @@ function Profil() {
                                         <div>{val.comment}</div>
                                     </div>
                                     <div className="sectionProfil">
-                                        membres
+                                        <b>Membres</b>
                                         <div>{val.member}</div>
                                     </div>
                                     <div className="sectionProfil">
-                                        games
+                                        <b>Jeux</b>
                                         <div>{val.games}</div>
                                     </div>
                                     <div className="sectionProfil">
-                                        liens
+                                        <b>Réseaux</b>
                                         <div>{val.website}</div>
                                         <div>{val.social}</div>
                                     </div>
