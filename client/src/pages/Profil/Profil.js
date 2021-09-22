@@ -69,15 +69,15 @@ function Profil() {
                                         <div>{val.comment}</div>
                                     </div>
                                     <div className="sectionProfil">
-                                        membres
+                                        <b>Membres</b>
                                         <div>{val.member}</div>
                                     </div>
                                     <div className="sectionProfil">
-                                        games
+                                        <b>Jeux</b>
                                         <div>{val.games}</div>
                                     </div>
                                     <div className="sectionProfil">
-                                        liens
+                                        <b>Réseaux</b>
                                         <div>{val.website}</div>
                                         <div>{val.social}</div>
                                     </div>
