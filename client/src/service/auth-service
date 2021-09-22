@@ -3,23 +3,24 @@ import { BehaviorSubject } from 'rxjs';
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')));
 
 
-const API_URL = "http://localhost:1337/";
+const API_URL = "http://localhost:8000/";
 const currentUser= currentUserSubject.asObservable();
 
 
 class AuthService {
   
   login(email, password) {
+    console.log(email, password)
     return axios
-      .post(API_URL + "users/sign-in", {
+      .post(API_URL + "login", {
         email,
         password
       })
       .then(response => {
         if (response.data.signedJWT) {
           localStorage.setItem("user", JSON.stringify(response.data));
-          console.log(currentUser);
-          currentUser.next(response.data);
+          // console.log(currentUser);
+          // currentUser.next(response.data);
         }
 
         return response.data;

@@ -11,7 +11,7 @@ function Create ()  {
     const [title, setTitle] = useState ("")
     const [description, setDescription] = useState ("")
     
-    // const [image, setImage] = useState ([])
+    const [image, setImage] = useState ([])
 
     const [type, setType] = useState('post');
     const handleChange = function (e){
@@ -74,7 +74,7 @@ function Create ()  {
                         onChange={(e)=>{setDescription(e.target.value)}}
                     />
 
-                    {/* <input type="file" onChange={(e)=>setImage(e.target.value)} /> */}
+                    <input type="file" onChange={(e)=>setImage(e.target.value)} />
                     
                     <button className="createPost" onClick={upload}>Post</button>
 
