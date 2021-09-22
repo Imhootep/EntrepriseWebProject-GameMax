@@ -1,0 +1,63 @@
+.ligne{
+    margin: 0 0 50px 0;
+}
+
+.profilsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap; /* permet de passer a la ligne quand ya plus de place plutot que d'ecraser*/
+}
+
+.profilsBlock{
+    /*display: flex;
+    flex-direction: row;*/
+}
+
+.firstBlock{
+    order: -1;
+    width: 100%;
+    flex-basis: 100%;
+}
+
+.secondBlock{
+    order: 2;
+}
+
+.bigBlock{
+   
+    border: 2px solid purple;
+    border-radius: 20px;
+    height: 200px;
+    margin: 20px;
+    padding:20px;
+}
+
+.littleBlock{
+    border: 2px solid purple;
+    /* border-radius: 20px; */
+    width: 300px;
+    height: 200px;
+    margin: 20px 20px 0 20px;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+     /* align-content: stretch;  */
+    /*align-content: flex-end;*/
+}
+
+.infosProfil{
+    flex-grow: 1; /* push le bloc links en bas */
+}
+
+.linksProfil{
+    min-height: 50px;
+    width: 100%;
+    background-color: lightgrey;
+    /* border-radius: 0 0 20px 20px; */
+    display: flex;
+}
+
+.socialProfil{
+    width: 33%;
+    text-align: center;
+}
