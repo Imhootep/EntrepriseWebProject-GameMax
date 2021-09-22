@@ -68,11 +68,11 @@ a .iconeYoutube{ /* was span */
 a:after {
     position:absolute;
     content: '';
-    top:0;
+    bottom:0;
     left:0;
     width:0;
-    height:100%;
-    background-color: rgba(78, 39, 83, 1);
+    height:10%;
+    background-color: rgba(78, 39, 83, 0.3);
     transition: all 0.35s;
   }
 

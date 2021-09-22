@@ -1,0 +1,47 @@
+import axios from "axios";
+import { BehaviorSubject } from 'rxjs';
+const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')));
+
+
+const API_URL = "http://localhost:1337/";
+const currentUser= currentUserSubject.asObservable();
+
+
+class AuthService {
+  
+  login(email, password) {
+    return axios
+      .post(API_URL + "users/sign-in", {
+        email,
+        password
+      })
+      .then(response => {
+        if (response.data.signedJWT) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+          console.log(currentUser);
+          currentUser.next(response.data);
+        }
+
+        return response.data;
+      });
+  }
+
+  logout() {
+    localStorage.removeItem("user");
+    currentUser.next(null);
+  }
+
+  register(username, email, password) {
+    return axios.post(API_URL + "signup", {
+      username,
+      email,
+      password
+    });
+  }
+
+  getCurrentUser() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+}
+
+export default new AuthService();

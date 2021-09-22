@@ -1,6 +1,7 @@
 let express = require('express')
 let session = require('express-session')
 const passport = require('passport')
+let multer = require('multer')
 let app = express()
 let cookieParser = require('cookie-parser')
 const cors = require ('cors');

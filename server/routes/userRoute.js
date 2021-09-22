@@ -11,6 +11,8 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const fs = require('fs');
 const PUB_KEY = fs.readFileSync(__dirname + '/jwtRS256.key.pub', 'utf8');
 const PRIV_KEY = fs.readFileSync(__dirname + '/jwtRS256.key', 'utf8');
+const multer  = require('multer')
+var upload = multer({ storage: 'uploads/' })
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -22,7 +24,6 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
     async function(email, password, done) {
-       // console.log(username);
         let u = await User.findOne({ where : { email: email }});
         if (!u) {
           return done(null, false, { message: 'E-mail incorrect' });
@@ -69,11 +70,12 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Inscription de l'utilisateur
-router.post('/register', async (req, res)=>{
+router.post('/register', upload.single('avatar'), async (req, res)=>{
 
     flag = 1;
     const username = req.body.username
-    const avatar = req.body.avatar
+    let avatar = req.body.avatar
+    if(avatar) avatar = avatar.replace("C:\\fakepath\\", "");
     const password = req.body.password
     const email = req.body.email
     const phone = req.body.phone
@@ -105,8 +107,8 @@ router.post('/register', async (req, res)=>{
         })
     }
     else{            
-        try {                   
-            await User.create({ username, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
+        try {        
+            await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
             res.status(200).send({
                 message: "Insertion effectuée"
             })
@@ -219,7 +221,7 @@ router.delete('/user/:id', async (req,res) => {
 })
 
 // Login de l'utilisateur
-router.post('/login', passport.authenticate('local'), function(req, res) {  
+router.post('/login', upload.none(), passport.authenticate('local'), function(req, res) {  
     
     const signedJWT = jwt.sign(req.user.toJSON(), PRIV_KEY, { algorithm: 'RS256'})
     jwt.verify(signedJWT, PUB_KEY, { algorithms: ['RS256'] }, (err, payload) => {
@@ -240,30 +242,5 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
         })
     });
 })
-// Vérifier si on a accès a une route protégée une fois que l'identification et token marcheront ///// ROUTE DE TEST
-router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
-        //verify the JWT token generated for the user
-        console.log("Go sur la page protected !")
-        jwt.verify(req.payload, PRIV_KEY, (err, authorizedData) => {
-            if(err){
-                //If error send Forbidden (403)
-                console.log('ERROR: Could not connect to the protected route');
-                res.sendStatus(403);
-            } else {
-                //If token is successfully verified, we can send the autorized data 
-                res.json({
-                    message: 'Successful log in',
-                    authorizedData
-                });
-                console.log('SUCCESS: Connected to protected route');
-            }
-        })
-});
-
-// Logout de l'utilisateur
-router.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-});
 
 module.exports = router

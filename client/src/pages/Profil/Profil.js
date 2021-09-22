@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Axios from 'axios'
 import './Profil.css'
+import UserProfil from '../../components/UserProfil' //a enlever 
 
 function Profil() {
 
     const [users, setUsers] = useState([])
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]) //a enlever
 
     useEffect(() =>{
         Axios.get("http://localhost:8000/user").then ((response) =>{
