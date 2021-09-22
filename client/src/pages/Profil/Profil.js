@@ -41,6 +41,10 @@ function Profil() {
     <>
         <Navbar/>
         <div className="profilsContainer">
+            <div className="searchBar">
+                <input type="text" placeholder="Rechercher..."></input>
+                <button><span>Rechercher</span></button>
+            </div>
         {users.map((val)=>{
                         
                     return(
@@ -77,9 +81,9 @@ function Profil() {
                                         <div>{val.website}</div>
                                         <div>{val.social}</div>
                                     </div>
-                                    <div className="modifyProfil">
+                                    {/* <div className="modifyProfil">
                                         Modifier
-                                    </div>
+                                    </div> */}
                                 </div> 
                                 :
                                 //deuxieme resultat 
@@ -112,9 +116,9 @@ function Profil() {
                                         <div>{val.website}</div>
                                         <div>{val.social}</div>
                                     </div>
-                                    <div className="modifyProfil">
+                                    {/* <div className="modifyProfil">
                                         Modifier
-                                    </div>
+                                    </div> */}
                                 </div>
                                 
                                 : 
@@ -122,9 +126,9 @@ function Profil() {
                                 <div className="littleBlock">
                                     <div className="infosProfil">
                                         {/* <div onClick={setProfilActif(val.id)}>ALLER</div> */}
-                                        <div className="goProfil">
+                                        <div className="goProfil"  title="afficher le profil en grand">
                                             <div> {val.username}</div>
-                                            <div onClick={() => newProfilActif(val.id)}>VOIR<img className="arrowup" src={arrowup} alt="arrow up" /></div>
+                                            <div onClick={() => newProfilActif(val.id)}>VOIR<img className="arrowup" src={arrowup} alt="arrow up"/></div>
                                         </div>
                                         <div>{val.email }</div>
                                         <div>{val.phone }</div>
