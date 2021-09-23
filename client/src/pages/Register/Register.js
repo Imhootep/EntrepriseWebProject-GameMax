@@ -9,7 +9,7 @@ import Axios from 'axios'
 function Register() {
 
     const [username, setUsername] = useState('')
-    const [avatar, setAvatar] = useState('')
+    const [avatar, setAvatar] = useState()
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -25,7 +25,6 @@ function Register() {
     const [comment, setComment] = useState('')
     const [isAdmin, setIsAdmin] = useState('')
 
-
     // const [role, setRole] = useState('partenaire');
     // const handleChange = function (e){
     //     e.preventDefault() /* ??? */
@@ -34,25 +33,27 @@ function Register() {
     let history = useHistory()
 
     const register =() => {
+       
+        const data = new FormData();
+        data.append("username",username);
+        data.append("avatar",avatar);
+        data.append("password",password);
+        data.append("email",email);
+        data.append("phone",phone);
+        data.append("street",street);
+        data.append("number",number);
+        data.append("box",box);
+        data.append("cp",cp);
+        data.append("city",city);
+        data.append("social",social);
+        data.append("website",website);
+        data.append("member",member);
+        data.append("games",games);
+        data.append("comment",comment);
+
         Axios.post(`${process.env.REACT_APP_API_URL}/register`, 
-        {username:username,
-         avatar:avatar, 
-         password:password,
-         email:email,
-         phone:phone,
-         street:street,
-         number:number,
-         box:box,
-         cp:cp,
-         city:city,
-         social:social,
-         website:website,
-         member:member,
-         game:games,
-         comment:comment,
-        //  role:role,
-        //  isAdmin:isAdmin
-        }).then((response) =>{
+        data)
+        .then((response) =>{
             console.log(response)
             history.push('/')
         });
@@ -67,14 +68,18 @@ function Register() {
     return (
         <>
         <Navbar/>
+        <form action="#" encType="multipart/form-data">
         <div className="mainRegister">
             <div className="register">
                 <div className="registerForm">
                     <h3> Nouveau profil </h3>
-                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
+                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value); console.log("avatar : ",avatar)}} />
                     <div className="profilePic" >
                     <h5 className="userPic"> Ajoutez une photo de profil</h5>
-                    <input type="file" placeholder="Photo de profil" onChange={(e)=>{setAvatar(e.target.value)}} />
+                    <input type="file" name="avatar" placeholder="Photo de profil" onChange={(e) => {                   
+                        setAvatar(e.target.files[0]);
+                        console.log("avatar : ",avatar)
+                    }} />
                     </div>
                     <input type="password" placeholder="Mot de passe" onChange={(e)=>{setPassword(e.target.value)}}/>
                      {/* <div className="typeUser">
@@ -129,7 +134,7 @@ function Register() {
                             <svg className="icone"><path d="M24.75 11.094q0 1.594-1.125 2.688t-2.719 1.094-2.688-1.094-1.094-2.688 1.094-2.719 2.688-1.125 2.719 1.125 1.125 2.719zm3.25.031q0 2.938-2.094 5.031t-5.031 2.094l-6.813 4.938q-.188 2.063-1.719 3.438t-3.594 1.375q-.875 0-1.75-.313t-1.563-.875-1.156-1.344-.656-1.656l-3.625-1.438v-6.688l6.063 2.438q1.438-.875 3.25-.75l4.438-6.313q.063-2.938 2.125-5t5-2.063q1.938 0 3.594.938t2.594 2.594.938 3.594zM12.688 22.688q0-1.625-1.125-2.781T8.75 18.751q-.375 0-.813.125l1.625.625q1.188.5 1.688 1.688t.031 2.375-1.656 1.688-2.375 0q-.25-.063-.906-.344t-1.031-.406q1.125 2.125 3.438 2.125 1.688 0 2.813-1.156t1.125-2.781zm12.937-11.594q0-1.969-1.375-3.344t-3.375-1.375q-1.25 0-2.375.625t-1.75 1.719-.625 2.406q0 1.938 1.406 3.344t3.344 1.406q2 0 3.375-1.406t1.375-3.375z"></path></svg>
                         </button>
                     </div>
-                    <input type="text" placeholder="Média Social" onChange={(e)=>{setSocial(e.target.value)}}/>
+                    <input type="text" placeholder="Média social" onChange={(e)=>{setSocial(e.target.value)}}/>
                     <input type="text" placeholder="Site Web" onChange={(e)=>{setwebsite(e.target.value)}}/>
                     <div className="members">
                         <input className="member" type="text" placeholder="Membre" onChange={(e)=>{setMember(e.target.value)}}/>
@@ -138,12 +143,13 @@ function Register() {
                             <img src= {add} alt="fb" className="add" />
                         </button>
                     </div>
-                    <input type="text" placeholder="jeux à votre actif" onChange={(e)=>{setGames(e.target.value)}}/>
-                    <textarea type="text" placeholder="commentaires" onChange={(e)=>{setComment(e.target.value)}}/>
+                    <input type="text" placeholder="Jeux à votre actif" onChange={(e)=>{setGames(e.target.value)}}/>
+                    <textarea type="text" placeholder="Commentaire" onChange={(e)=>{setComment(e.target.value)}}/>
                     <button className="createUser" onClick={register} >Créer</button>
                 </div>
             </div>
         </div>
+        </form>
         </>
     )
 }

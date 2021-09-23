@@ -12,7 +12,17 @@ const fs = require('fs');
 const PUB_KEY = fs.readFileSync(__dirname + '/jwtRS256.key.pub', 'utf8');
 const PRIV_KEY = fs.readFileSync(__dirname + '/jwtRS256.key', 'utf8');
 const multer  = require('multer')
-var upload = multer({ storage: 'uploads/' })
+const path = require('path')
+const storage = multer.diskStorage({
+    destination : (req,file,cb) => {
+        cb(null, 'uploads/')
+    },
+    filename : (req, file, cb) =>{
+        console.log("File : ",file)
+        cb(null, Date.now() +"_"+file.originalname)
+        }
+})
+var upload = multer({ storage: storage })
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -70,12 +80,10 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Inscription de l'utilisateur
-router.post('/register', upload.single('avatar'), async (req, res)=>{
+router.post('/register', async (req, res)=>{
 
     flag = 1;
     const username = req.body.username
-    let avatar = req.body.avatar
-    if(avatar) avatar = avatar.replace("C:\\fakepath\\", "");
     const password = req.body.password
     const email = req.body.email
     const phone = req.body.phone
@@ -90,8 +98,7 @@ router.post('/register', upload.single('avatar'), async (req, res)=>{
     const games = req.body.games
     const comment = req.body.comment
     const role = req.body.role
-    const isAdmin = 0
-    
+    const isAdmin = 0   
  
  //Vérification que les champs obligatoires sont bien remplis
     var champsObligatoires = []
@@ -100,21 +107,28 @@ router.post('/register', upload.single('avatar'), async (req, res)=>{
      if(!item){    
      flag = 0
      }
- })
+    })
     if(flag == 0){
         return res.status(400).send({
             message: "Un ou plusieurs champs obligatoires sont manquants"
         })
     }
     else{            
-        try {        
-            await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
-            res.status(200).send({
-                message: "Insertion effectuée"
-            })
-        } catch (error) {
-            console.log("Une erreur est surevenue : " + error)
-            }                    
+        const users = await User.findAll()
+        users.forEach((item, index) => {
+            if(item.email == email) flag = 0
+        })
+        if(flag == 0) console.log("\n\nL'email entré existe déjà !\n\n")
+        else{
+            try {        
+                await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
+                res.status(200).send({
+                    message: "Insertion effectuée"
+                })
+            } catch (error) {
+                console.log("Une erreur est surevenue : " + error)
+                }  
+        }                  
     }
 })
 
