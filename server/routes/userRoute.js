@@ -15,7 +15,7 @@ const multer  = require('multer')
 const path = require('path')
 const storage = multer.diskStorage({
     destination : (req,file,cb) => {
-        cb(null, 'uploads/')
+        cb(null, 'uploads/'+email_user+"/")
     },
     filename : (req, file, cb) =>{
         console.log("File : ",file)
@@ -80,11 +80,12 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Inscription de l'utilisateur
-router.post('/register', async (req, res)=>{
+router.post('/register', upload.single("avatar"), async (req, res)=>{
 
     flag = 1;
     const username = req.body.username
     const password = req.body.password
+    // let avatar = req.file.path
     const email = req.body.email
     const phone = req.body.phone
     const street = req.body.street
@@ -120,7 +121,9 @@ router.post('/register', async (req, res)=>{
         })
         if(flag == 0) console.log("\n\nL'email entré existe déjà !\n\n")
         else{
-            try {        
+            try {  
+                upload.single("avatar")     
+                let avatar = req.file.path;
                 await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
                 res.status(200).send({
                     message: "Insertion effectuée"
@@ -182,19 +185,7 @@ router.put('/user/:id', async (req, res)=>{
     const comment = req.body.comment
  
 
-    var champsObligatoires = []
-    champsObligatoires.push(username, password, email, phone, street, number, cp, city, member)
-    champsObligatoires.forEach(function(item, index) {
-    if(!item){    
-     flag = 0
-     }
- })
-    if(flag == 0){
-        res.status(400).send({
-            message: "Un ou plusieurs champs obligatoires sont manquants"
-        })
-    }
-    else{
+   
         try {
             let user = await User.findByPk(req.params.id)
             user.update({ username, password, email, phone, street, number, box, cp, city, social, website, member, games, comment }, {
@@ -209,7 +200,7 @@ router.put('/user/:id', async (req, res)=>{
             console.log("Une erreur est surevenue : " + error)
         }
     }
-});
+);
 
 // Suppression d'un utilisateur sur base de son ID
 router.delete('/user/:id', async (req,res) => {

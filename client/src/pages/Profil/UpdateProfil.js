@@ -8,6 +8,7 @@ import './Profil.css'
 
 function UpdateProfil() {
 
+    const id_user = localStorage.getItem("userId")
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -16,7 +17,7 @@ function UpdateProfil() {
 
     const update =() =>{
 
-         Axios.post(`${process.env.REACT_APP_API_URL}/users`, {
+         Axios.put(`${process.env.REACT_APP_API_URL}/user/${id_user}`, {
             id_user: localStorage.getItem("userId"),
             username: username,
             email:email,
