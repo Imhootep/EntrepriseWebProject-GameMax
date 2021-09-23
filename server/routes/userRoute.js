@@ -100,21 +100,28 @@ router.post('/register', upload.single('avatar'), async (req, res)=>{
      if(!item){    
      flag = 0
      }
- })
+    })
     if(flag == 0){
         return res.status(400).send({
             message: "Un ou plusieurs champs obligatoires sont manquants"
         })
     }
     else{            
-        try {        
-            await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
-            res.status(200).send({
-                message: "Insertion effectuée"
-            })
-        } catch (error) {
-            console.log("Une erreur est surevenue : " + error)
-            }                    
+        const users = await User.findAll()
+        users.forEach((item, index) => {
+            if(item.email == email) flag = 0
+        })
+        if(flag == 0) console.log("\n\nL'email entré existe déjà !\n\n")
+        else{
+            try {        
+                await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
+                res.status(200).send({
+                    message: "Insertion effectuée"
+                })
+            } catch (error) {
+                console.log("Une erreur est surevenue : " + error)
+                }  
+        }                  
     }
 })
 
