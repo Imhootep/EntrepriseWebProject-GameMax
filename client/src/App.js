@@ -5,6 +5,7 @@ import Create from './pages/create/Create';
 import Profil from './pages/Profil/Profil';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import UpdateProfil from './pages/Profil/UpdateProfil';
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/upload" exact render ={ ()=> <Create/> } />
         <Route path="/user" exact render ={ ()=> <Profil/> } />
         <Route path="/register" exact render ={ ()=> <Register/> } />
+        <Route path="/update" exact render ={ ()=> <UpdateProfil/> } />
         
       </Router>
 
