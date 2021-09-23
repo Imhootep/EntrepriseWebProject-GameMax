@@ -59,7 +59,7 @@
 
 .littleBlock{
     border: 2px solid purple;
-    /* border-radius: 20px; */
+    border-radius: 20px;
     width: 300px;
     height: 200px;
     margin: 20px 20px 0 20px;
@@ -77,15 +77,34 @@
 .linksProfil{
     min-height: 50px;
     width: 100%;
-    background-color: lightgrey;
-    /* border-radius: 0 0 20px 20px; */
+    background-color: rgba(140,77,148,0.3);
+    border-radius: 0 0 10px 10px;
     display: flex;
 }
 
 .socialProfil{
-    width: 33%;
+    width: 25%;
     text-align: center;
 }
+
+.socialProfil svg{
+    fill: white;
+    width: 35px;
+    height: 35px;
+    padding:10px;
+}
+
+.socialProfil svg:hover{
+    fill: rgba(250, 249, 250, 0.5)
+}
+
+.profilIcon{
+    width:25px;
+    margin:0 10px 0 0;
+    /*mettre le fill #8c4d94 dans le fichier svg directement */
+}
+
+
 
  /*  partie francois ici */   
 .ensProfil{
