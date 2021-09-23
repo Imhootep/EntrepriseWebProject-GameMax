@@ -33,7 +33,7 @@ function UpdateProfil() {
         <>
         <Navbar/>
         <form action="#" encType="multipart/form-data">
-            <input className="inputPost" type="text" placeholder="Nom utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
+            <input className="inputPost" type="text" value={localStorage.getItem("username")} placeholder="Nom utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
             <input className="inputPost" type="text" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}} />
             <input className="inputPost" type="text" placeholder="Téléphone" onChange={(e)=>{setPhone(e.target.value)}} />
             <button className="createPost" onClick={update}>Modifier</button>
