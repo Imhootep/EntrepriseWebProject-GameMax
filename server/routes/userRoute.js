@@ -80,12 +80,10 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Inscription de l'utilisateur
-router.post('/register', upload.single("avatar"), async (req, res)=>{
+router.post('/register', async (req, res)=>{
 
     flag = 1;
     const username = req.body.username
-    let avatar = req.body.file
-    // if(avatar) avatar = avatar.replace("C:\\fakepath\\", "");
     const password = req.body.password
     const email = req.body.email
     const phone = req.body.phone
@@ -116,8 +114,11 @@ router.post('/register', upload.single("avatar"), async (req, res)=>{
         })
     }
     else{            
-        try {        
-            await User.create({ username, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
+        try {     
+            upload.single("avatar")  
+            let avatar = req.file.path
+            if(avatar) avatar = avatar.replace("C:\\fakepath\\", ""); 
+            await User.create({ username, avatar, password, email, phone, street, number, box, cp, city, social, website, member, games, comment })    
             res.status(200).send({
                 message: "Insertion effectuée"
             })
