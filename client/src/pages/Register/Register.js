@@ -55,7 +55,7 @@ function Register() {
         data)
         .then((response) =>{
             console.log(response)
-            // history.push('/')
+            history.push('/')
         });
     };
 
