@@ -22,7 +22,7 @@ function Home() {
     }, [])
 
     useEffect(() =>{
-        Axios.get("http://localhost:8000/upload").then ((response) =>{
+        Axios.get(`${process.env.REACT_APP_API_URL}/upload`).then ((response) =>{
             setUploads(response.data);
             // const user = localStorage.getItem("username")
             console.log(response.data);

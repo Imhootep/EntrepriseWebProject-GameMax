@@ -33,7 +33,7 @@ function Create ()  {
 
             // Axios.post("http://localhost:8000/upload", {title:title, description:description, image:fileName})
         // })
-        Axios.post("http://localhost:8000/upload", {
+        Axios.post(`${process.env.REACT_APP_API_URL}/upload`, {
             title:title, 
             description:description,
             id_user: localStorage.getItem("userId"),
