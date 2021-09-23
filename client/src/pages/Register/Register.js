@@ -73,7 +73,7 @@ function Register() {
             <div className="register">
                 <div className="registerForm">
                     <h3> Nouveau profil </h3>
-                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value); console.log("avatar : ",avatar)}} />
+                    <input type="text" placeholder="Nom d'utilisateur" onChange={(e)=>{setUsername(e.target.value)}} />
                     <div className="profilePic" >
                     <h5 className="userPic"> Ajoutez une photo de profil</h5>
                     <input type="file" name="avatar" placeholder="Photo de profil" onChange={(e) => {                   

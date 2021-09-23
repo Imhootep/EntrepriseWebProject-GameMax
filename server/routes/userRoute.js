@@ -12,10 +12,15 @@ const fs = require('fs');
 const PUB_KEY = fs.readFileSync(__dirname + '/jwtRS256.key.pub', 'utf8');
 const PRIV_KEY = fs.readFileSync(__dirname + '/jwtRS256.key', 'utf8');
 const multer  = require('multer')
+const mkdirp = require('mkdirp')
 const path = require('path')
 const storage = multer.diskStorage({
     destination : (req,file,cb) => {
-        cb(null, 'uploads/'+email_user+"/")
+        let username = req.body.username;
+        console.log("user : ",req.body.username)
+        let path = mkdirp.sync('uploads/'+username+'/')
+        console.log(path)
+        cb(null, path)
     },
     filename : (req, file, cb) =>{
         console.log("File : ",file)
